@@ -1,0 +1,85 @@
+0 verbose cli /usr/local/bin/node /usr/local/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.1.0
+2 info using node@v20.9.0
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/Users/advaittahilyani/Chordia/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:/Users/advaittahilyani/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:setEnvs Completed in 0ms
+16 timing config:load Completed in 7ms
+17 timing npm:load:configload Completed in 7ms
+18 timing config:load:flatten Completed in 1ms
+19 timing npm:load:mkdirpcache Completed in 0ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm exec create-next-app@latest chordia-portfolio --typescript --tailwind --eslint --app --src-dir --import-alias @/* --use-npm --no-git --yes
+22 verbose argv "exec" "--" "create-next-app@latest" "chordia-portfolio" "--typescript" "--tailwind" "--eslint" "--app" "--src-dir" "--import-alias" "@/*" "--use-npm" "--no-git" "--yes"
+23 timing npm:load:setTitle Completed in 7ms
+24 timing npm:load:display Completed in 0ms
+25 verbose logfile logs-max:10 dir:/Users/advaittahilyani/Chordia/.npm-cache/_logs/2026-01-10T17_02_07_193Z-
+26 verbose logfile /Users/advaittahilyani/Chordia/.npm-cache/_logs/2026-01-10T17_02_07_193Z-debug-0.log
+27 timing npm:load:logFile Completed in 5ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 27ms
+31 silly logfile done cleaning log files
+32 timing arborist:ctor Completed in 1ms
+33 http fetch GET 200 https://registry.npmjs.org/npm 223ms (cache miss)
+34 http fetch GET 200 https://registry.npmjs.org/create-next-app 243ms (cache miss)
+35 timing arborist:ctor Completed in 0ms
+36 timing arborist:ctor Completed in 0ms
+37 warn exec The following package was not found and will be installed: create-next-app@16.1.1
+38 timing arborist:ctor Completed in 0ms
+39 timing idealTree:init Completed in 1ms
+40 timing idealTree:userRequests Completed in 1ms
+41 silly idealTree buildDeps
+42 silly fetch manifest create-next-app@16.1.1
+43 http fetch GET 200 https://registry.npmjs.org/create-next-app 8ms (cache hit)
+44 silly placeDep ROOT create-next-app@16.1.1 OK for:  want: 16.1.1
+45 timing idealTree:#root Completed in 24ms
+46 timing idealTree:node_modules/create-next-app Completed in 0ms
+47 timing idealTree:buildDeps Completed in 24ms
+48 timing idealTree:fixDepFlags Completed in 0ms
+49 timing idealTree Completed in 26ms
+50 timing reify:loadTrees Completed in 27ms
+51 timing reify:diffTrees Completed in 1ms
+52 silly reify moves {}
+53 timing reify:retireShallow Completed in 1ms
+54 timing reify:createSparse Completed in 0ms
+55 timing reify:loadBundles Completed in 0ms
+56 silly audit bulk request { 'create-next-app': [ '16.1.1' ] }
+57 silly tarball no local data for create-next-app@https://registry.npmjs.org/create-next-app/-/create-next-app-16.1.1.tgz. Extracting by manifest.
+58 http fetch GET 200 https://registry.npmjs.org/create-next-app/-/create-next-app-16.1.1.tgz 92ms (cache miss)
+59 timing reifyNode:node_modules/create-next-app Completed in 95ms
+60 timing reify:unpack Completed in 95ms
+61 timing reify:unretire Completed in 0ms
+62 timing build:queue Completed in 0ms
+63 timing build:link:node_modules/create-next-app Completed in 1ms
+64 timing build:link Completed in 1ms
+65 timing build:deps Completed in 2ms
+66 timing build Completed in 2ms
+67 timing reify:build Completed in 2ms
+68 timing reify:trash Completed in 0ms
+69 timing reify:save Completed in 2ms
+70 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 284ms
+71 timing auditReport:getReport Completed in 284ms
+72 silly audit report {}
+73 timing auditReport:init Completed in 0ms
+74 timing reify:audit Completed in 285ms
+75 timing reify Completed in 315ms
+76 timing command:exec Completed in 60204ms
+77 notice
+77 notice New major version of npm available! 10.1.0 -> 11.7.0
+77 notice Changelog: <https://github.com/npm/cli/releases/tag/v11.7.0>
+77 notice Run `npm install -g npm@11.7.0` to update!
+77 notice
+78 verbose exit 0
+79 timing npm Completed in 60306ms
+80 info ok
