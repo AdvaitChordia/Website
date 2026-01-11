@@ -8,7 +8,6 @@ import Link from "next/link";
 
 const navItems = [
   { name: "About", href: "/#about" },
-  { name: "Experience", href: "/#experience" },
   { name: "Projects", href: "/#projects" },
   { name: "Skills", href: "/#skills" },
   { name: "Contact", href: "/#contact" },
@@ -30,8 +29,8 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-        scrolled 
-          ? "bg-background/90 backdrop-blur-md border-border h-16" 
+        scrolled
+          ? "bg-background/90 backdrop-blur-md border-border h-16"
           : "bg-transparent border-transparent h-20"
       )}
     >
@@ -59,11 +58,11 @@ export const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <a 
-                 href="/resume.pdf" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="px-4 py-2 text-xs font-mono font-bold text-primary border border-primary/50 hover:bg-primary/10 rounded transition-all"
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 text-xs font-mono font-bold text-primary border border-primary/50 hover:bg-primary/10 rounded transition-all"
               >
                 RESUME
               </a>
@@ -102,11 +101,11 @@ export const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <a 
-                 href="/resume.pdf" 
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="block px-3 py-2 text-base font-mono font-bold text-primary mt-4 border border-primary/20 rounded text-center mx-2"
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-2 text-base font-mono font-bold text-primary mt-4 border border-primary/20 rounded text-center mx-2"
               >
                 RESUME
               </a>

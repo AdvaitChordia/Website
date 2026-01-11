@@ -99,3 +99,44 @@ body {
   border-bottom: 2px solid var(--primary);
   border-right: 2px solid var(--primary);
 }
+
+/* Life page - Inverted "Yin" theme (warm colors) */
+.life-theme {
+  --background: #fefce8; /* Yellow 50 - Warm light base */
+  --foreground: #1c1917; /* Stone 900 */
+  --primary: #f59e0b; /* Amber 500 */
+  --primary-foreground: #fefce8;
+  --secondary: #78716c; /* Stone 500 */
+  --accent: #0ea5e9; /* Sky 500 - flipped from main */
+  --card: #fef3c7; /* Amber 100 */
+  --card-foreground: #292524; /* Stone 800 */
+  --border: #fed7aa; /* Orange 200 */
+  --muted-foreground: #57534e; /* Stone 600 */
+}
+
+.life-theme body,
+.life-theme {
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Flip transition animation */
+@keyframes flipIn {
+  0% {
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.flip-enter {
+  animation: flipIn 0.6s ease-out forwards;
+  transform-origin: top center;
+}

@@ -7,7 +7,7 @@ export const resumeData = {
     phone: "+1 217 318 7042",
     summary: "Mechanical Engineering student at UIUC with a passion for design, analysis, and manufacturing. Experienced in CAD, FEA, and rapid prototyping with a strong background in automotive and composites.",
     links: {
-      linkedin: "#", // Placeholder
+      linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206/",
       github: "#", // Placeholder
     }
   },
@@ -22,7 +22,8 @@ export const resumeData = {
     }
   ],
   skills: {
-    technical: [
+    // CAD/FEA software - displayed vertically
+    cad: [
       "PTC Creo/Pro Engineer",
       "Siemens NX",
       "SolidWorks",
@@ -30,10 +31,16 @@ export const resumeData = {
       "AutoCAD",
       "Fusion360",
       "Ansys Mechanical",
-      "Abaqus",
-      "MATLAB",
-      "Python"
+      "Abaqus"
     ],
+    // Common software/programming - displayed horizontally
+    software: [
+      "MATLAB",
+      "Python",
+      "Microsoft Excel",
+      "Microsoft Office"
+    ],
+    // Courses - clickable, linked to projects
     courses: [
       "Engineering Materials",
       "Mech. Design Optimization",
@@ -49,6 +56,15 @@ export const resumeData = {
       "Waterjet"
     ]
   },
+  // Maps courses to project IDs
+  courseProjects: {
+    "Engineering Materials": ["composites-lab"],
+    "Mech. Design Optimization": ["fsae-front-wing", "conrod-optimization"],
+    "Design for Manufacturing": ["fsae-front-wing"],
+    "Statics": ["fsae-front-wing"],
+    "Dynamics": ["fsae-front-wing", "conrod-optimization"],
+    "Mechanics & Thermodynamics": []
+  } as Record<string, string[]>,
   experience: [
     {
       company: "FORCE MOTORS LTD.",
@@ -73,16 +89,115 @@ export const resumeData = {
   ],
   projects: [
     {
+      id: "conrod-optimization",
+      title: "CONNECTING ROD MULTI-OBJECTIVE OPTIMIZATION",
+      role: "ME 498 Design Optimization",
+      date: "Aug 2025 – Dec 2025",
+      image: "/projects/conrod-optimization/hero.png",
+      paper: "/projects/conrod-optimization/optimization-paper.pdf",
+      proposal: "/projects/conrod-optimization/project-proposal.pdf",
+      tags: ["Optimization", "MATLAB", "Beam Theory", "FEA", "Automotive"],
+      overview: "I developed a multi-objective optimization program to redesign the connecting rod of a Mercedes-Benz OM606 diesel engine. Using 1D beam modeling and Python/MATLAB, I minimized mass while maintaining structural integrity under extreme combustion loads.",
+      description: [
+        "I built a 1D beam model of the OM606 connecting rod to enable rapid structural analysis during optimization iterations.",
+        "I implemented multi-objective optimization algorithms to balance competing goals: minimizing mass while ensuring fatigue life and preventing buckling.",
+        "I validated my simplified beam model against FEA results to confirm accuracy within acceptable engineering tolerances.",
+        "I authored a technical paper documenting the methodology and presenting the optimized design with quantified improvements."
+      ],
+      journal: [
+        {
+          title: "Why the OM606 Connecting Rod?",
+          content: "The Mercedes-Benz OM606 is legendary in the diesel tuning community — it's the engine that powered everything from W124 sedans to rally trucks. When I needed a real-world component for my ME 498 optimization project, the OM606 conrod was perfect: it's a well-documented, high-performance part that operates under extreme conditions. Peak cylinder pressures in these engines can exceed 180 bar during combustion, subjecting the connecting rod to massive tensile and compressive forces thousands of times per minute."
+        },
+        {
+          title: "Building the 1D Beam Model",
+          content: "Traditional FEA is too slow for optimization — you can't run thousands of design iterations if each one takes hours. My solution was to develop a 1D beam model that captures the essential physics while enabling rapid evaluation. I modeled the conrod as a variable-section beam under combined axial loading and bending. The I-beam cross-section at the shank had to smoothly transition to the big-end and small-end bearings. Getting those section property calculations right was the key challenge."
+        },
+        {
+          title: "Multi-Objective Optimization: Mass vs. Strength",
+          content: "Weight reduction in reciprocating components directly improves engine response and reduces vibration. But you can't just minimize mass — the conrod needs to survive millions of load cycles without fatigue failure, and it can't buckle during the compression stroke. I formulated this as a multi-objective optimization problem, using genetic algorithms to explore the Pareto frontier between minimum mass and maximum safety factor. The trade-offs were fascinating to visualize."
+        },
+        {
+          title: "Validating Against FEA",
+          content: "A simplified model is useless if it doesn't match reality. I built a full 3D FEA model of the connecting rod in Ansys to validate my beam approximations. The stress predictions from my 1D model matched the FEA within 8% for the critical locations — good enough for optimization, where we care about relative comparisons between designs. This validation gave me confidence that the optimal designs coming out of my algorithm would actually work."
+        },
+        {
+          title: "Results and Takeaways",
+          content: "The optimized connecting rod design achieved a significant mass reduction compared to the original OM606 part while maintaining the required safety margins. More importantly, this project taught me how to think about structural optimization systematically. The 1D beam approach isn't just an academic exercise — it's how engineers in industry rapidly screen design concepts before committing to detailed analysis. I've already applied these techniques in my FSAE work."
+        }
+      ]
+    },
+    {
+      id: "3d-printed-clock",
+      title: "3D PRINTED MECHANICAL CLOCK",
+      role: "Personal Project",
+      date: "2024",
+      image: "/projects/3d-printed-clock/hero.jpg",
+      tags: ["3D Printing", "Mechanical Design", "CAD", "Horology"],
+      overview: "I designed and built a fully functional mechanical clock using 3D printed gears, escapements, and a pendulum. No electronics — just pure mechanical engineering.",
+      description: [
+        "I designed a complete mechanical clock mechanism including escapement, gear train, and pendulum from scratch in SolidWorks.",
+        "I optimized gear tooth profiles and tolerances for FDM printing, achieving smooth operation without post-processing.",
+        "I built and tested multiple prototypes, iterating on the escapement design to achieve reliable timekeeping."
+      ],
+      journal: [
+        {
+          title: "The Challenge: Making Plastic Tell Time",
+          content: "There's something almost magical about mechanical clocks — the way they convert gravity into precisely measured time through nothing but gears and springs. I wanted to understand that magic firsthand, and what better way than to build one from scratch? The twist: I'd 3D print as many parts as possible, pushing the limits of what FDM printing can achieve in precision mechanisms."
+        },
+        {
+          title: "Designing the Gear Train",
+          content: "The heart of any clock is its gear train — a series of gears that step down the motion of the weight or spring into seconds, minutes, and hours. I spent weeks in SolidWorks calculating gear ratios, tooth profiles, and shaft positions. The key insight was that 3D printed gears need more backlash than machined ones, and rounded tooth profiles work better than sharp involutes for plastic-on-plastic contact."
+        },
+        {
+          title: "The Escapement: Where Magic Happens",
+          content: "The escapement is what makes a clock tick — literally. It's the mechanism that controls energy release and creates that characteristic sound. I chose an anchor escapement design for its simplicity and reliability. Getting it to work with 3D printed parts required extensive tweaking of the anchor geometry and escape wheel tooth shape."
+        },
+        {
+          title: "Assembly and First Tick",
+          content: "The moment all the gears were assembled and I attached the pendulum, I held my breath. Would months of work pay off? I gave the pendulum a gentle push, and the clock started ticking. It wasn't perfect — the timekeeping was off by a few minutes per day — but hearing those first ticks was incredibly satisfying."
+        }
+      ]
+    },
+    {
       id: "fsae-front-wing",
       title: "ILLINI ELECTRIC MOTORSPORT | FSAE",
       role: "Front Wing Structures Lead",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae.jpg", // Example image path
+      image: "/projects/fsae/car-drifting.jpg",
+      tags: ["Carbon Fiber", "Composites", "FEA", "Motorsport", "Team Leadership"],
+      photos: [
+        { src: "/projects/fsae/car-drifting.jpg", caption: "Our electric race car drifting during testing day" },
+        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
+        { src: "/projects/fsae/rear-manufacturing.jpg", caption: "Manufacturing the rear aero package" }
+      ],
+      overview: "Leading the aerodynamics structures sub-team for Illini Electric Motorsport, I'm responsible for designing, analyzing, and manufacturing carbon fiber components that help our electric race car generate downforce while minimizing weight.",
       description: [
-        "Headed product development of an 8-element carbon fiber front wing using Ansys ACP and Mechanical to define ply schedules, limiting deflection to 0.125\" while minimizing mass.",
-        "Engineered carbon-fiber struts in PTC Creo, validated via Ansys Static Structural to withstand 1,533 N of downforce, achieving a 42% weight reduction compared to legacy aluminum designs.",
-        "Fabricated a complete 21-element aero package, executing 100+ hours of precision pre-preg carbon fiber layup to ensure high-fidelity surface finish.",
-        "Directed a team of 6 through the full 2026 vehicle lifecycle, managing timelines to ensure on-time delivery of design, manufacturing, and testing milestones."
+        "I headed product development of an 8-element carbon fiber front wing using Ansys ACP and Mechanical to define ply schedules, limiting deflection to 0.125\" while minimizing mass.",
+        "I engineered carbon-fiber struts in PTC Creo, validated via Ansys Static Structural to withstand 1,533 N of downforce, achieving a 42% weight reduction compared to legacy aluminum designs.",
+        "I fabricated a complete 21-element aero package, executing 100+ hours of precision pre-preg carbon fiber layup to ensure high-fidelity surface finish.",
+        "I directed a team of 6 through the full 2026 vehicle lifecycle, managing timelines to ensure on-time delivery of design, manufacturing, and testing milestones."
+      ],
+      journal: [
+        {
+          title: "Joining the Team",
+          content: "When I joined Illini Electric Motorsport, I knew I wanted to work with composites. Carbon fiber had always fascinated me — the way you could lay up individual plies to create structures that were both incredibly light and incredibly strong. Being assigned to the aerodynamics structures sub-team was exactly what I'd hoped for.",
+          image: "/projects/fsae/car-assembly.jpg"
+        },
+        {
+          title: "Designing the Front Wing",
+          content: "The front wing is the most visible aero component on the car, but it's also the most structurally challenging. It needs to generate consistent downforce at speeds up to 60 mph while surviving kerb strikes and rough track surfaces. I spent weeks in Ansys optimizing the ply schedule — the sequence and orientation of carbon fiber layers — to minimize weight while keeping deflection under our 0.125\" target.",
+          image: "/projects/fsae/car-drifting.jpg"
+        },
+        {
+          title: "Manufacturing: 100+ Hours of Layup",
+          content: "There's no shortcut in composite manufacturing. Each ply needs to be cut precisely, positioned exactly, and debulked carefully to remove air pockets. Over the course of the season, I logged over 100 hours of hands-on layup time. The smell of epoxy became familiar, and I developed an intuition for when a layup was going well versus when problems were brewing.",
+          image: "/projects/fsae/rear-manufacturing.jpg"
+        },
+        {
+          title: "Testing Day",
+          content: "Nothing compares to seeing your work on a moving car. During our testing days, I watched the front wing I'd designed flex and recover under load, exactly as the FEA had predicted. When the driver pushed hard into corners, the car stuck to the track. That's when all the late nights in the shop felt worth it."
+        }
       ]
     },
     {
@@ -90,11 +205,198 @@ export const resumeData = {
       title: "COMPOSITES ADDITIVE MANUFACTURING LAB",
       role: "Undergraduate Researcher",
       date: "Jan 2025 – June 2025",
+      image: "/projects/composites-lab/printing-action.jpg",
+      poster: "/projects/composites-lab/cam-lab-poster.pdf",
+      paper: "/projects/composites-lab/cam-lab-paper.pdf",
+      tags: ["Research", "Composites", "Materials Testing", "Additive Manufacturing"],
+      photos: [
+        { src: "/projects/composites-lab/cf3d-printer.jpg", caption: "The CF3D® printer at the Composites Additive Manufacturing Lab" },
+        { src: "/projects/composites-lab/printing-action.jpg", caption: "Continuous fiber being deposited during the printing process" },
+        { src: "/projects/composites-lab/cutting-samples.jpg", caption: "Preparing test specimens with my research partner" },
+        { src: "/projects/composites-lab/instron-sample.jpg", caption: "Test coupon mounted in the Instron machine" },
+        { src: "/projects/composites-lab/shear-failure.jpg", caption: "Shear specimen at the moment of failure" },
+        { src: "/projects/composites-lab/fractured-sample.jpg", caption: "Post-failure analysis of a shear test specimen" }
+      ],
+      overview: "I spent a semester working hands-on with one of the most advanced composite manufacturing systems in the country — the CF3D® continuous fiber 3D printer. What started as a research position quickly became one of the most formative experiences of my engineering education.",
       description: [
-        "Conducted standardized tensile and shear testing on CF3D® composites using Instron systems to evaluate performance, establishing a UTS of 1395 MPa and shear strength of 66.59 MPa.",
-        "Incorporated novel test coupon geometries using SolidWorks to overcome additive manufacturing constraints (minimum tow length), improving test reliability and minimizing material waste through prototype testing.",
-        "Authored a technical paper summarizing tensile and shear characteristics, presented findings to a panel of 3 professors."
+        "I conducted standardized tensile and shear testing on CF3D® composites using Instron systems, establishing a UTS of 1395 MPa and shear strength of 66.59 MPa.",
+        "I designed novel test coupon geometries in SolidWorks to overcome additive manufacturing constraints, improving test reliability and minimizing material waste.",
+        "I authored a technical paper summarizing my findings and presented the research to a panel of 3 professors."
+      ],
+      journal: [
+        {
+          title: "Walking Into the Lab for the First Time",
+          content: "The first time I walked into the Composites Additive Manufacturing Lab, I was immediately struck by the CF3D® printer sitting in the center of the room. This wasn't like any 3D printer I'd seen before — it was depositing continuous carbon fiber at temperatures over 400°C, creating parts that could rival traditional aerospace-grade composites. Professor Baur explained that while the technology was groundbreaking, nobody had systematically characterized the mechanical properties of these printed materials. That became my mission.",
+          image: "/projects/composites-lab/cf3d-printer.jpg"
+        },
+        {
+          title: "Learning to Work with Continuous Fiber",
+          content: "The CF3D® process is beautiful to watch but incredibly demanding to master. Unlike traditional FDM printing, you can't just stop and start — the carbon fiber tow needs to maintain a minimum length of 25mm or it won't bond properly. This constraint meant I had to completely rethink how test specimens are designed. I spent weeks in SolidWorks developing custom coupon geometries that would give us valid ASTM data while respecting the printer's limitations. Every failed print taught me something new about the material's behavior.",
+          image: "/projects/composites-lab/printing-action.jpg"
+        },
+        {
+          title: "The Grind of Sample Preparation",
+          content: "Research isn't glamorous. I spent countless hours in the machine shop with my research partner, carefully cutting and preparing specimens for testing. Each sample had to be precisely dimensioned — any variation would compromise our results. We developed a workflow that minimized waste while ensuring each specimen met ASTM specifications. The smell of carbon fiber dust became oddly comforting, a sign that we were making progress.",
+          image: "/projects/composites-lab/cutting-samples.jpg"
+        },
+        {
+          title: "Tensile Testing: Watching Carbon Fiber Fail",
+          content: "The Instron machine became my second home. I ran dozens of tensile tests following ASTM D3039, carefully mounting each specimen and watching the stress-strain curves develop in real-time. There's something almost violent about watching a carbon fiber sample fail — one moment it's holding over 1300 MPa of stress, the next it explodes into a shower of fractured fibers. We established an ultimate tensile strength of 1395 MPa, which was actually higher than I expected for an additively manufactured material.",
+          image: "/projects/composites-lab/instron-sample.jpg"
+        },
+        {
+          title: "Shear Testing and Failure Analysis",
+          content: "The short beam shear tests were equally revealing. Following ASTM D2344, I subjected samples to three-point bending until interlaminar shear failure occurred. The shear strength came out to 66.59 MPa — respectable, but the failure modes were fascinating. Each fractured sample told a story about how the layers bonded during printing. I spent hours under the microscope analyzing failure surfaces, trying to understand what made some samples stronger than others.",
+          image: "/projects/composites-lab/shear-failure.jpg"
+        },
+        {
+          title: "What This Research Means",
+          content: "By the end of my time in the lab, I had generated the first comprehensive mechanical property dataset for CF3D® composites at our university. These numbers matter — they give engineers the confidence to actually design with these materials. My technical paper summarized everything I learned, and presenting to that panel of professors was genuinely nerve-wracking. But seeing my data cited in their subsequent work? That made every late night in the lab worth it.",
+          image: "/projects/composites-lab/fractured-sample.jpg"
+        }
+      ]
+    },
+    {
+      id: "force-motors-crankshaft",
+      title: "FORCE MOTORS | CRANKSHAFT PROTOTYPE",
+      role: "Mechanical Engineering Intern",
+      date: "Jun 2025 – Aug 2025",
+      image: "/projects/force-motors-crankshaft/engine-graphic.png",
+      presentation: "/projects/force-motors-crankshaft/presentation.pdf",
+      paper: "/projects/force-motors-crankshaft/report.pdf",
+      tags: ["Python", "Crankshaft Design", "Balancing", "Automotive"],
+      overview: "At Force Motors, I developed computational tools to accelerate the design of a new 8-web crankshaft capable of handling higher peak firing pressures — a critical upgrade for their next-generation diesel engines.",
+      description: [
+        "I developed a Python-based mechanical guideline to define critical component geometry for a new 8-web crankshaft prototype with an increased peak firing pressure, reducing simulation iterations by an estimated 20-25%.",
+        "I formulated an Excel-based tool to calculate optimal counterweight COG placement using polar moment of inertia, reducing static and dynamic crankshaft imbalance by >90%."
+      ],
+      journal: [
+        {
+          title: "Walking Into an OEM Powertrain Team",
+          content: "Force Motors isn't just any manufacturer — they produce engines for Mercedes-Benz and BMW in India. Walking into their powertrain engineering department, I knew I was joining a team with serious technical depth. My project: help design a crankshaft that could handle 20% higher combustion pressures than the current production unit."
+        },
+        {
+          title: "Building the Design Guideline Tool",
+          content: "The challenge with crankshaft design is the sheer number of parameters — web geometry, journal diameters, fillet radii, counterweight placement. Traditionally, engineers would iterate through dozens of FEA runs to converge on a good design. I built a Python tool that encapsulated the mechanical design guidelines, automatically checking geometry against limits and predicting stress concentrations before running expensive simulations."
+        },
+        {
+          title: "Solving the Balancing Puzzle",
+          content: "A crankshaft spinning at 4000+ RPM generates enormous centrifugal forces. If the counterweights aren't positioned correctly, those forces create vibrations that destroy bearings and make engines sound terrible. I developed a spreadsheet tool that calculated optimal counterweight center-of-gravity positions using polar moment of inertia equations, reducing both static and dynamic imbalance by over 90%."
+        }
+      ]
+    },
+    {
+      id: "force-motors-cad-migration",
+      title: "FORCE MOTORS | CAD DATA MIGRATION",
+      role: "Mechanical Engineering Intern",
+      date: "Jun 2025 – Aug 2025",
+      tags: ["CATIA V5", "GD&T", "Legacy Systems", "Automotive"],
+      overview: "I converted legacy 2D powertrain drawings into modern 3D CAD models, helping Force Motors transition their engineering documentation to a digital-first workflow.",
+      description: [
+        "I transformed 10+ 2D legacy powertrain component drawings into 3D models using CATIA V5 for the CAD data migration process using GD&T methods."
+      ],
+      journal: [
+        {
+          title: "The Legacy Drawing Challenge",
+          content: "Force Motors has decades of engineering history locked in paper drawings and 2D CAD files. These drawings contain critical design intent — tolerances, surface finishes, assembly notes — that needs to be preserved in 3D models. My job was to carefully interpret these drawings and recreate the parts in CATIA V5, ensuring nothing was lost in translation."
+        },
+        {
+          title: "Learning GD&T the Hard Way",
+          content: "You don't truly understand geometric dimensioning and tolerancing until you've had to recreate a complex part from a 30-year-old drawing. Every datum reference, every tolerance callout tells a story about how the part is manufactured and inspected. This project gave me a deep appreciation for the language of engineering drawings."
+        }
+      ]
+    },
+    {
+      id: "gala-precision-springs",
+      title: "GALA PRECISION | SPRING ANALYSIS & OPTIMIZATION",
+      role: "Mechanical Engineering Intern",
+      date: "Jun 2024 – Aug 2024",
+      presentation: "/projects/gala-precision-springs/kaizen-presentation.pdf",
+      tags: ["FEA", "Ansys", "Kaizen", "Manufacturing Optimization"],
+      overview: "At Gala Precision, I combined FEA simulation skills with hands-on manufacturing improvement, delivering both technical analysis of spring designs and a Kaizen project that reduced production waste.",
+      description: [
+        "I conducted FEA simulations using Ansys Static Structural and modal analysis on coil spring designs to compare open vs. closed coil configurations, providing data-backed recommendations to the client.",
+        "I optimized the conveyor systems by introducing angled brackets in a Kaizen-based initiative, reducing part loss from spring spillage during the stress-relieving stage by 90%, saving 15 minutes of labor, daily.",
+        "I demonstrated a 20% difference in compressive force and a 12% variation in displacement under load, highlighting reduced stress concentrations in closed spring designs."
+      ],
+      journal: [
+        {
+          title: "First Day on the Factory Floor",
+          content: "Gala Precision is one of India's leading spring manufacturers, producing everything from tiny precision springs for electronics to massive suspension springs for trucks. Walking through the factory floor on my first day, I was struck by the scale — rows of coiling machines, heat treatment ovens, and quality inspection stations stretching as far as I could see."
+        },
+        {
+          title: "The Open vs. Closed Coil Debate",
+          content: "My main technical project was settling a design debate: should a particular spring design use open or closed coils at the ends? I set up FEA models in Ansys to simulate both configurations under compression. The results were clear — closed coils reduced stress concentrations by 20% and improved load distribution. My analysis gave the client confidence to proceed with the closed-coil design."
+        },
+        {
+          title: "Kaizen: Small Changes, Big Impact",
+          content: "The most satisfying part of my internship wasn't the FEA work — it was a simple Kaizen improvement. I noticed that springs were rolling off the conveyor during the stress-relieving process, creating scrap and requiring manual rework. I designed a set of angled brackets that kept springs centered on the conveyor. The result: 90% reduction in spillage and 15 minutes saved per day. Sometimes engineering is about the small fixes."
+        }
+      ]
+    },
+    {
+      id: "asme-autonomous-car",
+      title: "ASME | VIRTUAL AUTONOMOUS COMPETITION",
+      role: "Team Lead",
+      date: "Jan 2025 – Present",
+      tags: ["SolidWorks", "Autonomous Systems", "Control Logic", "Competition"],
+      overview: "Leading a team to design a virtual autonomous car that can navigate a circuit as efficiently as possible, combining CAD skills with control system logic.",
+      description: [
+        "I led a team of three to design and develop a virtual autonomous car using SolidWorks for CAD modeling and block code to write the control software, aiming to complete a lap around a virtual circuit as efficiently as possible.",
+        "I spearheaded the research into track dynamics and the fastest routes, applying critical problem-solving skills to improve the car's performance.",
+        "I contributed to team management, guiding the project through design, testing, and optimization phases for future success in the competition."
+      ],
+      journal: [
+        {
+          title: "Why Virtual Racing?",
+          content: "The ASME virtual autonomous car competition is a unique challenge — you design a car in CAD, then program its control logic to navigate a virtual track without any human input. It combines mechanical design intuition with control systems thinking. As team lead, I'm responsible for both the vehicle architecture and keeping our three-person team on track."
+        },
+        {
+          title: "Finding the Racing Line",
+          content: "The key to fast lap times isn't just raw speed — it's finding the optimal path around the track. I spent hours analyzing corner geometries, calculating the fastest racing lines, and translating that knowledge into control logic. Every tenth of a second matters in competition."
+        }
+      ]
+    },
+    {
+      id: "uiuc-course-support",
+      title: "UIUC MechSE | COURSE SUPPORT",
+      role: "Course Assistant",
+      date: "Aug 2024 – May 2025",
+      tags: ["Teaching", "Thermodynamics", "Mechanics", "Mentorship"],
+      overview: "Selected for academic excellence to support foundational mechanical engineering courses, grading assignments and helping fellow students master core concepts.",
+      description: [
+        "I was selected based on top academic performance to grade problem sets, midterms, and final exams for foundational mechanical engineering and thermodynamics courses, ensuring consistency and technical accuracy across over 90+ submissions per course.",
+        "I held weekly office hours to support students in mastering core concepts such as energy balances, system dynamics, and Newtonian mechanics — reinforcing subject understanding and building strong peer-to-peer communication skills."
+      ],
+      journal: [
+        {
+          title: "Teaching to Learn",
+          content: "There's a saying that the best way to learn something is to teach it. As a course assistant, I discovered how true this is. Explaining concepts like entropy, free body diagrams, and moment of inertia to struggling students forced me to truly understand the fundamentals. Every office hour was a learning experience for me as much as for the students."
+        },
+        {
+          title: "The Art of Grading",
+          content: "Grading isn't just about marking answers right or wrong — it's about understanding how students think and where their reasoning breaks down. With 90+ exams to grade per course, I developed an eye for common misconceptions and learned to provide feedback that actually helps students improve."
+        }
       ]
     }
-  ]
+  ],
+  // Maps each technical skill to the project IDs that demonstrate it
+  skillProjects: {
+    "PTC Creo/Pro Engineer": ["fsae-front-wing"],
+    "Siemens NX": [],
+    "SolidWorks": ["composites-lab", "asme-autonomous-car", "3d-printed-clock"],
+    "CATIA V5": ["force-motors-cad-migration"],
+    "AutoCAD": [],
+    "Fusion360": [],
+    "Ansys Mechanical": ["fsae-front-wing", "gala-precision-springs", "conrod-optimization"],
+    "Abaqus": []
+  } as Record<string, string[]>,
+  // Maps certifications to project IDs
+  certificationProjects: {
+    "CNC": ["composites-lab", "fsae-front-wing"],
+    "UTM": ["composites-lab"],
+    "Power tools": ["fsae-front-wing", "composites-lab"],
+    "Waterjet": ["composites-lab"]
+  } as Record<string, string[]>
 };
+
