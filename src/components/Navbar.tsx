@@ -52,9 +52,6 @@ export const Navbar = () => {
                   href={item.href}
                   className="font-mono text-xs lg:text-sm text-muted-foreground hover:text-primary transition-colors relative group"
                 >
-                  <span className="text-primary mr-1 text-xs">
-                    0{index + 1}.
-                  </span>
                   {item.name}
                 </Link>
               ))}
@@ -62,9 +59,10 @@ export const Navbar = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-xs font-mono font-bold text-primary border border-primary/50 hover:bg-primary/10 rounded transition-all"
+                className="font-mono text-xs lg:text-sm text-primary font-bold hover:text-[#9ECCFA] transition-colors"
+                style={{ transitionDuration: '300ms' }}
               >
-                RESUME
+                Resume
               </a>
             </div>
           </div>
@@ -105,14 +103,15 @@ export const Navbar = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-3 py-2 text-base font-mono font-bold text-primary mt-4 border border-primary/20 rounded text-center mx-2"
+                className="block px-3 py-2 text-base font-mono font-bold text-primary mt-4 hover:bg-secondary/10 hover:text-[#9ECCFA] rounded text-center mx-2 transition-colors"
+                style={{ transitionDuration: '300ms' }}
               >
-                RESUME
+                Resume
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </nav >
   );
 };

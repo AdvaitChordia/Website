@@ -21,10 +21,13 @@ export const Skills = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-              <span className="text-primary">03.</span>
-              <span>Skills & Expertise</span>
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <div className="h-[1px] w-12 bg-primary/40"></div>
+              <span className="font-mono text-primary text-sm tracking-widest uppercase">
+                SKILLS & EXPERTISE
+              </span>
+              <div className="h-[1px] w-12 bg-primary/40"></div>
+            </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-8">

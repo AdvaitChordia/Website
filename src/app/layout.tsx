@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { InteractiveGridBackground } from "@/components/InteractiveGridBackground";
+import { CustomCursor } from "@/components/CustomCursor";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const outfit = Outfit({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "Advait Chordia | Mechanical Engineer",
-  description: "Portfolio of Advait Chordia, Mechanical Engineer specializing in Design, Analysis, and Manufacturing.",
-};
 
 export default function RootLayout({
   children,
@@ -25,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground overflow-x-hidden`}
+        className={`${outfit.variable} ${jetbrainsMono.variable} antialiased text-foreground overflow-x-hidden`}
       >
+        <InteractiveGridBackground />
+        <CustomCursor />
         {children}
       </body>
     </html>

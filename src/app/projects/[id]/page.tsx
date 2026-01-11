@@ -31,12 +31,12 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
   const hasPhotos = 'photos' in project && project.photos?.length > 0;
 
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/20">
+    <main className="min-h-screen selection:bg-primary/20">
       <Navbar />
 
       {/* Hero - Full width poster */}
       {hasPoster && (
-        <div className="pt-20 bg-gradient-to-b from-primary/5 to-background">
+        <div className="pt-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <Link
               href="/#projects"

@@ -7,7 +7,7 @@ export const resumeData = {
     phone: "+1 217 318 7042",
     summary: "Mechanical Engineering student at UIUC with a passion for design, analysis, and manufacturing. Experienced in CAD, FEA, and rapid prototyping with a strong background in automotive and composites.",
     links: {
-      linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206/",
+      linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206",
       github: "#", // Placeholder
     }
   },
