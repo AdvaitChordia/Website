@@ -3,6 +3,7 @@ import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { InteractiveGridBackground } from "@/components/InteractiveGridBackground";
 import { CustomCursor } from "@/components/CustomCursor";
+import { Providers } from "@/components/Providers";
 
 const outfit = Outfit({
   variable: "--font-sans",
@@ -24,10 +25,13 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} antialiased text-foreground overflow-x-hidden`}
       >
-        <InteractiveGridBackground />
-        <CustomCursor />
-        {children}
+        <Providers>
+          <InteractiveGridBackground />
+          <CustomCursor />
+          {children}
+        </Providers>
       </body>
     </html>
   );
 }
+

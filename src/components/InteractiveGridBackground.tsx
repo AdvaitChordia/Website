@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 // ============================================================================
 // LENS DISTORTION CONFIGURATION
@@ -40,7 +41,7 @@ const LENS_CONFIG = {
     gridSpacing: 20,
     baseOpacity: 0.08,
     baseArmLength: 1.5,
-    gridColor: "#0B1957",
+    // Colors are now dynamic based on theme
 };
 // ============================================================================
 
@@ -53,10 +54,23 @@ interface GridPoint {
 export const InteractiveGridBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const pointsRef = useRef<GridPoint[]>([]);
+    const pathname = usePathname();
+    const isLifePage = pathname === '/life';
 
     // Track both actual mouse and the "lens" (lagged) position
     const mouseRef = useRef({ x: -1000, y: -1000 });
     const lensRef = useRef({ x: -1000, y: -1000 });
+
+    // Theme Configuration
+    const theme = isLifePage ? {
+        backgroundColor: '#E6D8C7', // Beige
+        gridColor: '#1E382B',       // Dark Green
+        shape: 'circle' as const,
+    } : {
+        backgroundColor: '#F8F3EA', // Off-White
+        gridColor: '#0B1957',       // Navy Blue
+        shape: 'plus' as const,
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -138,7 +152,6 @@ export const InteractiveGridBackground = () => {
                 opacityBoost,
                 baseOpacity,
                 baseArmLength,
-                gridColor
             } = LENS_CONFIG;
 
             // Scale config values to physical pixels
@@ -190,20 +203,27 @@ export const InteractiveGridBackground = () => {
                     renderScale = 1 + (factor * magnificationStrength);
                 }
 
-                ctx.strokeStyle = gridColor;
+                ctx.strokeStyle = theme.gridColor;
                 ctx.globalAlpha = Math.min(renderOpacity, 1.0);
 
-                // Draw Grid Cross
                 const size = physicalArmLength * renderScale;
-                ctx.beginPath();
-                ctx.moveTo(renderX - size, renderY);
-                ctx.lineTo(renderX + size, renderY);
-                ctx.moveTo(renderX, renderY - size);
-                ctx.lineTo(renderX, renderY + size);
-                ctx.stroke();
+
+                if (theme.shape === 'circle') {
+                    // Draw Solid Circle
+                    ctx.fillStyle = theme.gridColor;
+                    ctx.beginPath();
+                    ctx.arc(renderX, renderY, size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    // Draw Plus Cross
+                    ctx.beginPath();
+                    ctx.moveTo(renderX - size, renderY);
+                    ctx.lineTo(renderX + size, renderY);
+                    ctx.moveTo(renderX, renderY - size);
+                    ctx.lineTo(renderX, renderY + size);
+                    ctx.stroke();
+                }
             }
-
-
 
             animationFrameId = requestAnimationFrame(draw);
         };
@@ -216,16 +236,16 @@ export const InteractiveGridBackground = () => {
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationFrameId);
         };
-    }, []);
+    }, [theme]); // Re-run effect when theme changes
 
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 z-[-1] pointer-events-none"
+            className="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-500"
             style={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#F8F3EA', // Set base color here
+                backgroundColor: theme.backgroundColor, // Dynamic background color
             }}
         />
     );

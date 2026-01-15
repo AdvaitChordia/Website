@@ -28,6 +28,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
   const hasProposal = 'proposal' in project;
   const hasPresentation = 'presentation' in project;
   const hasTags = 'tags' in project && project.tags?.length > 0;
+  const hasHeroImage = 'image' in project;
   const hasPhotos = 'photos' in project && project.photos?.length > 0;
 
   return (
@@ -67,9 +68,31 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         </div>
       )}
 
-      <div className={`${hasPoster ? 'pt-8' : 'pt-32'} pb-16 max-w-4xl mx-auto px-4`}>
-        {/* Back link if no poster */}
-        {!hasPoster && (
+      {/* Hero Image - If no poster */}
+      {hasHeroImage && !hasPoster && (
+        <div className="pt-20 bg-gradient-to-b from-primary/5 to-transparent">
+          <div className="max-w-6xl mx-auto px-4 py-12">
+            <Link
+              href="/#projects"
+              className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Projects
+            </Link>
+
+            <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-auto max-h-[600px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className={`${(hasPoster || hasHeroImage) ? 'pt-8' : 'pt-32'} pb-16 max-w-4xl mx-auto px-4`}>
+        {/* Back link if no poster or hero image */}
+        {!hasPoster && !hasHeroImage && (
           <Link
             href="/#projects"
             className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group"
@@ -220,7 +243,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
                   <div className={`pl-8 ${entry.image ? 'grid md:grid-cols-2 gap-8 items-start' : ''}`}>
                     <div>
                       <h3 className="text-xl font-bold text-primary mb-4">{entry.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-lg">
+                      <p className="text-muted-foreground leading-relaxed text-lg font-light">
                         {entry.content}
                       </p>
                     </div>
@@ -245,7 +268,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
           <h2 className="text-lg font-bold mb-4 text-foreground">Key Results</h2>
           <ul className="space-y-2">
             {project.description.filter((d: string) => !d.startsWith('<!--')).map((desc: string, i: number) => (
-              <li key={i} className="flex items-start gap-3 text-muted-foreground">
+              <li key={i} className="flex items-start gap-3 text-muted-foreground font-light">
                 <span className="text-primary mt-1">✓</span>
                 <span>{desc}</span>
               </li>
@@ -261,7 +284,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
               {project.sections.map((section: { title: string; content: string }, i: number) => (
                 <div key={i} className="p-6 bg-card border border-border rounded-lg hover:border-primary/30 transition-colors">
                   <h3 className="text-lg font-bold text-primary mb-3">{section.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                  <p className="text-muted-foreground leading-relaxed font-light">{section.content}</p>
                 </div>
               ))}
             </div>

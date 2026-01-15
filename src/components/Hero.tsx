@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Cpu, Cog } from "lucide-react";
 import { resumeData } from "@/data/resume";
+import { TransitionLink } from "./PageTransition";
 
 
 export const Hero = () => {
@@ -71,14 +72,14 @@ export const Hero = () => {
             </span>
           </a>
 
-          <a
+          <TransitionLink
             href="/life"
             className="group px-8 py-3 border border-dashed border-primary/50 rounded-sm hover:bg-primary/10 hover:border-primary transition-colors"
           >
             <span className="text-primary font-mono tracking-wider flex items-center gap-2 group-hover:text-primary transition-colors">
               BEYOND ENGINEERING →
             </span>
-          </a>
+          </TransitionLink>
         </motion.div>
       </div>
 
@@ -89,7 +90,7 @@ export const Hero = () => {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <a
-          href="#projects"
+          href="#about"
           className="cursor-pointer p-4 hover:text-primary transition-colors duration-300"
           aria-label="Scroll to projects"
         >

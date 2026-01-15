@@ -3,7 +3,7 @@ export const resumeData = {
     name: "Advait Chordia",
     title: "Mechanical Engineer",
     location: "Champaign, IL",
-    email: "advaitchordia@gmail.com",
+    email: "advaitc2@illinois.edu",
     phone: "+1 217 318 7042",
     summary: "Mechanical Engineering student at UIUC with a passion for design, analysis, and manufacturing. Experienced in CAD, FEA, and rapid prototyping with a strong background in automotive and composites.",
     links: {
@@ -37,8 +37,9 @@ export const resumeData = {
     software: [
       "MATLAB",
       "Python",
-      "Microsoft Excel",
-      "Microsoft Office"
+      "Microsoft Office",
+      "GD&T",
+      "3D Printing/Rapid Prototyping"
     ],
     // Courses - clickable, linked to projects
     courses: [
@@ -50,10 +51,9 @@ export const resumeData = {
       "Mechanics & Thermodynamics"
     ],
     certifications: [
-      "CNC",
+      "CNC/Waterjet",
       "UTM",
-      "Power tools",
-      "Waterjet"
+      "Power tools"
     ]
   },
   // Maps courses to project IDs
@@ -89,77 +89,6 @@ export const resumeData = {
   ],
   projects: [
     {
-      id: "conrod-optimization",
-      title: "CONNECTING ROD MULTI-OBJECTIVE OPTIMIZATION",
-      role: "ME 498 Design Optimization",
-      date: "Aug 2025 – Dec 2025",
-      image: "/projects/conrod-optimization/hero.png",
-      paper: "/projects/conrod-optimization/optimization-paper.pdf",
-      proposal: "/projects/conrod-optimization/project-proposal.pdf",
-      tags: ["Optimization", "MATLAB", "Beam Theory", "FEA", "Automotive"],
-      overview: "I developed a multi-objective optimization program to redesign the connecting rod of a Mercedes-Benz OM606 diesel engine. Using 1D beam modeling and Python/MATLAB, I minimized mass while maintaining structural integrity under extreme combustion loads.",
-      description: [
-        "I built a 1D beam model of the OM606 connecting rod to enable rapid structural analysis during optimization iterations.",
-        "I implemented multi-objective optimization algorithms to balance competing goals: minimizing mass while ensuring fatigue life and preventing buckling.",
-        "I validated my simplified beam model against FEA results to confirm accuracy within acceptable engineering tolerances.",
-        "I authored a technical paper documenting the methodology and presenting the optimized design with quantified improvements."
-      ],
-      journal: [
-        {
-          title: "Why the OM606 Connecting Rod?",
-          content: "The Mercedes-Benz OM606 is legendary in the diesel tuning community — it's the engine that powered everything from W124 sedans to rally trucks. When I needed a real-world component for my ME 498 optimization project, the OM606 conrod was perfect: it's a well-documented, high-performance part that operates under extreme conditions. Peak cylinder pressures in these engines can exceed 180 bar during combustion, subjecting the connecting rod to massive tensile and compressive forces thousands of times per minute."
-        },
-        {
-          title: "Building the 1D Beam Model",
-          content: "Traditional FEA is too slow for optimization — you can't run thousands of design iterations if each one takes hours. My solution was to develop a 1D beam model that captures the essential physics while enabling rapid evaluation. I modeled the conrod as a variable-section beam under combined axial loading and bending. The I-beam cross-section at the shank had to smoothly transition to the big-end and small-end bearings. Getting those section property calculations right was the key challenge."
-        },
-        {
-          title: "Multi-Objective Optimization: Mass vs. Strength",
-          content: "Weight reduction in reciprocating components directly improves engine response and reduces vibration. But you can't just minimize mass — the conrod needs to survive millions of load cycles without fatigue failure, and it can't buckle during the compression stroke. I formulated this as a multi-objective optimization problem, using genetic algorithms to explore the Pareto frontier between minimum mass and maximum safety factor. The trade-offs were fascinating to visualize."
-        },
-        {
-          title: "Validating Against FEA",
-          content: "A simplified model is useless if it doesn't match reality. I built a full 3D FEA model of the connecting rod in Ansys to validate my beam approximations. The stress predictions from my 1D model matched the FEA within 8% for the critical locations — good enough for optimization, where we care about relative comparisons between designs. This validation gave me confidence that the optimal designs coming out of my algorithm would actually work."
-        },
-        {
-          title: "Results and Takeaways",
-          content: "The optimized connecting rod design achieved a significant mass reduction compared to the original OM606 part while maintaining the required safety margins. More importantly, this project taught me how to think about structural optimization systematically. The 1D beam approach isn't just an academic exercise — it's how engineers in industry rapidly screen design concepts before committing to detailed analysis. I've already applied these techniques in my FSAE work."
-        }
-      ]
-    },
-    {
-      id: "3d-printed-clock",
-      title: "3D PRINTED MECHANICAL CLOCK",
-      role: "Personal Project",
-      date: "2024",
-      image: "/projects/3d-printed-clock/hero.jpg",
-      tags: ["3D Printing", "Mechanical Design", "CAD", "Horology"],
-      overview: "I designed and built a fully functional mechanical clock using 3D printed gears, escapements, and a pendulum. No electronics — just pure mechanical engineering.",
-      description: [
-        "I designed a complete mechanical clock mechanism including escapement, gear train, and pendulum from scratch in SolidWorks.",
-        "I optimized gear tooth profiles and tolerances for FDM printing, achieving smooth operation without post-processing.",
-        "I built and tested multiple prototypes, iterating on the escapement design to achieve reliable timekeeping."
-      ],
-      journal: [
-        {
-          title: "The Challenge: Making Plastic Tell Time",
-          content: "There's something almost magical about mechanical clocks — the way they convert gravity into precisely measured time through nothing but gears and springs. I wanted to understand that magic firsthand, and what better way than to build one from scratch? The twist: I'd 3D print as many parts as possible, pushing the limits of what FDM printing can achieve in precision mechanisms."
-        },
-        {
-          title: "Designing the Gear Train",
-          content: "The heart of any clock is its gear train — a series of gears that step down the motion of the weight or spring into seconds, minutes, and hours. I spent weeks in SolidWorks calculating gear ratios, tooth profiles, and shaft positions. The key insight was that 3D printed gears need more backlash than machined ones, and rounded tooth profiles work better than sharp involutes for plastic-on-plastic contact."
-        },
-        {
-          title: "The Escapement: Where Magic Happens",
-          content: "The escapement is what makes a clock tick — literally. It's the mechanism that controls energy release and creates that characteristic sound. I chose an anchor escapement design for its simplicity and reliability. Getting it to work with 3D printed parts required extensive tweaking of the anchor geometry and escape wheel tooth shape."
-        },
-        {
-          title: "Assembly and First Tick",
-          content: "The moment all the gears were assembled and I attached the pendulum, I held my breath. Would months of work pay off? I gave the pendulum a gentle push, and the clock started ticking. It wasn't perfect — the timekeeping was off by a few minutes per day — but hearing those first ticks was incredibly satisfying."
-        }
-      ]
-    },
-    {
       id: "fsae-front-wing",
       title: "ILLINI ELECTRIC MOTORSPORT | FSAE",
       role: "Front Wing Structures Lead",
@@ -180,23 +109,103 @@ export const resumeData = {
       ],
       journal: [
         {
-          title: "Joining the Team",
-          content: "When I joined Illini Electric Motorsport, I knew I wanted to work with composites. Carbon fiber had always fascinated me — the way you could lay up individual plies to create structures that were both incredibly light and incredibly strong. Being assigned to the aerodynamics structures sub-team was exactly what I'd hoped for.",
-          image: "/projects/fsae/car-assembly.jpg"
-        },
-        {
-          title: "Designing the Front Wing",
-          content: "The front wing is the most visible aero component on the car, but it's also the most structurally challenging. It needs to generate consistent downforce at speeds up to 60 mph while surviving kerb strikes and rough track surfaces. I spent weeks in Ansys optimizing the ply schedule — the sequence and orientation of carbon fiber layers — to minimize weight while keeping deflection under our 0.125\" target.",
+          title: "Defining the Design Requirements",
+          content: "Leading the front wing structures sub-team meant translating FSAE rules into hard engineering targets. Rule T.7.1.3 mandates that all aero devices remain stable without excessive oscillation at speed — we interpreted this as a maximum deflection of 0.125\" under static aero loads. Rule IN.6.6.2 adds a 200N proof load requirement with permanent deflection under 5mm. Beyond compliance, our own structural requirements (SR.1-4) demanded positive margins against yield and ultimate under combined aero, inertial, and cone strike loads, with a first natural frequency at least 3× the dominant road input (4-5 Hz). These targets drove every subsequent decision.",
           image: "/projects/fsae/car-drifting.jpg"
         },
         {
-          title: "Manufacturing: 100+ Hours of Layup",
-          content: "There's no shortcut in composite manufacturing. Each ply needs to be cut precisely, positioned exactly, and debulked carefully to remove air pockets. Over the course of the season, I logged over 100 hours of hands-on layup time. The smell of epoxy became familiar, and I developed an intuition for when a layup was going well versus when problems were brewing.",
+          title: "Insert Material Selection: FDM vs SLS",
+          content: "The wing inserts — small structural elements that interface with the mounting hardware — sparked a deep material trade study. Initially, we planned to outsource SLS nylon parts through Stratasys, but I pushed for in-house FDM printing on our Bambu P1S. The rationale: inserts handle smaller loads than the primary structure, FDM simplifies iteration (no sponsor back-and-forth), and print time drops from 24+ hours to under 5. I benchmarked six materials — Polymaker PETG, Stratasys Nylon 6/12, and several carbon-filled options. 3DXTech Nylon 12 PA emerged as the winner with 8000 MPa tensile modulus and 72 MPa tensile strength at break. For smaller inserts requiring higher temperature resistance, Ultrafuse PAHT-CF15 (8386 MPa modulus, 103.2 MPa strength) was selected despite slightly higher cost.",
           image: "/projects/fsae/rear-manufacturing.jpg"
         },
         {
-          title: "Testing Day",
-          content: "Nothing compares to seeing your work on a moving car. During our testing days, I watched the front wing I'd designed flex and recover under load, exactly as the FEA had predicted. When the driver pushed hard into corners, the car stuck to the track. That's when all the late nights in the shop felt worth it."
+          title: "Internal Structure: Foam Core & Sandwich Panels",
+          content: "The wing's internal structure had to absorb inertial loading, aero forces, cone strikes, and the inevitable bumps from moving the car in and out of the trailer. I evaluated 13 foam options across Rohacell, Corecell, Gurit PVC, and standard EPS. Corecell I-40 stood out with its low density (45 kg/m³) and high elongation at break (40%) — we want the leading edge to deform under impact rather than shatter. For the leading edge core specifically, I selected Corecell M80 at 3mm thickness after sourcing it from MarineWare. The ribs and spars would be waterjet-cut from flat sandwich stock — either Corecell + carbon fiber or Balsa + carbon fiber — enabling rapid manufacturing from a single sheet.",
+          image: "/projects/fsae/car-assembly.jpg"
+        },
+        {
+          title: "Struts & Mounting Architecture",
+          content: "The struts transfer over 1,500 N of downforce from the wing elements to the chassis. After IDR feedback, I iterated on the design: carbon fiber tubes for the main load path (they're lightweight and awesome), with 3D-printed endcaps featuring parametric geometry so they update automatically when the wing profile changes. The FW strut analysis runs on pressure fields exported from Konstantin's 95 mph CFD simulation in Star CCM+, mapped directly onto the structural mesh in Ansys. We're at 90% design completion — final geometry locks once aero finalizes the load targets."
+        },
+        {
+          title: "Lessons from IDR Feedback",
+          content: "The Internal Design Review exposed gaps I hadn't anticipated. Judges questioned why we specified Hoerner wingtips on a cascade arrangement, and pushed back on our 2.5× FEA safety factor as overkill (team standard is 3×). They loved the crossbrace concept — even though the IM rear wing got criticized for it, ours is structurally valid. The biggest takeaway: document your assumptions. I now maintain a living DCR (Design Control Requirements) table linking every requirement to its validation method — FEA, CFD, hand calc, or physical testing. It keeps the team aligned and gives judges the traceability they want to see."
+        }
+      ]
+    },
+    {
+      id: "force-motors-crankshaft",
+      title: "FORCE MOTORS | CRANKSHAFT PROTOTYPE",
+      role: "Mechanical Engineering Intern",
+      date: "Jun 2025 – Aug 2025",
+      image: "/projects/force-motors-crankshaft/engine-graphic.png",
+      presentation: "/projects/force-motors-crankshaft/presentation.pdf",
+      paper: "/projects/force-motors-crankshaft/report.pdf",
+      tags: ["Python", "Crankshaft Design", "Balancing", "Automotive"],
+      overview: "At Force Motors, I developed computational tools to accelerate the design of a new 8-web crankshaft capable of handling higher peak firing pressures — a critical upgrade for their next-generation diesel engines.",
+      description: [
+        "I developed a Python-based mechanical guideline to define critical component geometry for a new 8-web crankshaft prototype with an increased peak firing pressure, reducing simulation iterations by an estimated 20-25%.",
+        "I formulated an Excel-based tool to calculate optimal counterweight COG placement using polar moment of inertia, reducing static and dynamic crankshaft imbalance by >90%."
+      ],
+      journal: [
+        {
+          title: "Walking Into an OEM Powertrain Team",
+          content: "Force Motors isn't just any manufacturer — they produce engines for Mercedes-Benz and BMW in India. Walking into their powertrain engineering department, I knew I was joining a team with serious technical depth. My project: help design a crankshaft that could handle 20% higher combustion pressures than the current production unit."
+        },
+        {
+          title: "Building the Design Guideline Tool",
+          content: "The challenge with crankshaft design is the sheer number of parameters — web geometry, journal diameters, fillet radii, counterweight placement. Traditionally, engineers would iterate through dozens of FEA runs to converge on a good design. I built a Python tool that encapsulated the mechanical design guidelines, automatically checking geometry against limits and predicting stress concentrations before running expensive simulations."
+        },
+        {
+          title: "Solving the Balancing Puzzle",
+          content: "A crankshaft spinning at 4000+ RPM generates enormous centrifugal forces. If the counterweights aren't positioned correctly, those forces create vibrations that destroy bearings and make engines sound terrible. I developed a spreadsheet tool that calculated optimal counterweight center-of-gravity positions using polar moment of inertia equations, reducing both static and dynamic imbalance by over 90%."
+        }
+      ]
+    },
+    {
+      id: "conrod-optimization",
+      title: "CONNECTING ROD MULTI-OBJECTIVE OPTIMIZATION",
+      role: "Personal Project",
+      date: "Aug 2025 – Dec 2025",
+      image: "/projects/conrod-optimization/hero.png",
+      paper: "/projects/conrod-optimization/optimization-paper.pdf",
+      proposal: "/projects/conrod-optimization/project-proposal.pdf",
+      tags: ["Optimization", "Python", "Beam Theory", "FEA", "Automotive"],
+      photos: [
+        { src: "/projects/conrod-optimization/Buckling photo.png", caption: "Peak gas load causes compressive buckling tendency" },
+        { src: "/projects/conrod-optimization/Inertial Tension.png", caption: "TDC inertia puts the rod in tension" },
+        { src: "/projects/conrod-optimization/Bending scenario.png", caption: "Transverse whipping load at 90° crank angle" },
+        { src: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for I beam config.png", caption: "Optimized I-beam cross-sectional geometry" },
+        { src: "/projects/conrod-optimization/Represented cross sectional areas along the shank length.png", caption: "I-beam cross-section evolution along the shank" },
+        { src: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for H beam config.png", caption: "H-beam geometry for comparative study" }
+      ],
+      overview: "I developed a multi-objective optimization program to redesign the connecting rod of a Mercedes-Benz OM606 diesel engine. Using 1D beam modeling and Python, I minimized mass while maintaining structural integrity under extreme combustion loads.",
+      description: [
+        "I built a 1D beam model of the OM606 connecting rod to enable rapid structural analysis during optimization iterations.",
+        "I implemented multi-objective optimization algorithms to balance competing goals: minimizing mass while ensuring fatigue life and preventing buckling.",
+        "I validated my simplified beam model against FEA results to confirm accuracy within acceptable engineering tolerances.",
+        "I authored a technical paper documenting the methodology and presenting the optimized design with quantified improvements."
+      ],
+      journal: [
+        {
+          title: "The Three Critical Load Cases",
+          content: "The OM606 connecting rod must survive three distinct loading scenarios. First: Peak Gas Load during combustion, where 130 bar cylinder pressure on an 87mm bore creates a compressive force of F_gas ≈ 77.3 kN — this drives the buckling constraint. Second: Top Dead Center Inertia at the end of the exhaust stroke, where the piston reverses direction and puts the rod in tension. The inertial force scales with ω², which is why I designed for 5500 RPM redline conditions. Third: Transverse Inertia (Whipping) at 90° crank angle, where lateral acceleration causes the rod to bow outward. Each load case produces different stress distributions and failure modes.",
+          image: "/projects/conrod-optimization/Buckling photo.png"
+        },
+        {
+          title: "Formulating the Optimization Problem",
+          content: "The objective was simple: minimize shank mass f(x) = Σρ A_i L_i while satisfying four constraints. Buckling stability required P_cr/(F_gas × 2.5) ≥ 1, where critical buckling load follows the Euler formula P_cr = π²EI/L². Fatigue life under tensile inertial loading needed SF ≥ 1.3. Static yield under compressive gas loading also required SF ≥ 1.3. Finally, a monotonicity constraint ensured the geometry tapered smoothly from small end to big end — no undercuts that would be impossible to forge. I solved this constrained NLP using SLSQP in scipy.optimize.",
+          image: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for I beam config.png"
+        },
+        {
+          title: "The Surprising Result: Yield Dominance",
+          content: "Going into this project, I assumed buckling would be the active constraint — that's what most textbooks emphasize for slender columns under compression. The post-optimization analysis told a different story. The optimized I-beam geometry achieved a Buckling Safety Factor of 7.3, nearly triple the requirement. Meanwhile, Static Yield converged to exactly 1.3 — it was the active constraint. This means the rod will crush under compressive stress long before it ever buckles. The I-beam flanges are so efficient at maximizing area moment of inertia that buckling became non-critical.",
+          image: "/projects/conrod-optimization/Represented cross sectional areas along the shank length.png"
+        },
+        {
+          title: "I-Beam vs H-Beam: The Comparative Study",
+          content: "To validate the I-beam topology selection, I ran a comparative optimization using an H-beam cross-section under identical constraints. The H-beam configuration, with its vertical side walls instead of horizontal flanges, is geometrically less efficient at resisting in-plane buckling within the 35mm width constraint. The result: the H-beam converged to 103.8 g — a 17.5% mass penalty compared to the I-beam's 88.34 g. This performance gap conclusively demonstrated why I-beam sections dominate high-performance connecting rod design.",
+          image: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for H beam config.png"
         }
       ]
     },
@@ -257,31 +266,41 @@ export const resumeData = {
       ]
     },
     {
-      id: "force-motors-crankshaft",
-      title: "FORCE MOTORS | CRANKSHAFT PROTOTYPE",
-      role: "Mechanical Engineering Intern",
-      date: "Jun 2025 – Aug 2025",
-      image: "/projects/force-motors-crankshaft/engine-graphic.png",
-      presentation: "/projects/force-motors-crankshaft/presentation.pdf",
-      paper: "/projects/force-motors-crankshaft/report.pdf",
-      tags: ["Python", "Crankshaft Design", "Balancing", "Automotive"],
-      overview: "At Force Motors, I developed computational tools to accelerate the design of a new 8-web crankshaft capable of handling higher peak firing pressures — a critical upgrade for their next-generation diesel engines.",
+      id: "3d-printed-clock",
+      title: "3D PRINTED MECHANICAL CLOCK",
+      role: "Personal Project",
+      date: "2024",
+      image: "/projects/3d-printed-clock/temporary hero.jpeg",
+      tags: ["3D Printing", "Mechanical Design", "CAD", "Horology"],
+      overview: "I designed and built a fully functional mechanical clock using 3D printed gears, escapements, and a pendulum. No electronics — just pure mechanical engineering.",
+      photos: [
+        { src: "/projects/3d-printed-clock/Straight shot of finished product.jpeg", caption: "The finished jump hour clock" },
+        { src: "/projects/3d-printed-clock/second angle of finished product.jpeg", caption: "Another angle of the completed clock" },
+        { src: "/projects/3d-printed-clock/Blueprint layout of gears.jpeg", caption: "Blueprint layout of the gear train" },
+        { src: "/projects/3d-printed-clock/Random photo of the escapement mechanism.jpeg", caption: "Escapement mechanism detail" }
+      ],
       description: [
-        "I developed a Python-based mechanical guideline to define critical component geometry for a new 8-web crankshaft prototype with an increased peak firing pressure, reducing simulation iterations by an estimated 20-25%.",
-        "I formulated an Excel-based tool to calculate optimal counterweight COG placement using polar moment of inertia, reducing static and dynamic crankshaft imbalance by >90%."
+        "I designed a complete mechanical clock mechanism including escapement, gear train, and pendulum from scratch in SolidWorks.",
+        "I optimized gear tooth profiles and tolerances for FDM printing, achieving smooth operation without post-processing.",
+        "I built and tested multiple prototypes, iterating on the escapement design to achieve reliable timekeeping.",
+        "Details coming soon: [Placeholder for additional technical details about the jump hour mechanism and assembly process]"
       ],
       journal: [
         {
-          title: "Walking Into an OEM Powertrain Team",
-          content: "Force Motors isn't just any manufacturer — they produce engines for Mercedes-Benz and BMW in India. Walking into their powertrain engineering department, I knew I was joining a team with serious technical depth. My project: help design a crankshaft that could handle 20% higher combustion pressures than the current production unit."
+          title: "The Challenge: Making Plastic Tell Time",
+          content: "There's something almost magical about mechanical clocks — the way they convert gravity into precisely measured time through nothing but gears and springs. I wanted to understand that magic firsthand, and what better way than to build one from scratch? The twist: I'd 3D print as many parts as possible, pushing the limits of what FDM printing can achieve in precision mechanisms."
         },
         {
-          title: "Building the Design Guideline Tool",
-          content: "The challenge with crankshaft design is the sheer number of parameters — web geometry, journal diameters, fillet radii, counterweight placement. Traditionally, engineers would iterate through dozens of FEA runs to converge on a good design. I built a Python tool that encapsulated the mechanical design guidelines, automatically checking geometry against limits and predicting stress concentrations before running expensive simulations."
+          title: "Designing the Gear Train",
+          content: "The heart of any clock is its gear train — a series of gears that step down the motion of the weight or spring into seconds, minutes, and hours. I spent weeks in SolidWorks calculating gear ratios, tooth profiles, and shaft positions. The key insight was that 3D printed gears need more backlash than machined ones, and rounded tooth profiles work better than sharp involutes for plastic-on-plastic contact."
         },
         {
-          title: "Solving the Balancing Puzzle",
-          content: "A crankshaft spinning at 4000+ RPM generates enormous centrifugal forces. If the counterweights aren't positioned correctly, those forces create vibrations that destroy bearings and make engines sound terrible. I developed a spreadsheet tool that calculated optimal counterweight center-of-gravity positions using polar moment of inertia equations, reducing both static and dynamic imbalance by over 90%."
+          title: "The Escapement: Where Magic Happens",
+          content: "The escapement is what makes a clock tick — literally. It's the mechanism that controls energy release and creates that characteristic sound. I chose an anchor escapement design for its simplicity and reliability. Getting it to work with 3D printed parts required extensive tweaking of the anchor geometry and escape wheel tooth shape."
+        },
+        {
+          title: "Assembly and First Tick",
+          content: "The moment all the gears were assembled and I attached the pendulum, I held my breath. Would months of work pay off? I gave the pendulum a gentle push, and the clock started ticking. It wasn't perfect — the timekeeping was off by a few minutes per day — but hearing those first ticks was incredibly satisfying."
         }
       ]
     },
@@ -382,21 +401,25 @@ export const resumeData = {
   ],
   // Maps each technical skill to the project IDs that demonstrate it
   skillProjects: {
-    "PTC Creo/Pro Engineer": ["fsae-front-wing"],
-    "Siemens NX": [],
-    "SolidWorks": ["composites-lab", "asme-autonomous-car", "3d-printed-clock"],
-    "CATIA V5": ["force-motors-cad-migration"],
-    "AutoCAD": [],
-    "Fusion360": [],
-    "Ansys Mechanical": ["fsae-front-wing", "gala-precision-springs", "conrod-optimization"],
-    "Abaqus": []
+    "PTC Creo/Pro Engineer": ["fsae-front-wing", "gala-precision-springs"],
+    "Siemens NX": ["asme-autonomous-car"],
+    "SolidWorks": ["composites-lab", "3d-printed-clock"],
+    "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
+    "AutoCAD": ["composites-lab", "3d-printed-clock"],
+    "Fusion360": ["conrod-optimization", "3d-printed-clock"],
+    "Ansys Mechanical": ["fsae-front-wing", "gala-precision-springs"],
+    "Abaqus": [],
+    "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
+    "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
+    "Microsoft Office": ["fsae-front-wing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support"],
+    "GD&T": ["fsae-front-wing", "force-motors-cad-migration"],
+    "3D Printing/Rapid Prototyping": ["fsae-front-wing", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs
   certificationProjects: {
-    "CNC": ["composites-lab", "fsae-front-wing"],
-    "UTM": ["composites-lab"],
-    "Power tools": ["fsae-front-wing", "composites-lab"],
-    "Waterjet": ["composites-lab"]
+    "CNC/Waterjet": ["fsae-front-wing"],
+    "UTM": ["fsae-front-wing", "composites-lab"],
+    "Power tools": ["fsae-front-wing", "composites-lab", "gala-precision-springs"]
   } as Record<string, string[]>
 };
 

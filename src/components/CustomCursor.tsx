@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 // Must match LENS_CONFIG in CooperativeGridBackground for synchronization
 const CURSOR_CONFIG = {
@@ -15,6 +16,8 @@ export const CustomCursor = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const mouseRef = useRef({ x: -1000, y: -1000 });
     const lensRef = useRef({ x: -1000, y: -1000 });
+    const pathname = usePathname();
+    const isLifePage = pathname === '/life';
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -54,7 +57,7 @@ export const CustomCursor = () => {
             const lens = lensRef.current;
             const dpr = window.devicePixelRatio || 1;
 
-            const { inertia, baseArmLength, magnificationStrength, cursorColor } = CURSOR_CONFIG;
+            const { baseArmLength, magnificationStrength, cursorColor } = CURSOR_CONFIG;
 
             // 1. Update Position (Instant - No Inertia for Cursor)
             lens.x = mouse.x;
@@ -70,12 +73,21 @@ export const CustomCursor = () => {
             ctx.strokeStyle = cursorColor;
             ctx.lineWidth = 1 * dpr;
 
-            ctx.beginPath();
-            ctx.moveTo(lens.x - cursorSize, lens.y);
-            ctx.lineTo(lens.x + cursorSize, lens.y);
-            ctx.moveTo(lens.x, lens.y - cursorSize);
-            ctx.lineTo(lens.x, lens.y + cursorSize);
-            ctx.stroke();
+            if (isLifePage) {
+                // Hollow Circle Cursor for Life Page
+                ctx.strokeStyle = cursorColor;
+                ctx.beginPath();
+                ctx.arc(lens.x, lens.y, cursorSize, 0, Math.PI * 2);
+                ctx.stroke();
+            } else {
+                // Plus Cursor for other pages
+                ctx.beginPath();
+                ctx.moveTo(lens.x - cursorSize, lens.y);
+                ctx.lineTo(lens.x + cursorSize, lens.y);
+                ctx.moveTo(lens.x, lens.y - cursorSize);
+                ctx.lineTo(lens.x, lens.y + cursorSize);
+                ctx.stroke();
+            }
 
             animationFrameId = requestAnimationFrame(draw);
         };
@@ -87,7 +99,7 @@ export const CustomCursor = () => {
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationFrameId);
         };
-    }, []);
+    }, [isLifePage]); // Re-run when page changes
 
     return (
         <canvas
