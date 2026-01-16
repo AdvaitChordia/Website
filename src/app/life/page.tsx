@@ -64,13 +64,7 @@ export default function LifePage() {
 
     return (
         <>
-            {/* Curtain Reveal Transition */}
-            <motion.div
-                initial={{ transform: "translateY(0%)" }}
-                animate={{ transform: "translateY(-100%)" }}
-                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }} // Smooth ease
-                className="fixed inset-0 z-[100] bg-[#F8F3EA] pointer-events-none" // Color of the previous page (Home)
-            />
+
 
             <main className="min-h-screen">
                 {/* Custom Navbar for Life page */}
