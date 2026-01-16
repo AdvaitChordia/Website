@@ -87,10 +87,7 @@ export default function LifePage() {
                             <TransitionLink href="/" className="font-bold text-xl font-mono tracking-tighter" style={{ color: '#0B1957' }}>
                                 AC<span style={{ color: '#0B1957' }}>.</span>
                             </TransitionLink>
-                            <div className="flex items-center gap-4">
-                                <Sun className="w-5 h-5" style={{ color: '#1E382B' }} />
-                                <span className="text-sm font-mono" style={{ color: '#1E382B' }}>Personal Side</span>
-                            </div>
+
                         </div>
                     </div>
                 </nav>
