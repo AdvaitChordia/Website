@@ -397,13 +397,54 @@ export const resumeData = {
           content: "Grading isn't just about marking answers right or wrong — it's about understanding how students think and where their reasoning breaks down. With 90+ exams to grade per course, I developed an eye for common misconceptions and learned to provide feedback that actually helps students improve."
         }
       ]
+    },
+    {
+      id: "me170-footrest",
+      title: "ME170 | ARROW FOOTREST DESIGN",
+      role: "Design Team Member",
+      date: "Fall 2023",
+      image: "/projects/ME 170 Footrest project/Hero shot.png",
+      tags: ["Human-Centered Design", "CAD", "Injection Molding", "Sheet Metal", "GD&T"],
+      overview: "As part of a four-person team in ME170 (Design for Manufacturing), I helped design the ARROW Footrest — an adjustable, chair-mounted footrest that prioritizes comfort and modularity. We took the project from user interviews through CAD modeling and manufacturing planning.",
+      description: [
+        "Conducted user interviews with undergraduate students to identify comfort issues, driving the product ideation toward an adjustable, chair-mounted footrest solution.",
+        "Led concept selection using a Pugh matrix, evaluating four design alternatives against 11 criteria including manufacturability, cost, and ergonomics.",
+        "Developed complete CAD assembly in SolidWorks with detailed engineering drawings featuring GD&T specifications and tolerance analysis for H7/g6 and H7/k6 fits.",
+        "Designed for hybrid manufacturing using injection-molded ABS plastic and stamped sheet metal, targeting a $25-35 retail price with 10% profit margin."
+      ],
+      journal: [
+        {
+          title: "Human-Centered Design Process",
+          content: "The ARROW Footrest began with extensive user interviews. We spoke with undergraduate students who struggled to find comfort at their desks — in dorms, libraries, and study spaces. One key insight: students under 5'3\" had no good way to rest their feet while working at standard-height desks. This drove our focus toward a portable, chair-mounted solution rather than a floor-standing footrest that would take up space.",
+          image: "/projects/ME 170 Footrest project/Design sketches.png"
+        },
+        {
+          title: "Concept Selection & Trade-offs",
+          content: "We sketched four distinct concepts: a screw-clamp hinge design, a single-clamp with rubber stopper, a dual-clamp for 4-leg chairs, and a body-weight-secured folding design. Using a Pugh matrix with 11 criteria — from service life to manufacturing complexity — we systematically evaluated each against a datum. Concept 3 (dual-clamp) scored highest, but we iterated significantly to adapt it for office chair bases based on interview feedback."
+        },
+        {
+          title: "CAD Development",
+          content: "The final design consists of a modular assembly: a slider mechanism with steel base and ABS plastic components, a pipe-style clamp with eye bolt adjustment, and a replaceable platform. I focused on the clamp and linkage geometry in SolidWorks, ensuring the mechanism could handle 40 lbs of vertical force with less than 1.5\" deflection. The modular approach means users can swap platforms or replace individual components without buying a new footrest.",
+          image: "/projects/ME 170 Footrest project/Shaded Unexploded Assemly view.png"
+        },
+        {
+          title: "Design for Manufacturing",
+          content: "Material selection balanced durability against cost. Load-bearing components like the slider rail use stamped steel sheet metal, while the platform and pins use injection-molded ABS plastic for safety and weight reduction. We specified H7/g6 sliding fits for pin-hole interfaces (0.05-0.29mm clearance) and H7/k6 transition fits for the slider pan-rail interface to maintain contact under load. Target manufacturing cost under $20 enables our $30 retail price with required margins.",
+          image: "/projects/ME 170 Footrest project/Shaded Exploded Assemly view.png"
+        },
+        {
+          title: "Engineering Documentation",
+          content: "Every custom part received a detailed engineering drawing with full GD&T callouts per ASME Y14.5M-2018. The drawings specify tolerances achievable with standard machine tooling — we weren't designing for aerospace precision, but for reliable manufacturing at scale. The complete documentation package includes exploded assembly views, cross-sections showing internal fits, and a bill of materials with off-the-shelf hardware identified.",
+          image: "/projects/ME 170 Footrest project/Lower Clamp Engineering drawing sample.png"
+        }
+      ]
     }
   ],
   // Maps each technical skill to the project IDs that demonstrate it
   skillProjects: {
     "PTC Creo/Pro Engineer": ["fsae-front-wing", "gala-precision-springs"],
     "Siemens NX": ["asme-autonomous-car"],
-    "SolidWorks": ["composites-lab", "3d-printed-clock"],
+    "SolidWorks": ["composites-lab", "3d-printed-clock", "me170-footrest"],
     "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
     "AutoCAD": ["composites-lab", "3d-printed-clock"],
     "Fusion360": ["conrod-optimization", "3d-printed-clock"],
@@ -412,7 +453,7 @@ export const resumeData = {
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
     "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
     "Microsoft Office": ["fsae-front-wing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support"],
-    "GD&T": ["fsae-front-wing", "force-motors-cad-migration"],
+    "GD&T": ["fsae-front-wing", "force-motors-cad-migration", "me170-footrest"],
     "3D Printing/Rapid Prototyping": ["fsae-front-wing", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs

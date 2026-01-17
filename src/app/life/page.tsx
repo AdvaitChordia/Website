@@ -90,8 +90,8 @@ export default function LifePage() {
                 <section className="pt-40 pb-20 px-4 relative overflow-hidden text-center">
                     <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                         >
                             <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight" style={{ color: '#1E382B' }}>
