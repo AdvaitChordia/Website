@@ -379,22 +379,28 @@ export const resumeData = {
     {
       id: "uiuc-course-support",
       title: "UIUC MechSE | COURSE SUPPORT",
-      role: "Course Assistant",
+      role: "Course Assistant & Grader",
       date: "Aug 2024 – May 2025",
-      tags: ["Teaching", "Thermodynamics", "Mechanics", "Mentorship"],
-      overview: "Selected for academic excellence to support foundational mechanical engineering courses, grading assignments and helping fellow students master core concepts.",
+      image: "/projects/uiuc-course-support/Hero Shot.png",
+      tags: ["Teaching", "Statics", "Thermodynamics", "Mechanics"],
+      overview: "I worked as a course assistant for TAM 211 (Statics) and grader for ME 200 (Thermodynamics) and TAM 195 (Intro to Mechanics). Professors approached me after I performed well in these courses as a student.",
       description: [
-        "I was selected based on top academic performance to grade problem sets, midterms, and final exams for foundational mechanical engineering and thermodynamics courses, ensuring consistency and technical accuracy across over 90+ submissions per course.",
-        "I held weekly office hours to support students in mastering core concepts such as energy balances, system dynamics, and Newtonian mechanics — reinforcing subject understanding and building strong peer-to-peer communication skills."
+        "Graded homework sets, quizzes, and exams for three foundational engineering courses, handling 90+ submissions per assignment while maintaining consistency in evaluation.",
+        "Held 2+ hours of office hours weekly, helping students work through homework problems, clarify concepts, and prepare for quizzes.",
+        "Reviewed final exams before administration to check for errors and consistency in problem difficulty."
       ],
       journal: [
         {
-          title: "Teaching to Learn",
-          content: "There's a saying that the best way to learn something is to teach it. As a course assistant, I discovered how true this is. Explaining concepts like entropy, free body diagrams, and moment of inertia to struggling students forced me to truly understand the fundamentals. Every office hour was a learning experience for me as much as for the students."
+          title: "How I Got the Position",
+          content: "After finishing TAM 211, ME 200, and TAM 195 with strong grades, I was approached by the professors to help with the courses the following semester. It was a straightforward offer — they needed reliable graders who actually understood the material, and I wanted to stay sharp on the fundamentals."
         },
         {
-          title: "The Art of Grading",
-          content: "Grading isn't just about marking answers right or wrong — it's about understanding how students think and where their reasoning breaks down. With 90+ exams to grade per course, I developed an eye for common misconceptions and learned to provide feedback that actually helps students improve."
+          title: "The Grading Process",
+          content: "Most weeks involved grading 90+ homework submissions or quizzes. The key was staying consistent — if one student loses points for skipping units in their final answer, everyone does. I also reviewed final exams before they went out to catch any errors or ambiguous problem statements."
+        },
+        {
+          title: "Office Hours",
+          content: "I held office hours for 2+ hours every week. Students would come in with homework questions, concept gaps, or just wanting to talk through how to approach a problem. Explaining free body diagrams and energy balances over and over again actually reinforced my own understanding — it's one thing to solve a problem, another to explain why the approach works."
         }
       ]
     },
@@ -447,14 +453,15 @@ export const resumeData = {
     "SolidWorks": ["composites-lab", "3d-printed-clock", "me170-footrest"],
     "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
     "AutoCAD": ["composites-lab", "3d-printed-clock"],
-    "Fusion360": ["conrod-optimization", "3d-printed-clock"],
+    "Fusion360": ["conrod-optimization", "3d-printed-clock", "me170-footrest"],
     "Ansys Mechanical": ["fsae-front-wing", "gala-precision-springs"],
     "Abaqus": [],
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
     "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
-    "Microsoft Office": ["fsae-front-wing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support"],
+    "Microsoft Office": ["fsae-front-wing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
     "GD&T": ["fsae-front-wing", "force-motors-cad-migration", "me170-footrest"],
-    "3D Printing/Rapid Prototyping": ["fsae-front-wing", "3d-printed-clock"]
+    "3D Printing/Rapid Prototyping": ["fsae-front-wing", "3d-printed-clock"],
+    "Product Design": ["me170-footrest", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs
   certificationProjects: {
