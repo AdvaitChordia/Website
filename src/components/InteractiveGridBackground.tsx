@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // ============================================================================
@@ -40,6 +40,7 @@ const LENS_CONFIG = {
     // Base properties of the grid
     gridSpacing: 20,
     baseOpacity: 0.08,
+    mobileBaseOpacity: 0.18, // Higher opacity for mobile so grid is visible
     baseArmLength: 1.5,
     // Colors are now dynamic based on theme
 };
@@ -56,6 +57,7 @@ export const InteractiveGridBackground = () => {
     const pointsRef = useRef<GridPoint[]>([]);
     const pathname = usePathname();
     const isLifePage = pathname === '/life';
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     // Track both actual mouse and the "lens" (lagged) position
     const mouseRef = useRef({ x: -1000, y: -1000 });
@@ -72,14 +74,30 @@ export const InteractiveGridBackground = () => {
         shape: 'plus' as const,
     };
 
+    // Detect touch device on mount
+    useEffect(() => {
+        const checkTouchDevice = () => {
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const hasHover = window.matchMedia('(hover: hover)').matches;
+            const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+            // It's a touch device if it has touch AND (no hover OR coarse pointer)
+            setIsTouchDevice(hasTouch && (!hasHover || hasCoarsePointer));
+        };
+        checkTouchDevice();
+        window.addEventListener('resize', checkTouchDevice);
+        return () => window.removeEventListener('resize', checkTouchDevice);
+    }, []);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // Hide system cursor globally
-        document.body.style.cursor = 'none';
+        // Only hide system cursor on non-touch devices
+        if (!isTouchDevice) {
+            document.body.style.cursor = 'none';
+        }
 
         let animationFrameId: number;
 
@@ -128,7 +146,11 @@ export const InteractiveGridBackground = () => {
         };
 
         initGrid();
-        window.addEventListener("mousemove", handleMouseMove);
+
+        // Only add mouse listeners on non-touch devices
+        if (!isTouchDevice) {
+            window.addEventListener("mousemove", handleMouseMove);
+        }
         window.addEventListener("resize", handleResize);
 
         // Animation Loop
@@ -151,8 +173,12 @@ export const InteractiveGridBackground = () => {
                 magnificationStrength,
                 opacityBoost,
                 baseOpacity,
+                mobileBaseOpacity,
                 baseArmLength,
             } = LENS_CONFIG;
+
+            // Use higher base opacity on touch devices
+            const effectiveBaseOpacity = isTouchDevice ? mobileBaseOpacity : baseOpacity;
 
             // Scale config values to physical pixels
             const physicalRadius = activeRadius * dpr;
@@ -160,10 +186,11 @@ export const InteractiveGridBackground = () => {
             // Distortion strength is a displacement, so scale it too
             const physicalDistortion = distortionStrength * dpr;
 
-            // 1. UPDATE LENS POSITION (LERP)
-            // This creates the heavy/fluid lag effect
-            lens.x += (mouse.x - lens.x) * inertia;
-            lens.y += (mouse.y - lens.y) * inertia;
+            // 1. UPDATE LENS POSITION (LERP) - Only on non-touch devices
+            if (!isTouchDevice) {
+                lens.x += (mouse.x - lens.x) * inertia;
+                lens.y += (mouse.y - lens.y) * inertia;
+            }
 
             ctx.lineWidth = 0.5 * dpr; // Scale line width too
 
@@ -173,34 +200,36 @@ export const InteractiveGridBackground = () => {
 
                 let renderX = point.x;
                 let renderY = point.y;
-                let renderOpacity = baseOpacity;
+                let renderOpacity = effectiveBaseOpacity;
                 let renderScale = 1;
 
-                // 3. CALCULATE DISTORTION
-                const dx = renderX - lens.x;
-                const dy = renderY - lens.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+                // 3. CALCULATE DISTORTION - Only on non-touch devices
+                if (!isTouchDevice) {
+                    const dx = renderX - lens.x;
+                    const dy = renderY - lens.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < physicalRadius) {
-                    // Non-linear falloff
-                    // Use cubic falloff for steeper centering
-                    const ratio = 1 - dist / physicalRadius;
-                    const factor = ratio * ratio * ratio; // Cubic curve
+                    if (dist < physicalRadius) {
+                        // Non-linear falloff
+                        // Use cubic falloff for steeper centering
+                        const ratio = 1 - dist / physicalRadius;
+                        const factor = ratio * ratio * ratio; // Cubic curve
 
-                    // Displace OUTWARD to simulate lens magnification
-                    const displacement = factor * physicalDistortion;
+                        // Displace OUTWARD to simulate lens magnification
+                        const displacement = factor * physicalDistortion;
 
-                    if (dist > 0.1) {
-                        const dirX = dx / dist;
-                        const dirY = dy / dist;
-                        renderX += dirX * displacement;
-                        renderY += dirY * displacement;
+                        if (dist > 0.1) {
+                            const dirX = dx / dist;
+                            const dirY = dy / dist;
+                            renderX += dirX * displacement;
+                            renderY += dirY * displacement;
+                        }
+
+                        // Boost opacity and scale at center
+                        // "Summit" effect: points approach the cursor size
+                        renderOpacity += factor * opacityBoost;
+                        renderScale = 1 + (factor * magnificationStrength);
                     }
-
-                    // Boost opacity and scale at center
-                    // "Summit" effect: points approach the cursor size
-                    renderOpacity += factor * opacityBoost;
-                    renderScale = 1 + (factor * magnificationStrength);
                 }
 
                 ctx.strokeStyle = theme.gridColor;
@@ -232,11 +261,13 @@ export const InteractiveGridBackground = () => {
 
         return () => {
             document.body.style.cursor = 'auto'; // Restore cursor
-            window.removeEventListener("mousemove", handleMouseMove);
+            if (!isTouchDevice) {
+                window.removeEventListener("mousemove", handleMouseMove);
+            }
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationFrameId);
         };
-    }, [theme]); // Re-run effect when theme changes
+    }, [theme, isTouchDevice]); // Re-run effect when theme or touch detection changes
 
     return (
         <canvas

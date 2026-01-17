@@ -391,16 +391,16 @@ export const resumeData = {
       ],
       journal: [
         {
-          title: "How I Got the Position",
-          content: "After finishing TAM 211, ME 200, and TAM 195 with strong grades, I was approached by the professors to help with the courses the following semester. It was a straightforward offer — they needed reliable graders who actually understood the material, and I wanted to stay sharp on the fundamentals."
+          title: "Transition to Staff",
+          content: "After completing Statics (TAM 211), Thermodynamics (ME 200), and Intro to Mechanics (TAM 195), I was invited by the professors to join the course staff. I loved the job because it also was an opportunity to keep my fundamentals sharp. I wanted to stay engaged with the core principles of mechanical engineering, and there is no better way to maintain fluency in these subjects than by helping others navigate them."
         },
         {
-          title: "The Grading Process",
-          content: "Most weeks involved grading 90+ homework submissions or quizzes. The key was staying consistent — if one student loses points for skipping units in their final answer, everyone does. I also reviewed final exams before they went out to catch any errors or ambiguous problem statements."
+          title: "The Logic of Problem Solving",
+          content: "Grading hundreds of assignments offered a unique perspective on engineering logic. I wasn't just checking for correct answers; I was analyzing the thought process. I saw how five different students could approach the same force balance or energy equation in five different ways. Learning to follow someone else's derivation, and identifying exactly where their logic diverged from the solution, trained me to debug technical problems quickly. I also assisted in essentially Quality Assurance for final exams, vetting problems for consistency and clarity before they reached the students."
         },
         {
           title: "Office Hours",
-          content: "I held office hours for 2+ hours every week. Students would come in with homework questions, concept gaps, or just wanting to talk through how to approach a problem. Explaining free body diagrams and energy balances over and over again actually reinforced my own understanding — it's one thing to solve a problem, another to explain why the approach works."
+          content: "This was the most valuable part of the experience. During weekly office hours, I walked students through Free Body Diagrams (FBDs) and complex energy balances. The challenge wasn't solving the problems for them, but understanding their approach and guiding them past mental blocks. Explaining the 'why' behind a vector component or a thermodynamic assumption repeatedly didn't just help the students but reinforced my own understanding. It bridged the gap between knowing how to use a formula and deeply understanding the physical mechanics behind it."
         }
       ]
     },

@@ -79,7 +79,7 @@ export const Projects = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
         >
           <AnimatePresence mode="wait">
             {filteredProjects.map((project) => (
@@ -89,7 +89,7 @@ export const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="group relative h-[300px] bg-secondary/10 rounded-sm overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
+                className="group relative h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] bg-secondary/10 rounded-sm overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
               >
                 <Link href={`/projects/${project.id}`} className="block w-full h-full">
 
@@ -126,7 +126,7 @@ export const Projects = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="h-[300px] border border-dashed border-border rounded-sm bg-card/50 hover:bg-card transition-colors flex flex-col items-center justify-center p-6 gap-2 group cursor-default text-center"
+              className="h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] border border-dashed border-border rounded-sm bg-card/50 hover:bg-card transition-colors flex flex-col items-center justify-center p-6 gap-2 group cursor-default text-center"
             >
               <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
                 <Plus className="w-6 h-6 text-muted-foreground" />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // Must match LENS_CONFIG in CooperativeGridBackground for synchronization
@@ -18,8 +18,24 @@ export const CustomCursor = () => {
     const lensRef = useRef({ x: -1000, y: -1000 });
     const pathname = usePathname();
     const isLifePage = pathname === '/life';
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+    // Detect touch device on mount
+    useEffect(() => {
+        const checkTouchDevice = () => {
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const hasHover = window.matchMedia('(hover: hover)').matches;
+            const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+            setIsTouchDevice(hasTouch && (!hasHover || hasCoarsePointer));
+        };
+        checkTouchDevice();
+        window.addEventListener('resize', checkTouchDevice);
+        return () => window.removeEventListener('resize', checkTouchDevice);
+    }, []);
 
     useEffect(() => {
+        // Don't run cursor logic on touch devices
+        if (isTouchDevice) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
@@ -99,7 +115,10 @@ export const CustomCursor = () => {
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationFrameId);
         };
-    }, [isLifePage]); // Re-run when page changes
+    }, [isLifePage, isTouchDevice]); // Re-run when page or touch detection changes
+
+    // Don't render the canvas on touch devices
+    if (isTouchDevice) return null;
 
     return (
         <canvas

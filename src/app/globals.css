@@ -40,11 +40,15 @@
 body {
   color: var(--foreground);
   font-family: var(--font-sans);
-  cursor: none !important;
 }
 
-* {
-  cursor: none !important;
+/* Only hide cursor on devices that support hover (not touch) */
+@media (hover: hover) and (pointer: fine) {
+
+  body,
+  * {
+    cursor: none !important;
+  }
 }
 
 ::selection {
