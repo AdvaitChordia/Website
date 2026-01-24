@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Section } from "./Section";
 import { resumeData } from "@/data/resume";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, X } from "lucide-react";
 import Link from "next/link";
 
 export const Projects = () => {
@@ -119,22 +118,6 @@ export const Projects = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-
-          {/* New Project Placeholder - Only show on "All" view or if explicit */}
-          {activeFilter === "All" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] border border-dashed border-border rounded-sm bg-card/50 hover:bg-card transition-colors flex flex-col items-center justify-center p-6 gap-2 group cursor-default text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
-                <Plus className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <h3 className="text-sm font-bold text-muted-foreground">More Coming Soon</h3>
-              <p className="font-mono text-[10px] text-muted-foreground/70">Check back later</p>
-            </motion.div>
-          )}
         </motion.div>
 
         {filteredProjects.length === 0 && (

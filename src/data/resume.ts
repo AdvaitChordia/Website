@@ -266,6 +266,75 @@ export const resumeData = {
       ]
     },
     {
+      id: "me170-footrest",
+      title: "ME170 | ARROW FOOTREST DESIGN",
+      role: "Design Team Member",
+      date: "Fall 2023",
+      image: "/projects/ME 170 Footrest project/Hero shot.png",
+      tags: ["Human-Centered Design", "CAD", "Injection Molding", "Sheet Metal", "GD&T"],
+      overview: "As part of a four-person team in ME170 (Design for Manufacturing), I helped design the ARROW Footrest — an adjustable, chair-mounted footrest that prioritizes comfort and modularity. We took the project from user interviews through CAD modeling and manufacturing planning.",
+      description: [
+        "Conducted user interviews with undergraduate students to identify comfort issues, driving the product ideation toward an adjustable, chair-mounted footrest solution.",
+        "Led concept selection using a Pugh matrix, evaluating four design alternatives against 11 criteria including manufacturability, cost, and ergonomics.",
+        "Developed complete CAD assembly in SolidWorks with detailed engineering drawings featuring GD&T specifications and tolerance analysis for H7/g6 and H7/k6 fits.",
+        "Designed for hybrid manufacturing using injection-molded ABS plastic and stamped sheet metal, targeting a $25-35 retail price with 10% profit margin."
+      ],
+      journal: [
+        {
+          title: "Human-Centered Design Process",
+          content: "The ARROW Footrest began with extensive user interviews. We spoke with undergraduate students who struggled to find comfort at their desks — in dorms, libraries, and study spaces. One key insight: students under 5'3\" had no good way to rest their feet while working at standard-height desks. This drove our focus toward a portable, chair-mounted solution rather than a floor-standing footrest that would take up space.",
+          image: "/projects/ME 170 Footrest project/Design sketches.png"
+        },
+        {
+          title: "Concept Selection & Trade-offs",
+          content: "We sketched four distinct concepts: a screw-clamp hinge design, a single-clamp with rubber stopper, a dual-clamp for 4-leg chairs, and a body-weight-secured folding design. Using a Pugh matrix with 11 criteria — from service life to manufacturing complexity — we systematically evaluated each against a datum. Concept 3 (dual-clamp) scored highest, but we iterated significantly to adapt it for office chair bases based on interview feedback."
+        },
+        {
+          title: "CAD Development",
+          content: "The final design consists of a modular assembly: a slider mechanism with steel base and ABS plastic components, a pipe-style clamp with eye bolt adjustment, and a replaceable platform. I focused on the clamp and linkage geometry in SolidWorks, ensuring the mechanism could handle 40 lbs of vertical force with less than 1.5\" deflection. The modular approach means users can swap platforms or replace individual components without buying a new footrest.",
+          image: "/projects/ME 170 Footrest project/Shaded Unexploded Assemly view.png"
+        },
+        {
+          title: "Design for Manufacturing",
+          content: "Material selection balanced durability against cost. Load-bearing components like the slider rail use stamped steel sheet metal, while the platform and pins use injection-molded ABS plastic for safety and weight reduction. We specified H7/g6 sliding fits for pin-hole interfaces (0.05-0.29mm clearance) and H7/k6 transition fits for the slider pan-rail interface to maintain contact under load. Target manufacturing cost under $20 enables our $30 retail price with required margins.",
+          image: "/projects/ME 170 Footrest project/Shaded Exploded Assemly view.png"
+        },
+        {
+          title: "Engineering Documentation",
+          content: "Every custom part received a detailed engineering drawing with full GD&T callouts per ASME Y14.5M-2018. The drawings specify tolerances achievable with standard machine tooling — we weren't designing for aerospace precision, but for reliable manufacturing at scale. The complete documentation package includes exploded assembly views, cross-sections showing internal fits, and a bill of materials with off-the-shelf hardware identified.",
+          image: "/projects/ME 170 Footrest project/Lower Clamp Engineering drawing sample.png"
+        }
+      ]
+    },
+    {
+      id: "uiuc-course-support",
+      title: "UIUC MechSE | COURSE SUPPORT",
+      role: "Course Assistant & Grader",
+      date: "Aug 2024 – May 2025",
+      image: "/projects/uiuc-course-support/Hero Shot.png",
+      tags: ["Teaching", "Statics", "Thermodynamics", "Mechanics"],
+      overview: "I worked as a course assistant for TAM 211 (Statics) and grader for ME 200 (Thermodynamics) and TAM 195 (Intro to Mechanics). Professors approached me after I performed well in these courses as a student.",
+      description: [
+        "Graded homework sets, quizzes, and exams for three foundational engineering courses, handling 90+ submissions per assignment while maintaining consistency in evaluation.",
+        "Held 2+ hours of office hours weekly, helping students work through homework problems, clarify concepts, and prepare for quizzes.",
+        "Reviewed final exams before administration to check for errors and consistency in problem difficulty."
+      ],
+      journal: [
+        {
+          title: "Transition to Staff",
+          content: "After completing Statics (TAM 211), Thermodynamics (ME 200), and Intro to Mechanics (TAM 195), I was invited by the professors to join the course staff. I loved the job because it also was an opportunity to keep my fundamentals sharp. I wanted to stay engaged with the core principles of mechanical engineering, and there is no better way to maintain fluency in these subjects than by helping others navigate them."
+        },
+        {
+          title: "The Logic of Problem Solving",
+          content: "Grading hundreds of assignments offered a unique perspective on engineering logic. I wasn't just checking for correct answers; I was analyzing the thought process. I saw how five different students could approach the same force balance or energy equation in five different ways. Learning to follow someone else's derivation, and identifying exactly where their logic diverged from the solution, trained me to debug technical problems quickly. I also assisted in essentially Quality Assurance for final exams, vetting problems for consistency and clarity before they reached the students."
+        },
+        {
+          title: "Office Hours",
+          content: "This was the most valuable part of the experience. During weekly office hours, I walked students through Free Body Diagrams (FBDs) and complex energy balances. The challenge wasn't solving the problems for them, but understanding their approach and guiding them past mental blocks. Explaining the 'why' behind a vector component or a thermodynamic assumption repeatedly didn't just help the students but reinforced my own understanding. It bridged the gap between knowing how to use a formula and deeply understanding the physical mechanics behind it."
+        }
+      ]
+    },
+    {
       id: "3d-printed-clock",
       title: "3D PRINTED MECHANICAL CLOCK",
       role: "Personal Project",
@@ -373,75 +442,6 @@ export const resumeData = {
         {
           title: "Finding the Racing Line",
           content: "The key to fast lap times isn't just raw speed — it's finding the optimal path around the track. I spent hours analyzing corner geometries, calculating the fastest racing lines, and translating that knowledge into control logic. Every tenth of a second matters in competition."
-        }
-      ]
-    },
-    {
-      id: "uiuc-course-support",
-      title: "UIUC MechSE | COURSE SUPPORT",
-      role: "Course Assistant & Grader",
-      date: "Aug 2024 – May 2025",
-      image: "/projects/uiuc-course-support/Hero Shot.png",
-      tags: ["Teaching", "Statics", "Thermodynamics", "Mechanics"],
-      overview: "I worked as a course assistant for TAM 211 (Statics) and grader for ME 200 (Thermodynamics) and TAM 195 (Intro to Mechanics). Professors approached me after I performed well in these courses as a student.",
-      description: [
-        "Graded homework sets, quizzes, and exams for three foundational engineering courses, handling 90+ submissions per assignment while maintaining consistency in evaluation.",
-        "Held 2+ hours of office hours weekly, helping students work through homework problems, clarify concepts, and prepare for quizzes.",
-        "Reviewed final exams before administration to check for errors and consistency in problem difficulty."
-      ],
-      journal: [
-        {
-          title: "Transition to Staff",
-          content: "After completing Statics (TAM 211), Thermodynamics (ME 200), and Intro to Mechanics (TAM 195), I was invited by the professors to join the course staff. I loved the job because it also was an opportunity to keep my fundamentals sharp. I wanted to stay engaged with the core principles of mechanical engineering, and there is no better way to maintain fluency in these subjects than by helping others navigate them."
-        },
-        {
-          title: "The Logic of Problem Solving",
-          content: "Grading hundreds of assignments offered a unique perspective on engineering logic. I wasn't just checking for correct answers; I was analyzing the thought process. I saw how five different students could approach the same force balance or energy equation in five different ways. Learning to follow someone else's derivation, and identifying exactly where their logic diverged from the solution, trained me to debug technical problems quickly. I also assisted in essentially Quality Assurance for final exams, vetting problems for consistency and clarity before they reached the students."
-        },
-        {
-          title: "Office Hours",
-          content: "This was the most valuable part of the experience. During weekly office hours, I walked students through Free Body Diagrams (FBDs) and complex energy balances. The challenge wasn't solving the problems for them, but understanding their approach and guiding them past mental blocks. Explaining the 'why' behind a vector component or a thermodynamic assumption repeatedly didn't just help the students but reinforced my own understanding. It bridged the gap between knowing how to use a formula and deeply understanding the physical mechanics behind it."
-        }
-      ]
-    },
-    {
-      id: "me170-footrest",
-      title: "ME170 | ARROW FOOTREST DESIGN",
-      role: "Design Team Member",
-      date: "Fall 2023",
-      image: "/projects/ME 170 Footrest project/Hero shot.png",
-      tags: ["Human-Centered Design", "CAD", "Injection Molding", "Sheet Metal", "GD&T"],
-      overview: "As part of a four-person team in ME170 (Design for Manufacturing), I helped design the ARROW Footrest — an adjustable, chair-mounted footrest that prioritizes comfort and modularity. We took the project from user interviews through CAD modeling and manufacturing planning.",
-      description: [
-        "Conducted user interviews with undergraduate students to identify comfort issues, driving the product ideation toward an adjustable, chair-mounted footrest solution.",
-        "Led concept selection using a Pugh matrix, evaluating four design alternatives against 11 criteria including manufacturability, cost, and ergonomics.",
-        "Developed complete CAD assembly in SolidWorks with detailed engineering drawings featuring GD&T specifications and tolerance analysis for H7/g6 and H7/k6 fits.",
-        "Designed for hybrid manufacturing using injection-molded ABS plastic and stamped sheet metal, targeting a $25-35 retail price with 10% profit margin."
-      ],
-      journal: [
-        {
-          title: "Human-Centered Design Process",
-          content: "The ARROW Footrest began with extensive user interviews. We spoke with undergraduate students who struggled to find comfort at their desks — in dorms, libraries, and study spaces. One key insight: students under 5'3\" had no good way to rest their feet while working at standard-height desks. This drove our focus toward a portable, chair-mounted solution rather than a floor-standing footrest that would take up space.",
-          image: "/projects/ME 170 Footrest project/Design sketches.png"
-        },
-        {
-          title: "Concept Selection & Trade-offs",
-          content: "We sketched four distinct concepts: a screw-clamp hinge design, a single-clamp with rubber stopper, a dual-clamp for 4-leg chairs, and a body-weight-secured folding design. Using a Pugh matrix with 11 criteria — from service life to manufacturing complexity — we systematically evaluated each against a datum. Concept 3 (dual-clamp) scored highest, but we iterated significantly to adapt it for office chair bases based on interview feedback."
-        },
-        {
-          title: "CAD Development",
-          content: "The final design consists of a modular assembly: a slider mechanism with steel base and ABS plastic components, a pipe-style clamp with eye bolt adjustment, and a replaceable platform. I focused on the clamp and linkage geometry in SolidWorks, ensuring the mechanism could handle 40 lbs of vertical force with less than 1.5\" deflection. The modular approach means users can swap platforms or replace individual components without buying a new footrest.",
-          image: "/projects/ME 170 Footrest project/Shaded Unexploded Assemly view.png"
-        },
-        {
-          title: "Design for Manufacturing",
-          content: "Material selection balanced durability against cost. Load-bearing components like the slider rail use stamped steel sheet metal, while the platform and pins use injection-molded ABS plastic for safety and weight reduction. We specified H7/g6 sliding fits for pin-hole interfaces (0.05-0.29mm clearance) and H7/k6 transition fits for the slider pan-rail interface to maintain contact under load. Target manufacturing cost under $20 enables our $30 retail price with required margins.",
-          image: "/projects/ME 170 Footrest project/Shaded Exploded Assemly view.png"
-        },
-        {
-          title: "Engineering Documentation",
-          content: "Every custom part received a detailed engineering drawing with full GD&T callouts per ASME Y14.5M-2018. The drawings specify tolerances achievable with standard machine tooling — we weren't designing for aerospace precision, but for reliable manufacturing at scale. The complete documentation package includes exploded assembly views, cross-sections showing internal fits, and a bill of materials with off-the-shelf hardware identified.",
-          image: "/projects/ME 170 Footrest project/Lower Clamp Engineering drawing sample.png"
         }
       ]
     }
