@@ -4,6 +4,7 @@ import { Contact } from "@/components/Contact";
 import { ArrowLeft, FileText, Download, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectContent } from "@/components/ProjectContent";
 
 export function generateStaticParams() {
   return resumeData.projects.map((project) => ({
@@ -68,23 +69,47 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         </div>
       )}
 
-      {/* Hero Image - If no poster */}
+      {/* Hero Image - Compact with overlay */}
       {hasHeroImage && !hasPoster && (
-        <div className="pt-20 bg-gradient-to-b from-primary/5 to-transparent">
-          <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="pt-20">
+          <div className="max-w-6xl mx-auto px-4 py-6">
             <Link
               href="/#projects"
-              className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group"
+              className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-4 group"
             >
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Projects
             </Link>
 
             <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
+              {/* Compact hero image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-auto max-h-[600px] object-cover"
+                className="w-full h-[300px] md:h-[350px] object-cover object-[50%_25%]"
               />
+              {/* Overlay with project info */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <h1 className="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">{project.title}</h1>
+                <div className="flex flex-wrap items-center gap-3 text-white/90 font-mono text-sm mb-3">
+                  <span className="text-primary-foreground bg-primary/80 px-2 py-0.5 rounded">{project.role}</span>
+                  <span>{project.date}</span>
+                </div>
+                {hasTags && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, 5).map((tag: string, i: number) => (
+                      <span key={i} className="px-2 py-0.5 bg-white/20 backdrop-blur-sm text-xs font-mono text-white rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 5 && (
+                      <span className="px-2 py-0.5 bg-white/10 text-xs font-mono text-white/70 rounded-full">
+                        +{project.tags.length - 5} more
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -101,26 +126,28 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
           </Link>
         )}
 
-        {/* Header */}
-        <header className="mb-12 border-b border-border pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{project.title}</h1>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-muted-foreground font-mono text-sm mb-6">
-            <span className="text-primary">{project.role}</span>
-            <span className="hidden sm:block">•</span>
-            <span>{project.date}</span>
-          </div>
-
-          {/* Tags */}
-          {hasTags && (
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag: string, i: number) => (
-                <span key={i} className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-mono text-primary rounded-full">
-                  {tag}
-                </span>
-              ))}
+        {/* Header - Only show full header if no hero image overlay */}
+        {!hasHeroImage && (
+          <header className="mb-12 border-b border-border pb-8">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{project.title}</h1>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-muted-foreground font-mono text-sm mb-6">
+              <span className="text-primary">{project.role}</span>
+              <span className="hidden sm:block">•</span>
+              <span>{project.date}</span>
             </div>
-          )}
-        </header>
+
+            {/* Tags */}
+            {hasTags && (
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag: string, i: number) => (
+                  <span key={i} className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-mono text-primary rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </header>
+        )}
 
         {/* Document Links */}
         {(hasPoster || hasPaper || hasProposal || hasPresentation) && (
@@ -196,109 +223,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
           </div>
         )}
 
-        {/* Overview */}
-        {hasOverview && (
-          <div className="mb-16 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-border rounded-2xl">
-            <p className="text-xl text-foreground leading-relaxed italic">
-              "{project.overview}"
-            </p>
-          </div>
-        )}
-
-        {/* Photo Gallery */}
-        {hasPhotos && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-foreground">Gallery</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {project.photos.map((photo: { src: string; caption: string }, i: number) => (
-                <div key={i} className="group relative aspect-square rounded-lg overflow-hidden border border-border">
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="absolute bottom-3 left-3 right-3 text-white text-xs leading-relaxed">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Journal Entries */}
-        {hasJournal && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-foreground">My Journey</h2>
-            <div className="space-y-16">
-              {project.journal.map((entry: { title: string; content: string; image?: string }, i: number) => (
-                <article key={i} className="relative">
-                  {/* Entry number indicator */}
-                  <div className="absolute -left-4 top-0 w-8 h-8 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold">
-                    {i + 1}
-                  </div>
-
-                  <div className={`pl-8 ${entry.image ? 'grid md:grid-cols-2 gap-8 items-start' : ''}`}>
-                    <div>
-                      <h3 className="text-xl font-bold text-primary mb-4">{entry.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-lg font-light">
-                        {entry.content}
-                      </p>
-                    </div>
-                    {entry.image && (
-                      <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-lg">
-                        <img
-                          src={entry.image}
-                          alt={entry.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Key Contributions (brief) */}
-        <div className="mb-12 p-6 bg-card/50 border border-border rounded-xl">
-          <h2 className="text-lg font-bold mb-4 text-foreground">Key Results</h2>
-          <ul className="space-y-2">
-            {project.description.filter((d: string) => !d.startsWith('<!--')).map((desc: string, i: number) => (
-              <li key={i} className="flex items-start gap-3 text-muted-foreground font-light">
-                <span className="text-primary mt-1">✓</span>
-                <span>{desc}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Legacy sections support */}
-        {hasSections && !hasJournal && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-8 text-foreground">Project Details</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {project.sections.map((section: { title: string; content: string }, i: number) => (
-                <div key={i} className="p-6 bg-card border border-border rounded-lg hover:border-primary/30 transition-colors">
-                  <h3 className="text-lg font-bold text-primary mb-3">{section.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed font-light">{section.content}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Fallback for projects without enhanced content */}
-        {!hasOverview && !hasSections && !hasJournal && (
-          <div className="mt-16 p-8 border border-dashed border-border rounded bg-card/50 text-center">
-            <p className="text-muted-foreground font-mono text-sm">
-              Detailed case study content coming soon.
-            </p>
-          </div>
-        )}
+        <ProjectContent project={project} />
       </div>
 
       <Contact />

@@ -94,42 +94,112 @@ export const resumeData = {
       role: "Front Wing Structures Lead",
       date: "Aug 2024 – Present",
       image: "/projects/fsae/car-drifting.jpg",
-      tags: ["Carbon Fiber", "Composites", "FEA", "Motorsport", "Team Leadership"],
+      tags: ["Carbon Fiber", "Composites", "FEA - Ansys ACP/Mechanical", "PTC Creo", "Motorsport", "Team Leadership", "Design Optimization"],
       photos: [
-        { src: "/projects/fsae/car-drifting.jpg", caption: "Our electric race car drifting during testing day" },
+        { src: "/projects/fsae/Photo of internal structure + Struts layout.png", caption: "Final internal structure layout with struts" },
+        { src: "/projects/fsae/Top Opt struts.png", caption: "Topology-optimized dual-mainplane mounting struts" },
+        { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
         { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
-        { src: "/projects/fsae/rear-manufacturing.jpg", caption: "Manufacturing the rear aero package" }
+        { src: "/projects/fsae/Add to gallery.png", caption: "Detailed structural analysis & loading" },
+        { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" }
       ],
-      overview: "Leading the aerodynamics structures sub-team for Illini Electric Motorsport, I'm responsible for designing, analyzing, and manufacturing carbon fiber components that help our electric race car generate downforce while minimizing weight.",
+      overview: "Leading the front wing structures sub-team for Illini Electric Motorsport, I designed, analyzed, and manufactured the carbon fiber front wing assembly — including skins, internal ribs, spars, struts, and inserts — for our 2026 electric formula race car.",
       description: [
-        "I headed product development of an 8-element carbon fiber front wing using Ansys ACP and Mechanical to define ply schedules, limiting deflection to 0.125\" while minimizing mass.",
-        "I engineered carbon-fiber struts in PTC Creo, validated via Ansys Static Structural to withstand 1,533 N of downforce, achieving a 42% weight reduction compared to legacy aluminum designs.",
-        "I fabricated a complete 21-element aero package, executing 100+ hours of precision pre-preg carbon fiber layup to ensure high-fidelity surface finish.",
-        "I directed a team of 6 through the full 2026 vehicle lifecycle, managing timelines to ensure on-time delivery of design, manufacturing, and testing milestones."
+        "Achieved surface deflection below 0.1\" under 95 mph aero loads, exceeding the 0.125\" target.",
+        "Designed dual aluminum and carbon strut systems — carbon primary with aluminum backups for competition reliability.",
+        "Developed a Corecell-lined leading edge for improved impact absorption after rejecting aramid hybrid layups.",
+        "Topology-optimized strut geometry to address L⁴ scaling problem on 50\" span mainplane.",
+        "Directed a team of 6 through the full 2026 vehicle lifecycle, managing timelines for design, manufacturing, and testing milestones."
       ],
       journal: [
         {
-          title: "Defining the Design Requirements",
-          content: "Leading the front wing structures sub-team meant translating FSAE rules into hard engineering targets. Rule T.7.1.3 mandates that all aero devices remain stable without excessive oscillation at speed — we interpreted this as a maximum deflection of 0.125\" under static aero loads. Rule IN.6.6.2 adds a 200N proof load requirement with permanent deflection under 5mm. Beyond compliance, our own structural requirements (SR.1-4) demanded positive margins against yield and ultimate under combined aero, inertial, and cone strike loads, with a first natural frequency at least 3× the dominant road input (4-5 Hz). These targets drove every subsequent decision.",
-          image: "/projects/fsae/car-drifting.jpg"
+          title: "Design Goals & Constraints",
+          bullets: [
+            "Surface deflection ≤0.125\" under 95 mph aero loads (prevents deviation from designed airfoil profile)",
+            "Minimized spanwise bowing on the first mainplane (50\" unsupported span = L⁴ scaling problem)",
+            "Cone strike survival — front wing must not shatter on impact (lessons from last year's brittle failure)",
+            "First natural frequency ≥3× dominant road input (15+ Hz target)",
+            "FSAE Rule T.7.1.3: All aero devices must remain stable without excessive oscillation",
+            "Rule IN.6.6.2: 200N proof load with <5mm permanent deflection",
+            "Internal SR.1-4: Positive safety margins under combined aero, inertial, and cone strike loads"
+          ]
         },
         {
-          title: "Insert Material Selection: FDM vs SLS",
-          content: "The wing inserts — small structural elements that interface with the mounting hardware — sparked a deep material trade study. Initially, we planned to outsource SLS nylon parts through Stratasys, but I pushed for in-house FDM printing on our Bambu P1S. The rationale: inserts handle smaller loads than the primary structure, FDM simplifies iteration (no sponsor back-and-forth), and print time drops from 24+ hours to under 5. I benchmarked six materials — Polymaker PETG, Stratasys Nylon 6/12, and several carbon-filled options. 3DXTech Nylon 12 PA emerged as the winner with 8000 MPa tensile modulus and 72 MPa tensile strength at break. For smaller inserts requiring higher temperature resistance, Ultrafuse PAHT-CF15 (8386 MPa modulus, 103.2 MPa strength) was selected despite slightly higher cost.",
-          image: "/projects/fsae/rear-manufacturing.jpg"
+          title: "Learning from Last Year's Failures",
+          layout: "problem-solution",
+          items: [
+            {
+              problem: "Strut Failure (Carbon Anisotropy)",
+              idea: "Switch to aluminum vs. continue with carbon?",
+              solution: "Manufacture both aluminum and carbon struts — carbon as primary, aluminum as reinforced backup.",
+              rationale: "Aluminum's isotropic behavior ensures predictable failure modes if carbon snaps during competition."
+            },
+            {
+              problem: "Front Wing Shatter",
+              idea: "Use CF + Aramid hybrid layups for impact absorption?",
+              solution: "Introduce a Corecell-lined leading edge.",
+              rationale: "Aramid fibers frill and fray after impact, preventing clean aero geometry for repairs. Corecell absorbs energy efficiently via deformation."
+            }
+          ],
+          image: "/projects/fsae/Only mainplane 2 mounting struts.png"
         },
         {
-          title: "Internal Structure: Foam Core & Sandwich Panels",
-          content: "The wing's internal structure had to absorb inertial loading, aero forces, cone strikes, and the inevitable bumps from moving the car in and out of the trailer. I evaluated 13 foam options across Rohacell, Corecell, Gurit PVC, and standard EPS. Corecell I-40 stood out with its low density (45 kg/m³) and high elongation at break (40%) — we want the leading edge to deform under impact rather than shatter. For the leading edge core specifically, I selected Corecell M80 at 3mm thickness after sourcing it from MarineWare. The ribs and spars would be waterjet-cut from flat sandwich stock — either Corecell + carbon fiber or Balsa + carbon fiber — enabling rapid manufacturing from a single sheet.",
-          image: "/projects/fsae/car-assembly.jpg"
+          title: "FEA Exploration & Initial Solutions",
+          layout: "text",
+          content: "I ran FEA on the new airfoil geometry with a 3-ply schedule to understand deformation behavior.\n\nKey Finding: Extreme spanwise deformation — the first mainplane was acting like a simply supported beam with distributed load. Max deflection scales as L⁴ where L ≈ 50\" (span between mounting points).\n\nSolutions Explored:\n1. Safety cables on endplates to restrict deflection at the wingtips.\n2. Carbon spars at the center of pressure (cP) of each wing for flexural rigidity.\n3. Rib placement optimization to minimize surface deformation.\n\n(In the visualization to the right: light grey = aluminum, dark grey = carbon, yellow = corecell foam. Note: This initial FEA had additional connections making the result non-conservative.)",
+          image: "/projects/fsae/Only mainplane 2 mounting struts.png"
         },
         {
-          title: "Struts & Mounting Architecture",
-          content: "The struts transfer over 1,500 N of downforce from the wing elements to the chassis. After IDR feedback, I iterated on the design: carbon fiber tubes for the main load path (they're lightweight and awesome), with 3D-printed endcaps featuring parametric geometry so they update automatically when the wing profile changes. The FW strut analysis runs on pressure fields exported from Konstantin's 95 mph CFD simulation in Star CCM+, mapped directly onto the structural mesh in Ansys. We're at 90% design completion — final geometry locks once aero finalizes the load targets."
+          title: "Internal Structure Strategy",
+          layout: "text",
+          content: "The wing's internal structure had to absorb inertial loading, aero forces, and cone strikes. I evaluated 13 foam options (Rohacell, Corecell, Gurit PVC) to find a solution that could match our complex geometry.\n\nDecision: Selected Corecell M80 (3mm) for the leading edge core.\n\nReasoning: Unlike honeycomb which cannot conform to tight airfoil radii, or brittle foams that shatter, Corecell offers high elongation at break (40%) — allowing the leading edge to deform and absorb energy during a cone strike rather than fracturing. The ribs and spars were waterjet-cut from flat sandwich stock (Corecell + Carbon), enabling rapid manufacturing from single sheets.",
+          image: "/projects/fsae/Photo of internal structure + Struts layout.png"
         },
         {
-          title: "Lessons from IDR Feedback",
-          content: "The Internal Design Review exposed gaps I hadn't anticipated. Judges questioned why we specified Hoerner wingtips on a cascade arrangement, and pushed back on our 2.5× FEA safety factor as overkill (team standard is 3×). They loved the crossbrace concept — even though the IM rear wing got criticized for it, ours is structurally valid. The biggest takeaway: document your assumptions. I now maintain a living DCR (Design Control Requirements) table linking every requirement to its validation method — FEA, CFD, hand calc, or physical testing. It keeps the team aligned and gives judges the traceability they want to see."
+          title: "The Dual-Mainplane Mounting Decision",
+          layout: "problem-solution",
+          items: [
+            {
+              problem: "Extreme Bowing",
+              idea: "Mount struts only on the first mainplane (legacy weight saving).",
+              solution: "Switch to dual-mainplane mounting struts.",
+              rationale: "The 50\" simply supported span caused 'smile-shaped' bowing due to L⁴ scaling. Dual mounting cut the unsupported span effectively."
+            }
+          ],
+          image: "/projects/fsae/Top Opt struts.png"
+        },
+        {
+          title: "Ply Schedule & Material Selection",
+          layout: "table",
+          table: {
+            headers: ["Component", "Material", "Ply Schedule", "Design Rationale"],
+            rows: [
+              ["Mainplane 1", "TC 250", "[45, -45]", "Torsional Stiffness"],
+              ["Mainplane 2", "TC 250", "[45, -45]", "Torsional Stiffness"],
+              ["Elements", "TC 250", "[0, 0]", "Flexural Rigidity"],
+              ["Spars", "TC 275", "[0,0,0,0,0]", "Flexural Rigidity"],
+              ["Mounting Inserts", "7075 Al", "1C1 [0.125\" core]", "Buckling Resistance"],
+              ["Endplates", "TC 250", "[0, -30]", "Flexural Rigidity"]
+            ]
+          }
+        },
+        {
+          title: "Validation & Results",
+          layout: "checklist",
+          checklist: [
+            "Surface deflection maintained below 0.1\" (Goal: ≤0.125\")",
+            "Spanwise bowing reduced — total deformation within limits",
+            "All safety margins positive under combined loading",
+            "Buckling issue identified on MP1 — Patch ply solution implemented",
+            "Every fastener safety-factored and validated",
+            "Custom inserts designed for all wing attachments"
+          ],
+          image: "/projects/fsae/Final deflection at 95 mph aero loads.png"
+        },
+        {
+          title: "Manufacturing & Current Status",
+          layout: "text",
+          content: "Design is 90% complete and manufacturing has now begun. Our approach involves adding a layer of peel ply on the inside of the skins to prep the surface for bonding. The internal structures (ribs and spars) connect together in an almost lap-joint method, allowing adhesive to be added for secure bonding. The assembly sequence proceeds from skin layup to peeling the interior, followed by bonding the ribs/spars and final close-out."
         }
       ]
     },
