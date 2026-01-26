@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // Car photography images
@@ -102,12 +103,13 @@ export default function CarsPage() {
                                     className="relative aspect-[4/3] cursor-pointer group overflow-hidden rounded-xl"
                                     onClick={() => setSelectedIndex(index)}
                                 >
-                                    <img
+                                    <Image
                                         src={photo.src}
                                         alt={photo.title}
-                                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${loaded.has(index) ? 'opacity-100' : 'opacity-0'
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className={`object-cover transition-all duration-700 group-hover:scale-105 ${loaded.has(index) ? 'opacity-100' : 'opacity-0'
                                             }`}
-                                        loading="lazy"
                                         onLoad={() => setLoaded((prev) => new Set(prev).add(index))}
                                     />
                                     {!loaded.has(index) && (

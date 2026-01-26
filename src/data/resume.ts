@@ -96,7 +96,7 @@ export const resumeData = {
       image: "/projects/fsae/car-drifting.jpg",
       tags: ["Carbon Fiber", "Composites", "FEA - Ansys ACP/Mechanical", "PTC Creo", "Motorsport", "Team Leadership", "Design Optimization"],
       photos: [
-        { src: "/projects/fsae/Photo of internal structure + Struts layout.png", caption: "Final internal structure layout with struts" },
+        { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
         { src: "/projects/fsae/Top Opt struts.png", caption: "Topology-optimized dual-mainplane mounting struts" },
         { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
         { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
@@ -140,8 +140,7 @@ export const resumeData = {
               solution: "Introduce a Corecell-lined leading edge.",
               rationale: "Aramid fibers frill and fray after impact, preventing clean aero geometry for repairs. Corecell absorbs energy efficiently via deformation."
             }
-          ],
-          image: "/projects/fsae/Only mainplane 2 mounting struts.png"
+          ]
         },
         {
           title: "FEA Exploration & Initial Solutions",
@@ -153,7 +152,7 @@ export const resumeData = {
           title: "Internal Structure Strategy",
           layout: "text",
           content: "The wing's internal structure had to absorb inertial loading, aero forces, and cone strikes. I evaluated 13 foam options (Rohacell, Corecell, Gurit PVC) to find a solution that could match our complex geometry.\n\nDecision: Selected Corecell M80 (3mm) for the leading edge core.\n\nReasoning: Unlike honeycomb which cannot conform to tight airfoil radii, or brittle foams that shatter, Corecell offers high elongation at break (40%) — allowing the leading edge to deform and absorb energy during a cone strike rather than fracturing. The ribs and spars were waterjet-cut from flat sandwich stock (Corecell + Carbon), enabling rapid manufacturing from single sheets.",
-          image: "/projects/fsae/Photo of internal structure + Struts layout.png"
+          image: "/projects/fsae/Photo of internal structure and Struts layout.png"
         },
         {
           title: "The Dual-Mainplane Mounting Decision",

@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // Film photography images
@@ -141,12 +142,13 @@ export default function PhotographyPage() {
                                     className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-lg"
                                     onClick={() => setSelectedIndex(index)}
                                 >
-                                    <img
+                                    <Image
                                         src={src}
                                         alt={`Film photo ${index + 1}`}
+                                        width={400}
+                                        height={600}
                                         className={`w-full h-auto transition-all duration-500 group-hover:scale-105 ${loaded.has(index) ? 'opacity-100' : 'opacity-0'
                                             }`}
-                                        loading="lazy"
                                         onLoad={() => setLoaded((prev) => new Set(prev).add(index))}
                                     />
                                     {!loaded.has(index) && (

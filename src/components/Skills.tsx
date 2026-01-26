@@ -5,6 +5,7 @@ import { Section } from "./Section";
 import { resumeData } from "@/data/resume";
 import { motion } from "framer-motion";
 import { SkillModal } from "./SkillModal";
+import Image from "next/image";
 
 export const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
@@ -330,10 +331,12 @@ const CourseModal = ({ course, onClose }: { course: string; onClose: () => void 
                         className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden"
                       >
                         {'image' in project && project.image ? (
-                          <img
+                          <Image
                             src={project.image as string}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="56px"
+                            className="object-cover"
                           />
                         ) : (
                           <span className="text-2xl">📁</span>
@@ -478,10 +481,12 @@ const CertificationModal = ({ cert, onClose }: { cert: string; onClose: () => vo
                         className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden"
                       >
                         {'image' in project && project.image ? (
-                          <img
+                          <Image
                             src={project.image as string}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="56px"
+                            className="object-cover"
                           />
                         ) : (
                           <span className="text-2xl">📁</span>

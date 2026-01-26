@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Coffee, Camera, Car, TreePine, Heart, Sun } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { TransitionLink } from "@/components/PageTransition";
 
@@ -215,13 +216,14 @@ export default function LifePage() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.05 + 0.3 }}
-                                    className="aspect-square rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+                                    className="aspect-square rounded-xl overflow-hidden shadow-lg group cursor-pointer relative"
                                 >
-                                    <img
+                                    <Image
                                         src={src}
                                         alt={`Car photo ${i + 1}`}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        loading="lazy"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </motion.div>
                             ))}

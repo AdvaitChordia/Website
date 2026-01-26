@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, FolderOpen, Sparkles } from "lucide-react";
 import { resumeData } from "@/data/resume";
 import Link from "next/link";
+import Image from "next/image";
 
 interface SkillModalProps {
     skill: string | null;
@@ -222,10 +223,12 @@ export const SkillModal = ({ skill, onClose }: SkillModalProps) => {
                                                                 className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden"
                                                             >
                                                                 {'image' in project && project.image ? (
-                                                                    <img
+                                                                    <Image
                                                                         src={project.image as string}
                                                                         alt={project.title}
-                                                                        className="w-full h-full object-cover"
+                                                                        fill
+                                                                        sizes="56px"
+                                                                        className="object-cover"
                                                                     />
                                                                 ) : (
                                                                     <FolderOpen className="w-6 h-6 text-primary" />

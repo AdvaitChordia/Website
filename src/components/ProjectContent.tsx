@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
+import Image from 'next/image';
 
 export function ProjectContent({ project }: { project: any }) {
     const [selectedImage, setSelectedImage] = useState<{ src: string; caption: string } | null>(null);
@@ -65,9 +66,11 @@ export function ProjectContent({ project }: { project: any }) {
                                                 >
                                                     <div className="p-2">
                                                         <div className="relative rounded-lg overflow-hidden">
-                                                            <img
+                                                            <Image
                                                                 src={entry.image}
                                                                 alt={entry.title}
+                                                                width={600}
+                                                                height={400}
                                                                 className="w-full h-auto"
                                                             />
                                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -192,9 +195,11 @@ export function ProjectContent({ project }: { project: any }) {
                                     transition={{ duration: 0.2 }}
                                 >
                                     <div className="p-2">
-                                        <img
+                                        <Image
                                             src={photo.src}
                                             alt={photo.caption}
+                                            width={600}
+                                            height={400}
                                             className="w-full h-auto rounded-lg"
                                         />
                                     </div>

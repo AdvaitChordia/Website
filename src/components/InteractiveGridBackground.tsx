@@ -68,10 +68,12 @@ export const InteractiveGridBackground = () => {
         backgroundColor: '#E6D8C7', // Beige
         gridColor: '#1E382B',       // Dark Green
         shape: 'circle' as const,
+        inertia: 0.05,              // Lower inertia = slower/relaxed feel
     } : {
         backgroundColor: '#F8F3EA', // Off-White
         gridColor: '#0B1957',       // Navy Blue
         shape: 'plus' as const,
+        inertia: 0.18,              // Higher inertia = snappy/nimble feel
     };
 
     // Detect touch device on mount
@@ -167,7 +169,6 @@ export const InteractiveGridBackground = () => {
             const dpr = window.devicePixelRatio || 1;
 
             const {
-                inertia,
                 activeRadius,
                 distortionStrength,
                 magnificationStrength,
@@ -176,6 +177,9 @@ export const InteractiveGridBackground = () => {
                 mobileBaseOpacity,
                 baseArmLength,
             } = LENS_CONFIG;
+
+            // Use theme-specific inertia
+            const inertia = theme.inertia;
 
             // Use higher base opacity on touch devices
             const effectiveBaseOpacity = isTouchDevice ? mobileBaseOpacity : baseOpacity;

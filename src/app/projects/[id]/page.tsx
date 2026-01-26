@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Contact } from "@/components/Contact";
 import { ArrowLeft, FileText, Download, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProjectContent } from "@/components/ProjectContent";
 
@@ -82,11 +83,16 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
 
             <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
               {/* Compact hero image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[300px] md:h-[350px] object-cover object-[50%_25%]"
-              />
+              <div className="relative w-full h-[300px] md:h-[350px]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  className="object-cover object-[50%_25%]"
+                  priority
+                />
+              </div>
               {/* Overlay with project info */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
