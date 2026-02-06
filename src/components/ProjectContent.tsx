@@ -56,7 +56,7 @@ export function ProjectContent({ project }: { project: any }) {
 
                                         {/* Image handling - Interactive & Floated */}
                                         {entry.image && !isHeroImage && (
-                                            <div className="md:float-right md:ml-8 mb-6 md:mb-2 md:max-w-[45%]">
+                                            <div className="md:float-right md:ml-8 mb-6 md:mb-2 md:max-w-[55%]">
                                                 <motion.button
                                                     layoutId={`image-${entry.image}`}
                                                     onClick={() => setSelectedImage({ src: entry.image, caption: entry.caption || entry.title })}
@@ -161,8 +161,70 @@ export function ProjectContent({ project }: { project: any }) {
                                                 </ul>
                                             )}
 
-                                            {/* 5. Text Layout */}
-                                            {(entry.layout === 'text' || (!entry.layout && !entry.bullets && !entry.checklist && !entry.items && !entry.table)) && (
+                                            {/* 5. Code Layout */}
+                                            {entry.layout === 'code' && entry.code && (
+                                                <div className="rounded-xl overflow-hidden border border-border bg-[#1a1a2e]">
+                                                    {entry.language && (
+                                                        <div className="px-4 py-2 bg-[#16162a] text-xs text-gray-400 uppercase tracking-wider font-mono border-b border-border">
+                                                            {entry.language}
+                                                        </div>
+                                                    )}
+                                                    <pre className="p-4 overflow-x-auto text-sm leading-relaxed">
+                                                        <code className="text-gray-200 font-mono whitespace-pre">
+                                                            {entry.code}
+                                                        </code>
+                                                    </pre>
+                                                </div>
+                                            )}
+                                            {/* 6. Subsections Layout */}
+                                            {entry.layout === 'subsections' && entry.subsections && (
+                                                <div className="space-y-8">
+                                                    {entry.intro && (
+                                                        <div className="whitespace-pre-line mb-6">
+                                                            {entry.intro}
+                                                        </div>
+                                                    )}
+                                                    {entry.subsections.map((sub: any, j: number) => (
+                                                        <div key={j} className="pl-4 border-l-2 border-primary/30">
+                                                            <h4 className="text-lg font-semibold text-foreground mb-3">{sub.title}</h4>
+                                                            {sub.image && (
+                                                                <motion.button
+                                                                    layoutId={`image-sub-${sub.image}`}
+                                                                    onClick={() => setSelectedImage({ src: sub.image, caption: sub.caption || sub.title })}
+                                                                    className="md:float-right md:ml-6 mb-4 md:mb-2 md:max-w-[50%] w-full text-left rounded-xl overflow-hidden border border-border shadow-lg cursor-zoom-in group bg-card"
+                                                                    whileHover={{ scale: 1.02 }}
+                                                                    transition={{ duration: 0.2 }}
+                                                                >
+                                                                    <div className="p-2">
+                                                                        <div className="relative rounded-lg overflow-hidden">
+                                                                            <Image
+                                                                                src={sub.image}
+                                                                                alt={sub.title}
+                                                                                width={500}
+                                                                                height={350}
+                                                                                className="w-full h-auto"
+                                                                            />
+                                                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                                                                <ZoomIn className="w-6 h-6 text-white drop-shadow-md" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {sub.caption && (
+                                                                        <p className="text-xs text-muted-foreground mt-0 mb-2 italic text-center px-4">{sub.caption}</p>
+                                                                    )}
+                                                                </motion.button>
+                                                            )}
+                                                            <div className="whitespace-pre-line text-muted-foreground">
+                                                                {sub.content}
+                                                            </div>
+                                                            <div className="clear-both" />
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+
+                                            {/* 7. Text Layout (default) */}
+                                            {(entry.layout === 'text' || (!entry.layout && !entry.bullets && !entry.checklist && !entry.items && !entry.table && !entry.code && !entry.subsections)) && (
                                                 <div className="whitespace-pre-line">
                                                     {entry.content}
                                                 </div>

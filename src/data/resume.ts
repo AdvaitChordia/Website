@@ -210,24 +210,87 @@ export const resumeData = {
       image: "/projects/force-motors-crankshaft/engine-graphic.png",
       presentation: "/projects/force-motors-crankshaft/presentation.pdf",
       paper: "/projects/force-motors-crankshaft/report.pdf",
-      tags: ["Python", "Crankshaft Design", "Balancing", "Automotive"],
-      overview: "At Force Motors, I developed computational tools to accelerate the design of a new 8-web crankshaft capable of handling higher peak firing pressures — a critical upgrade for their next-generation diesel engines.",
+      tags: ["Analytical Modeling", "Design Validation", "Python", "CATIA V5", "Automotive"],
+      photos: [
+        { src: "/projects/force-motors-crankshaft/Comparison of Assembly vs Individually Balanced Crankshaft.png", caption: "Assembly vs. Individually Balanced Crankshaft comparison" },
+        { src: "/projects/force-motors-crankshaft/Crank Pin Dimensions.png", caption: "Crank pin dimensions derived from stress analysis" },
+        { src: "/projects/force-motors-crankshaft/Crank Web Dimensions.png", caption: "Crank web geometry under compressive loads" },
+        { src: "/projects/force-motors-crankshaft/Main Shaft Dimensions.png", caption: "Main shaft requirements for torsional stress resistance" },
+        { src: "/projects/force-motors-crankshaft/Table 6 Total Remaining Unbalance.png", caption: "Final balancing results — 58.63 g-mm residual unbalance" },
+        { src: "/projects/force-motors-crankshaft/The UV Dye Penetrant Inspection showing the failure point.png", caption: "UV dye penetrant inspection showing the predicted failure point" }
+      ],
+      overview: "At Force Motors, I developed analytical frameworks to validate the design of a new individually-balanced 8-web crankshaft. My work focused on creating mathematical models for geometric constraints and balancing calculations, enabling design validation before physical prototyping.",
       description: [
-        "I developed a Python-based mechanical guideline to define critical component geometry for a new 8-web crankshaft prototype with an increased peak firing pressure, reducing simulation iterations by an estimated 20-25%.",
-        "I formulated an Excel-based tool to calculate optimal counterweight COG placement using polar moment of inertia, reducing static and dynamic crankshaft imbalance by >90%."
+        "Developed a mathematical framework to determine minimum safe dimensions for crankpins, webs, and shafts under peak combustion forces of 65.4 kN.",
+        "Built a physics-based balancing model to quantify system unbalance and design counterweights, achieving a 49.6% balancing rate with only 58.63 g-mm residual unbalance.",
+        "Generated fatigue test parameters for physical validation at ARAI, defining load amplitudes and frequencies to simulate engine operation."
       ],
       journal: [
         {
-          title: "Walking Into an OEM Powertrain Team",
-          content: "Force Motors isn't just any manufacturer — they produce engines for Mercedes-Benz and BMW in India. Walking into their powertrain engineering department, I knew I was joining a team with serious technical depth. My project: help design a crankshaft that could handle 20% higher combustion pressures than the current production unit."
+          title: "Design Goals & Constraints",
+          layout: "text",
+          content: "The primary objective was to transition from assembly balancing to individual (internal) balancing. This shift aimed to eliminate the internal torsional flex inherent in assembly-balanced systems and allow for component interchangeability.\n\nThe design had to adhere to strict mechanical constraints defined by the material properties of 38MnVs6 High-Strength Steel:\n\n1. Geometric Limits — The crankpin and web dimensions were constrained by bearing pressure limits (10-12 N/mm²) and bending stress thresholds.\n\n2. Manufacturing Constraints — The design had to accommodate the forging process used at Force Motors, ensuring proper grain flow and fatigue resistance.\n\n3. Performance Goal — Achieve a balancing rate close to 50% to neutralize static and couple unbalance at the source.",
+          image: "/projects/force-motors-crankshaft/Comparison of Assembly vs Individually Balanced Crankshaft.png"
         },
         {
-          title: "Building the Design Guideline Tool",
-          content: "The challenge with crankshaft design is the sheer number of parameters — web geometry, journal diameters, fillet radii, counterweight placement. Traditionally, engineers would iterate through dozens of FEA runs to converge on a good design. I built a Python tool that encapsulated the mechanical design guidelines, automatically checking geometry against limits and predicting stress concentrations before running expensive simulations."
+          title: "Geometric Design Framework",
+          layout: "subsections",
+          intro: "I developed a mathematical framework to determine the minimum safe dimensions for critical features. This involved calculating stress vectors under peak combustion forces of 65.4 kN.",
+          subsections: [
+            {
+              title: "Crank Pin Analysis",
+              content: "Calculated minimum crankpin diameter based on allowable shear stress and bending moment from peak gas loads. The bearing pressure limits (10-12 N/mm²) constrained the journal-to-web ratio.",
+              image: "/projects/force-motors-crankshaft/Crank Pin Dimensions.png"
+            },
+            {
+              title: "Crank Web Analysis",
+              content: "Determined crank web thickness required to withstand compressive loads at Top Dead Center. The web must transfer the full gas force from the crankpin to the main journals without yielding.",
+              image: "/projects/force-motors-crankshaft/Crank Web Dimensions.png"
+            },
+            {
+              title: "Main Shaft Analysis",
+              content: "Modeled the main shaft requirements to resist torsional stress when the connecting rod is at a 90-degree angle — the position of maximum torque transfer.\n\nThe geometric framework confirmed that the current design (150 bar peak pressure) fell within the safe regions for bending, shear, and compressive stress.",
+              image: "/projects/force-motors-crankshaft/Main Shaft Dimensions.png"
+            }
+          ]
         },
         {
-          title: "Solving the Balancing Puzzle",
-          content: "A crankshaft spinning at 4000+ RPM generates enormous centrifugal forces. If the counterweights aren't positioned correctly, those forces create vibrations that destroy bearings and make engines sound terrible. I developed a spreadsheet tool that calculated optimal counterweight center-of-gravity positions using polar moment of inertia equations, reducing both static and dynamic imbalance by over 90%."
+          title: "Analytical Balancing Model",
+          layout: "text",
+          content: "I built a physics model to quantify the system's inherent unbalance and design the necessary counterweights.\n\n1. Extracted Mass and Center of Gravity (CoG) data for every component directly from CATIA.\n\n2. Resolved the static and couple unbalance into X and Y vector components.\n\n3. Iteratively designed counterweights to create opposing moments, targeting a net-zero unbalance state.\n\nThe pseudocode below shows the balancing rate calculation logic:"
+        },
+        {
+          title: "Balancing Algorithm",
+          layout: "code",
+          language: "python",
+          code: "def calculate_balancing_rate(components, counterweights):\n    \"\"\"\n    Calculates the balancing rate by comparing original vs. residual moments.\n    Inputs extracted from CATIA models (Mass, Radius, Angle, Axial_Dist).\n    \"\"\"\n    \n    # 1. Calculate Inherent Unbalance (Static & Couple)\n    # Static = m * r (Force)\n    # Couple = m * r * l (Moment)\n    \n    total_static_x = 0\n    total_static_y = 0\n    original_moment_sum = 0\n    \n    for part in components:\n        # Resolve forces into vectors\n        fx = part.mass * part.radius * cos(part.angle)\n        fy = part.mass * part.radius * sin(part.angle)\n        \n        # Sum forces (Static Unbalance)\n        total_static_x += fx\n        total_static_y += fy\n        \n        # Sum moments (Couple Unbalance)\n        original_moment_sum += sqrt((fx * part.axial_dist)**2 + (fy * part.axial_dist)**2)\n\n    # 2. Apply Counterweights (Opposing Force)\n    residual_moment_sum = original_moment_sum\n    \n    for cw in counterweights:\n        # Counterweights provide negative (opposing) vectors\n        cw_moment = cw.mass * cw.radius * cw.axial_dist\n        residual_moment_sum -= cw_moment\n\n    # 3. Compute Balancing Rate\n    # Target is 50% for optimal individual balancing\n    balancing_rate = (1 - (residual_moment_sum / original_moment_sum)) * 100\n    \n    return balancing_rate\n\n# Result obtained from model: 49.6%"
+        },
+        {
+          title: "Results: Final Unbalance Values",
+          layout: "table",
+          table: {
+            headers: ["Measurement", "X (g-mm)", "Y (g-mm)", "Resultant (g-mm)"],
+            rows: [
+              ["Static Unbalance", "12.80", "-57.22", "58.63"],
+              ["Couple Unbalance", "-20.36", "153.42", "154.77"]
+            ]
+          }
+        },
+        {
+          title: "Results Summary",
+          layout: "checklist",
+          checklist: [
+            "Balancing Rate: 49.6% — near the optimal 50% target for individual balancing",
+            "Static Unbalance Resultant: 58.63 g-mm — well below the 250 g-mm industry tolerance",
+            "Couple Unbalance Resultant: 154.77 g-mm — within acceptable limits",
+            "Design Robustness: All dimensions fell within safe stress limits for 150 bar operating pressure"
+          ]
+        },
+        {
+          title: "Physical Validation",
+          layout: "text",
+          content: "Physical testing was conducted at ARAI (Automotive Research Association of India) to validate the analytical predictions.\n\nMethod: A high-frequency pulsator subjected the crankpins to alternating tensile (18 kN) and compressive (55 kN) loads.\n\nDurability: The prototype survived the target of 5 million cycles at a Factor of Safety (FOS) of 2.5.\n\nFailure Correlation: Samples tested at an extreme FOS of 3.0 failed exactly as predicted by our FEA models, confirming the accuracy of the simulation tools.",
+          image: "/projects/force-motors-crankshaft/The UV Dye Penetrant Inspection showing the failure point.png"
         }
       ]
     },
@@ -246,7 +309,10 @@ export const resumeData = {
         { src: "/projects/conrod-optimization/Bending scenario.png", caption: "Transverse whipping load at 90° crank angle" },
         { src: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for I beam config.png", caption: "Optimized I-beam cross-sectional geometry" },
         { src: "/projects/conrod-optimization/Represented cross sectional areas along the shank length.png", caption: "I-beam cross-section evolution along the shank" },
-        { src: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for H beam config.png", caption: "H-beam geometry for comparative study" }
+        { src: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for H beam config.png", caption: "H-beam geometry for comparative study" },
+        { src: "/projects/conrod-optimization/top 3 quarter render optimized conrod.png", caption: "CAD render: Optimized I-beam shank (3/4 view)" },
+        { src: "/projects/conrod-optimization/optimized conrod front view.png", caption: "CAD render: Front orthographic view" },
+        { src: "/projects/conrod-optimization/Render 3 quarter of optimized design.png", caption: "CAD render: Alternate 3/4 view" }
       ],
       overview: "I developed a multi-objective optimization program to redesign the connecting rod of a Mercedes-Benz OM606 diesel engine. Using 1D beam modeling and Python, I minimized mass while maintaining structural integrity under extreme combustion loads.",
       description: [
@@ -275,6 +341,28 @@ export const resumeData = {
           title: "I-Beam vs H-Beam: The Comparative Study",
           content: "To validate the I-beam topology selection, I ran a comparative optimization using an H-beam cross-section under identical constraints. The H-beam configuration, with its vertical side walls instead of horizontal flanges, is geometrically less efficient at resisting in-plane buckling within the 35mm width constraint. The result: the H-beam converged to 103.8 g — a 17.5% mass penalty compared to the I-beam's 88.34 g. This performance gap conclusively demonstrated why I-beam sections dominate high-performance connecting rod design.",
           image: "/projects/conrod-optimization/Optimized connecting Rod Geom cross-sectional geometry relation for H beam config.png"
+        },
+        {
+          title: "CAD Representation: From Code to Geometry",
+          layout: "subsections",
+          intro: "To visualize the optimized design, I translated the numerical output from my Python optimization code into a parametric CAD model. The shank geometry was modeled in Fusion 360, with each cross-section defined by the optimizer's output dimensions.",
+          subsections: [
+            {
+              title: "3/4 View — Optimized I-Beam Shank",
+              content: "The characteristic I-beam profile is visible here — wide flanges at top and bottom provide the area moment of inertia needed to resist buckling, while the thin web minimizes mass. Notice how the cross-section tapers smoothly from the small end (top) to the big end (bottom).",
+              image: "/projects/conrod-optimization/top 3 quarter render optimized conrod.png"
+            },
+            {
+              title: "Front View — Cross-Section Evolution",
+              content: "This orthographic view clearly shows the concave curvature of the flanges along the shank length. The optimizer determined that material is most efficiently placed at the ends of the shank, where bending moments are highest under inertial loading.",
+              image: "/projects/conrod-optimization/optimized conrod front view.png"
+            },
+            {
+              title: "Alternate 3/4 View",
+              content: "The smooth loft between varying I-beam cross-sections demonstrates the monotonicity constraint in action — no undercuts or sudden transitions that would complicate forging or create stress concentrations.",
+              image: "/projects/conrod-optimization/Render 3 quarter of optimized design.png"
+            }
+          ]
         }
       ]
     },
