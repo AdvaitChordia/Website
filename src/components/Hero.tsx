@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Cpu, Cog } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { resumeData } from "@/data/resume";
 import { TransitionLink } from "./PageTransition";
 
@@ -92,7 +92,7 @@ export const Hero = () => {
         <a
           href="#about"
           className="cursor-pointer p-4 hover:text-primary transition-colors duration-300"
-          aria-label="Scroll to projects"
+          aria-label="Scroll to about"
         >
           <ArrowDown className="text-muted-foreground w-6 h-6" />
         </a>

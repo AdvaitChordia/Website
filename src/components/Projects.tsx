@@ -19,7 +19,12 @@ export const Projects = () => {
 
   // Filter logic
   const filteredProjects = resumeData.projects.filter(project => {
-    if (activeFilter === "All") return true;
+    if (activeFilter === "All") {
+      return !('hideFromMain' in project && project.hideFromMain);
+    }
+
+    // When a filter is active, skip the hub tile (it's just a container)
+    if ('customUrl' in project) return false;
 
     // Check if filter is in project tags
     const hasTag = project.tags?.includes(activeFilter);
@@ -51,7 +56,6 @@ export const Projects = () => {
             <div className="h-[1px] w-12 bg-primary/40"></div>
           </div>
 
-          {/* Filters */}
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
             <button
@@ -91,7 +95,7 @@ export const Projects = () => {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="group relative h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] bg-secondary/10 rounded-sm overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
               >
-                <Link href={`/projects/${project.id}`} className="block w-full h-full">
+                <Link href={'customUrl' in project && typeof project.customUrl === 'string' ? project.customUrl : `/projects/${project.id}`} className="block w-full h-full">
 
                   {/* Image Background */}
                   {'image' in project && project.image ? (

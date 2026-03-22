@@ -8,6 +8,8 @@ import Link from "next/link";
 
 const navItems = [
   { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Experience", href: "/#experience" },
   { name: "Projects", href: "/#projects" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -55,7 +57,7 @@ export const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
+                href="/Advait Chordia Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs lg:text-sm text-primary font-bold hover:text-[#9ECCFA] transition-colors"
@@ -99,7 +101,7 @@ export const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
+                href="/Advait Chordia Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-base font-mono font-bold text-primary mt-4 hover:bg-secondary/10 hover:text-[#9ECCFA] rounded text-center mx-2 transition-colors"

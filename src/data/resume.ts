@@ -59,10 +59,10 @@ export const resumeData = {
   // Maps courses to project IDs
   courseProjects: {
     "Engineering Materials": ["composites-lab"],
-    "Mech. Design Optimization": ["fsae-front-wing", "conrod-optimization"],
-    "Design for Manufacturing": ["fsae-front-wing"],
-    "Statics": ["fsae-front-wing"],
-    "Dynamics": ["fsae-front-wing", "conrod-optimization"],
+    "Mech. Design Optimization": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "conrod-optimization"],
+    "Design for Manufacturing": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing"],
+    "Statics": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing"],
+    "Dynamics": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "conrod-optimization"],
     "Mechanics & Thermodynamics": []
   } as Record<string, string[]>,
   experience: [
@@ -89,116 +89,175 @@ export const resumeData = {
   ],
   projects: [
     {
-      id: "fsae-front-wing",
-      title: "ILLINI ELECTRIC MOTORSPORT | FSAE",
-      role: "Front Wing Structures Lead",
+      id: "fsae-hub",
+      title: "ILLINI ELECTRIC MOTORSPORTS",
+      role: "Aerodynamics Structures Lead",
       date: "Aug 2024 – Present",
       image: "/projects/fsae/car-drifting.jpg",
-      tags: ["Carbon Fiber", "Composites", "FEA - Ansys ACP/Mechanical", "PTC Creo", "Motorsport", "Team Leadership", "Design Optimization"],
+      customUrl: "/fsae",
+      tags: ["Vehicle Dynamics", "Composites", "Motorsport", "Team Leadership"],
+      overview: "I led the front wing structures sub-team for Illini Electric Motorsport, overseeing the design, analysis, and manufacturing of the 2026 electric formula race car aerodynamic structures.",
+    },
+    {
+      id: "fsae-struts",
+      title: "FSAE | FRONT WING MOUNTING STRUTS",
+      hideFromMain: true,
+      role: "Structures Engineer",
+      date: "Aug 2024 – Present",
+      image: "/projects/fsae/Top Opt struts.png",
+      tags: ["Topology Optimization", "FEA", "Anisotropy Analysis"],
+      overview: "A deep dive into replacing failure-prone CFRP mounting struts with topology-optimized aluminum counterparts. This project highlights failure analysis, anisotropic material behavior, and mass optimization.",
       photos: [
-        { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
         { src: "/projects/fsae/Top Opt struts.png", caption: "Topology-optimized dual-mainplane mounting struts" },
-        { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
-        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
-        { src: "/projects/fsae/Add to gallery.png", caption: "Detailed structural analysis & loading" },
-        { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" }
-      ],
-      overview: "Leading the front wing structures sub-team for Illini Electric Motorsport, I designed, analyzed, and manufactured the carbon fiber front wing assembly — including skins, internal ribs, spars, struts, and inserts — for our 2026 electric formula race car.",
-      description: [
-        "Achieved surface deflection below 0.1\" under 95 mph aero loads, exceeding the 0.125\" target.",
-        "Designed dual aluminum and carbon strut systems — carbon primary with aluminum backups for competition reliability.",
-        "Developed a Corecell-lined leading edge for improved impact absorption after rejecting aramid hybrid layups.",
-        "Topology-optimized strut geometry to address L⁴ scaling problem on 50\" span mainplane.",
-        "Directed a team of 6 through the full 2026 vehicle lifecycle, managing timelines for design, manufacturing, and testing milestones."
+        { src: "/projects/fsae/Only mainplane 2 mounting struts.png", caption: "FEA model of strut loads" }
       ],
       journal: [
         {
-          title: "Design Goals & Constraints",
-          bullets: [
-            "Surface deflection ≤0.125\" under 95 mph aero loads (prevents deviation from designed airfoil profile)",
-            "Minimized spanwise bowing on the first mainplane (50\" unsupported span = L⁴ scaling problem)",
-            "Cone strike survival — front wing must not shatter on impact (lessons from last year's brittle failure)",
-            "First natural frequency ≥3× dominant road input (15+ Hz target)",
-            "FSAE Rule T.7.1.3: All aero devices must remain stable without excessive oscillation",
-            "Rule IN.6.6.2: 200N proof load with <5mm permanent deflection",
-            "Internal SR.1-4: Positive safety margins under combined aero, inertial, and cone strike loads"
-          ]
-        },
-        {
-          title: "Learning from Last Year's Failures",
-          layout: "problem-solution",
-          items: [
-            {
-              problem: "Strut Failure (Carbon Anisotropy)",
-              idea: "Switch to aluminum vs. continue with carbon?",
-              solution: "Manufacture both aluminum and carbon struts — carbon as primary, aluminum as reinforced backup.",
-              rationale: "Aluminum's isotropic behavior ensures predictable failure modes if carbon snaps during competition."
-            },
-            {
-              problem: "Front Wing Shatter",
-              idea: "Use CF + Aramid hybrid layups for impact absorption?",
-              solution: "Introduce a Corecell-lined leading edge.",
-              rationale: "Aramid fibers frill and fray after impact, preventing clean aero geometry for repairs. Corecell absorbs energy efficiently via deformation."
-            }
-          ]
-        },
-        {
-          title: "FEA Exploration & Initial Solutions",
+          title: "The Problem",
           layout: "text",
-          content: "I ran FEA on the new airfoil geometry with a 3-ply schedule to understand deformation behavior.\n\nKey Finding: Extreme spanwise deformation — the first mainplane was acting like a simply supported beam with distributed load. Max deflection scales as L⁴ where L ≈ 50\" (span between mounting points).\n\nSolutions Explored:\n1. Safety cables on endplates to restrict deflection at the wingtips.\n2. Carbon spars at the center of pressure (cP) of each wing for flexural rigidity.\n3. Rib placement optimization to minimize surface deformation.\n\n(In the visualization to the right: light grey = aluminum, dark grey = carbon, yellow = corecell foam. Note: This initial FEA had additional connections making the result non-conservative.)",
+          content: "The previous iteration of the front wing mounting struts failed drastically. When the wing experienced an out-of-plane load during an autocross event (such as hitting a cone), the Nomex core in the Carbon Fiber (CFRP) struts failed in shear. CFRP is highly anisotropic—while exceptional under tensile loads along the fiber axis, it performs poorly under out-of-plane shear loads compared to isotropic materials."
+        },
+        {
+          title: "The Goal",
+          layout: "text",
+          content: "Redesign the mounting struts to eliminate catastrophic shear failures from out-of-plane loads while minimizing the inherent weight penalty of switching away from carbon fiber."
+        },
+        {
+          title: "The Approach",
+          layout: "text",
+          content: "I made the critical decision to transition the struts from CFRP to Aluminum. Aluminum’s isotropic behavior ensures predictable failure modes and exceptional resistance to the exact out-of-plane shear loads that destroyed the previous parts. However, a solid aluminum strut is significantly heavier than carbon. Because our entire aero assembly was well below the overall mass target, we had the luxury to prioritize reliability over extreme weight savings. I then ran extensive topology optimization on the Aluminum design to iteratively remove material from low-stress regions.",
           image: "/projects/fsae/Only mainplane 2 mounting struts.png"
         },
         {
-          title: "Internal Structure Strategy",
+          title: "The Result",
+          layout: "checklist",
+          intro: "The topology-optimized aluminum struts succeeded in bridging the gap between reliability and mass efficiency.",
+          checklist: [
+            "Eliminated out-of-plane shear failures entirely with isotropic Aluminum.",
+            "Dropped the weight of the Aluminum struts by 58% compared to the unoptimized baseline.",
+            "Delivered a part that was infinitely more reliable while remaining highly competitive on the scale."
+          ]
+        }
+      ]
+    },
+    {
+      id: "fsae-aero-elasticity",
+      title: "FSAE | AERO-ELASTICITY & MASS OPTIMIZATION",
+      hideFromMain: true,
+      role: "Structures Engineer",
+      date: "Aug 2024 – Present",
+      image: "/projects/fsae/Final deflection at 95 mph aero loads.png",
+      tags: ["FEA - Ansys Mechanical", "Aero-elasticity", "Structural Optimization"],
+      overview: "Analyzing the deformation of the front wing under extreme aerodynamic loads, mitigating the L⁴ scaling problem on a 50\" span mainplane.",
+      photos: [
+        { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
+        { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" }
+      ],
+      journal: [
+        {
+          title: "The Problem",
           layout: "text",
-          content: "The wing's internal structure had to absorb inertial loading, aero forces, and cone strikes. I evaluated 13 foam options (Rohacell, Corecell, Gurit PVC) to find a solution that could match our complex geometry.\n\nDecision: Selected Corecell M80 (3mm) for the leading edge core.\n\nReasoning: Unlike honeycomb which cannot conform to tight airfoil radii, or brittle foams that shatter, Corecell offers high elongation at break (40%) — allowing the leading edge to deform and absorb energy during a cone strike rather than fracturing. The ribs and spars were waterjet-cut from flat sandwich stock (Corecell + Carbon), enabling rapid manufacturing from single sheets.",
+          content: "Legacy designs for our front wing relied on static \"remote forces\" to size structures. This failed to account for how the wing actually deflected under true aerodynamic load, leading to parts that were either over-built (excess weight) or under-stiff. When a 50\" span wing bows under load, it acts like a simply supported beam where maximum deflection scales as L⁴. If it bows too much, it deviates from the designed airfoil profile, bleeding aerodynamic efficiency."
+        },
+        {
+          title: "The Goal",
+          layout: "text",
+          content: "Implement a high-fidelity structural validation loop to find the optimal balance between component mass and aerodynamic efficiency, mitigating the L⁴ scaling problem."
+        },
+        {
+          title: "The Approach",
+          layout: "text",
+          content: "I directed a Fluid-Structure Interaction (FSI) study by mapping CFD pressure fields directly onto our FEA mesh. This allowed us to iterate on the structures, ply schedules, and material selection based on realistic loads rather than approximations. To solve the extreme spanwise bowing, I abandoned the legacy single-point mounting method and switched to a dual-mainplane mounting strut system. By mounting the struts to multiple points, we effectively halved the unsupported span, mathematically crushing the L⁴ deflection curve.",
+          image: "/projects/fsae/FEA setup photo intricacy.png"
+        },
+        {
+          title: "The Result",
+          layout: "checklist",
+          intro: "The FSI workflow and dual-mounting geometry allowed us to drastically cut weight while preserving the aerodynamic profile.",
+          checklist: [
+            "Reduced the overall wing assembly weight by 0.6 lbs.",
+            "Maintained peak surface deflection below 0.48\" under 95 mph aero loads.",
+            "Successfully limited the Coefficient of Lift (Cl) loss to just 0.04.",
+            "Achieved target natural frequency (≥3× dominant road input) to prevent resonance."
+          ]
+        }
+      ]
+    },
+    {
+      id: "fsae-internal-structures",
+      title: "FSAE | INTERNAL STRUCTURES & PACKAGING",
+      hideFromMain: true,
+      role: "Structures Engineer",
+      date: "Aug 2024 – Present",
+      image: "/projects/fsae/Photo of internal structure and Struts layout.png",
+      tags: ["Structural Design", "Energy Absorption", "Packaging"],
+      overview: "Developing the complex internal skeleton of the front wing to survive cone strikes while maintaining aerodynamic profiles.",
+      photos: [
+        { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
+        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" }
+      ],
+      journal: [
+        {
+          title: "The Problem",
+          layout: "text",
+          content: "In previous years, complex 3D internal geometries (ribs and spars) were the primary bottleneck in manufacturing, leading to missed deadlines and high scrap rates due to layup difficulty in tight corners. Furthermore, brittle foams used in the leading edge would shatter upon cone impacts, causing catastrophic wing failure. Attempts to use Aramid (Kevlar) skins failed because Kevlar frills upon impact, making aerodynamic surface repairs nearly impossible."
+        },
+        {
+          title: "The Goal",
+          layout: "text",
+          content: "Redesign the internal structural components to prioritize \"buildability\" ensuring strict production milestones are met, while finding an energy-absorbing solution for direct cone strikes."
+        },
+        {
+          title: "The Approach",
+          layout: "text",
+          content: "I transitioned the internal structures from complex 3D shapes to flat-stock components that could be manufactured as simple laminate plates and trimmed afterward. I engineered a Cross-Lap Joint system (interlocking slots) that served as a self-aligning mechanical placer during assembly. For the leading edge, after evaluating 13 foam options, I selected Corecell M80 (3mm). Corecell offers high elongation at break (40%), allowing it to deform and absorb energy plastically beneath standard carbon skins rather than fracturing.",
           image: "/projects/fsae/Photo of internal structure and Struts layout.png"
         },
         {
-          title: "The Dual-Mainplane Mounting Decision",
-          layout: "problem-solution",
-          items: [
-            {
-              problem: "Extreme Bowing",
-              idea: "Mount struts only on the first mainplane (legacy weight saving).",
-              solution: "Switch to dual-mainplane mounting struts.",
-              rationale: "The 50\" simply supported span caused 'smile-shaped' bowing due to L⁴ scaling. Dual mounting cut the unsupported span effectively."
-            }
-          ],
-          image: "/projects/fsae/Top Opt struts.png"
-        },
-        {
-          title: "Ply Schedule & Material Selection",
-          layout: "table",
-          table: {
-            headers: ["Component", "Material", "Ply Schedule", "Design Rationale"],
-            rows: [
-              ["Mainplane 1", "TC 250", "[45, -45]", "Torsional Stiffness"],
-              ["Mainplane 2", "TC 250", "[45, -45]", "Torsional Stiffness"],
-              ["Elements", "TC 250", "[0, 0]", "Flexural Rigidity"],
-              ["Spars", "TC 275", "[0,0,0,0,0]", "Flexural Rigidity"],
-              ["Mounting Inserts", "7075 Al", "1C1 [0.125\" core]", "Buckling Resistance"],
-              ["Endplates", "TC 250", "[0, -30]", "Flexural Rigidity"]
-            ]
-          }
-        },
-        {
-          title: "Validation & Results",
-          layout: "checklist",
-          checklist: [
-            "Surface deflection maintained below 0.1\" (Goal: ≤0.125\")",
-            "Spanwise bowing reduced — total deformation within limits",
-            "All safety margins positive under combined loading",
-            "Buckling issue identified on MP1 — Patch ply solution implemented",
-            "Every fastener safety-factored and validated",
-            "Custom inserts designed for all wing attachments"
-          ],
-          image: "/projects/fsae/Final deflection at 95 mph aero loads.png"
-        },
-        {
-          title: "Manufacturing & Current Status",
+          title: "The Result",
           layout: "text",
-          content: "Design is 90% complete and manufacturing has now begun. Our approach involves adding a layer of peel ply on the inside of the skins to prep the surface for bonding. The internal structures (ribs and spars) connect together in an almost lap-joint method, allowing adhesive to be added for secure bonding. The assembly sequence proceeds from skin layup to peeling the interior, followed by bonding the ribs/spars and final close-out."
+          content: "To compensate for the loss of structural efficiency moving away from curved I-beams to flat-stock, I locally increased the ply schedule from 3 to 5 plies in high-stress regions using Hysol EA 120 structural adhesive for the joints. This trade-off significantly reduced total layup hours and completely eliminated the placement errors common in the previous 3D designs. The wing can now reliably absorb cone strikes without shattering."
+        }
+      ]
+    },
+    {
+      id: "fsae-manufacturing",
+      title: "FSAE | MANUFACTURING & DFM",
+      hideFromMain: true,
+      role: "Structures Engineer",
+      date: "Aug 2024 – Present",
+      image: "/projects/fsae/car-assembly.jpg",
+      tags: ["Design for Manufacturing", "Composites Fabrication", "Assembly"],
+      overview: "Bridging the gap between complex CAD assemblies and physical reality through intelligent design for manufacturability.",
+      photos: [
+        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" }
+      ],
+      journal: [
+        {
+          title: "The Problem",
+          layout: "text",
+          content: "Our 21-element aero package build relied heavily on \"tribal knowledge\" held by a few senior members. With a 9-member team of varying experience, this lack of documentation led to high scrap rates and inconsistent part weights. We also spotted severe \"bridging\" defects (resin-rich zones lacking fiber) on the leading edge radii of cured parts in split molds."
+        },
+        {
+          title: "The Goal",
+          layout: "text",
+          content: "Standardize the fabrication process by moving from a \"craft\" mindset to a \"production\" mindset, ensuring Part #1 and Part #21 are identical in quality while maximizing carbon fiber utilization."
+        },
+        {
+          title: "The Approach",
+          layout: "text",
+          content: "I developed a comprehensive Standard Operating Procedure (SOP) manual on the team wiki, integrating CAD dimensions, step-by-step checklists, and high-resolution bagging photos. To fix the leading edge bridging, I performed a Root Cause Analysis and identified that standard bagging didn't account for the mold's vertical \"draw\". I updated the SOP to mandate pleats (intentional bag slack) into deep crevices. Finally, I utilized deepnest.io to automate ply nesting, breaking large 45° plies into smaller sections that were butt-joined to eliminate relief cuts and waste."
+        },
+        {
+          title: "The Result",
+          layout: "checklist",
+          intro: "The SOP and optimization efforts fundamentally changed our shop floor operations.",
+          checklist: [
+            "Eliminated tribal knowledge, allowing junior members to reliably build flight-grade components.",
+            "Reduced total prepreg material requirement from 200 ft to just 60 ft — a 70% material savings.",
+            "Achieved a ~65% carbon utilization rate using digital nesting.",
+            "Eliminated leading-edge bridging defects entirely across the remaining 20 aero elements."
+          ]
         }
       ]
     },
@@ -605,26 +664,26 @@ export const resumeData = {
   ],
   // Maps each technical skill to the project IDs that demonstrate it
   skillProjects: {
-    "PTC Creo/Pro Engineer": ["fsae-front-wing", "gala-precision-springs"],
+    "PTC Creo/Pro Engineer": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
     "Siemens NX": ["asme-autonomous-car"],
     "SolidWorks": ["composites-lab", "3d-printed-clock", "me170-footrest"],
     "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
     "AutoCAD": ["composites-lab", "3d-printed-clock"],
     "Fusion360": ["conrod-optimization", "3d-printed-clock", "me170-footrest"],
-    "Ansys Mechanical": ["fsae-front-wing", "gala-precision-springs"],
+    "Ansys Mechanical": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
     "Abaqus": [],
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
     "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
-    "Microsoft Office": ["fsae-front-wing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
-    "GD&T": ["fsae-front-wing", "force-motors-cad-migration", "me170-footrest"],
-    "3D Printing/Rapid Prototyping": ["fsae-front-wing", "3d-printed-clock"],
+    "Microsoft Office": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
+    "GD&T": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "force-motors-cad-migration", "me170-footrest"],
+    "3D Printing/Rapid Prototyping": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "3d-printed-clock"],
     "Product Design": ["me170-footrest", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs
   certificationProjects: {
-    "CNC/Waterjet": ["fsae-front-wing"],
-    "UTM": ["fsae-front-wing", "composites-lab"],
-    "Power tools": ["fsae-front-wing", "composites-lab", "gala-precision-springs"]
+    "CNC/Waterjet": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing"],
+    "UTM": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "composites-lab"],
+    "Power tools": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "composites-lab", "gala-precision-springs"]
   } as Record<string, string[]>
 };
 

@@ -15,6 +15,29 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Advait Chordia | Mechanical Engineer",
+  description:
+    "Mechanical Engineering student at the University of Illinois Urbana-Champaign. CAD, FEA, design, and manufacturing.",
+  openGraph: {
+    title: "Advait Chordia | Mechanical Engineer",
+    description:
+      "Mechanical Engineering student at UIUC — CAD, FEA, design, and manufacturing.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advait Chordia | Mechanical Engineer",
+    description:
+      "Mechanical Engineering student at UIUC — CAD, FEA, design, and manufacturing.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

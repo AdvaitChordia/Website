@@ -1,0 +1,700 @@
+Joby Aviation: Master Interview 
+Preparation Document 
+Candidate: Advait Chordia 
+Interviewer: David Pedraza 
+Role: Composite Manufacturing Internship 
+1.​About Me 
+Tell me about yourself: 
+ 
+I’m a mechanical engineering student at the University of Illinois studying engineering 
+mechanics with a minor in materials science, and most of my experience has been focused on 
+composite structures and how they’re actually manufactured. 
+I first became interested in composites growing up around cars and hearing about carbon fiber 
+as this almost mysterious material. What really hooked me was realizing that the real challenge 
+isn’t just the material itself — it’s figuring out how to design and manufacture parts so that the 
+material actually performs the way it’s supposed to. 
+At Illinois Electric Motorsport, I lead the structural development of our composite front wing and 
+help coordinate manufacturing for a 21-element aero package. That’s given me a lot of 
+hands-on experience with prepreg layups, vacuum bagging, and writing SOPs so that a larger 
+team can reliably manufacture parts. A big part of that role has been learning from issues we 
+encountered last year — things like bridging during layup — and improving the manufacturing 
+process so we can build more reliable parts this season. 
+Alongside that, I worked in a composites research lab where I characterized continuous-fiber 
+composites using ASTM tensile and shear testing, and worked with continuous-fiber 3D printing 
+systems to control fiber alignment and deposition. That experience helped me understand how 
+processing decisions directly affect material behavior. 
+What excites me about Joby is that it’s the perfect next step from the work I’ve been doing — 
+moving from student-scale composite fabrication into a professional manufacturing environment 
+where those same design, materials, and process challenges are being solved to build certified 
+flight hardware. 
+ 
+
+-​
+My experiences are focused towards composites. Composite part design for light, high 
+load facing parts, characterizing materials and more experience with physical part 
+manufacturing.  
+-​
+I think what sets me apart as a composite manufacturing engineer would be my 
+experience designing these parts and manufacturing them, realizing the possible gaps 
+between the two.  
+-​
+I’ve worked with a team to manufacture a 21 element aero package last year and we are 
+in the process of manufacturing our parts this year. I’ve had the opportunity to use my 
+learnings from mistakes made last year to remedy them and make much better, high 
+functioning and dependable parts this year.  
+-​
+I am interested in Joby specifically because I think it represents the perfect next step in 
+my professional career, moving from the world of student level prototyping and research 
+to a professional environment where I can help solve the real-world manufacturing 
+challenges of bringing the first certified eVTOL to market. 
+ 
+"I am a structures and composites-focused Mechanical Engineer who thrives at the intersection 
+of high-fidelity simulation and hands-on manufacturing. What sets me apart is my 'builder's 
+intuition'—the ability to identify precisely where a design will fail on the shop floor and 
+proactively standardize processes to ensure quality and efficiency." 
+Connecting to Joby’s Needs: "I understand that Joby is currently navigating the critical transition 
+from low-volume prototyping to certified, high-rate production. As the Structures Lead for my 
+FSAE team, I successfully led a 9-member crew to reduce carbon fiber waste by 70% through 
+automated nesting and implemented Root Cause Analysis (RCA) to eliminate structural defects 
+like bridging in complex split molds. These are exactly the types of process-driven efficiencies 
+and quality-control measures required to move an aircraft from a lab environment to a certified 
+production line." 
+The Future: "I am interested in this role at Joby because it represents the perfect next step in 
+my career: moving from the world of student prototyping and additive research into a 
+professional environment where I can help solve the real-world manufacturing challenges of 
+bringing the first certified eVTOL to market." 
+Why Joby: 
+-​
+Joby is in a place where they’re going from prototyping to actual scaled production. It’s in 
+a pivotal point and I think that right now would be an incredible time to join.  
+-​
+It is in an industry that is trying to do something spectacular and is on the frontier of that. 
+Considering my experiences in high paced environments with having to stick with tight 
+timelines, as well as my experience in the industry (Force) I think I’ve found that this is 
+the direction I want to propel my career in.  
+ 
+ 
+
+2.​STAR Interview Stories 
+2.1 FSAE 
+2.1.1 SOP Layup Manuals & Material Optimization (FSAE) 
+Situation: Our 21-element aero package build relied heavily on "tribal knowledge" and a 
+9-member team with varying levels of experience. This lack of documentation led to high scrap 
+rates and inconsistent part weights, which threatened our tight manufacturing window. 
+Task: My goal was to move from a "craft" mindset to a "production" mindset by standardizing 
+our manufacturing process to ensure that Part #1 and Part #21 were identical in quality and 
+weight. 
+Action: * Documentation: I developed a comprehensive layup SOP manual on the team wiki 
+that integrated CAD dimensions, detailed ply schedules, and high-resolution photos of vacuum 
+bagging sequences. I optimized things by breaking large 45° plies into smaller sections that 
+were butt-joined, I removed the need for difficult relief cuts and reduced material waste. 
+Result: * Efficiency: We reduced our prepreg requirement from 200 feet to 60 feet for the 
+package—a 70% material savings. 
+●​ Scalability: Most importantly, we eliminated "tribal knowledge" errors, allowing junior 
+members to reliably build flight-grade components with zero bridging defects across the 
+entire season. 
+Questions: 
+1.​ Why is symmetry important in these parts? 
+a.​ Aerodynamic structures often rely on symmetry to maintain balanced load 
+distribution and predictable aerodynamic behavior. If one component has slightly 
+different fiber orientation or geometry than its mirror component, it can introduce 
+uneven aerodynamic forces or structural responses. Standardizing the 
+manufacturing process helps ensure both parts are built identically. 
+2.​ How do you ensure two composite parts are actually identical? 
+a.​ Standardized manufacturing 
+b.​ Consistent trimming and inspection 
+-​ Situation: Manufacturing cycles have a year gap between them and a lot of new members 
+who don’t have experience. This leads to inefficiency and reliance on “tribal knowledge”.  
+-​ Task: The goal was to document part manufacturing processes this semester. Things like 
+the exact blocks of foam for part, specific ply schedules, nested plies and things to keep in 
+mind when cutting, laying up process and major things to focus on and such.  
+-​ Action: Developed and documented a comprehensive SOP manual on the team wiki 
+integrating CAD dimensions of parts, step-by-step checklists, and high-resolution photos of 
+the stock and tooling. 
+ 
+
+-​
+I implemented digital ply nesting and switched from full-length cuts to 
+part-specific ply kits, which reduced relief cuts and waste. 
+-​
+Part cuts of plies instead of full length cuts to reduce relief cuts + save material 
+-​ Reduced the total material requirement from 200 ft to just 60 ft for the front wing skin. 
+Helped educate new hands on SOP, safety and so on.  
+Our 21-element aero package faced a significant gap between the design and manufacturing 
+phases. With many new team members and a reliance on "tribal knowledge," we were seeing 
+inconsistent part quality and massive material waste, particularly when cutting plies at a 45° 
+orientation. 
+Task: Standardize the fabrication process for a 9-member team and optimize carbon fiber 
+usage to stay within a tight budget. 
+Action: * Developed a comprehensive SOP manual on the team wiki, integrating CAD 
+dimensions, step-by-step checklists, and high-resolution photos of the stock and tooling. 
+●​ Utilized deepnest.io to automate the nesting of parts from a single roll of carbon. 
+●​ Strategized the layup by breaking the 5 main wing sections into smaller subsections. 
+Instead of cutting one massive 45° piece (which creates two large unusable triangles of 
+waste), I designed the plies to be cut in smaller sections that were then butt-joined or 
+overlapped during the layup. 
+Result: * Achieved a ~65% carbon utilization rate. 
+●​ Reduced the total material requirement from 200 ft to just 60 ft for the front wing skin. 
+●​ Established a replicable manufacturing workflow that eliminated errors caused by the 
+manufacturing "gap" between seasons. 
+2.1.2 Structural Validation & FSI (FSAE) 
+-​
+Situation: Legacy designs for our front wing relied on static "remote forces" to size 
+structures. This failed to account for how the wing actually deflected under aerodynamic 
+load, leading to parts that were either over-built (excess weight) or under-stiff (leading to 
+unknown aerodynamic performance loss). 
+-​
+Task: My goal was to implement a high-fidelity structural validation loop to find the 
+optimal balance between component mass and aerodynamic efficiency. 
+-​
+Action: I directed a Fluid-Structure Interaction (FSI) study by mapping CFD pressure 
+fields directly onto our FEA mesh. This allowed me to iterate on the structures, ply 
+schedules and material selection based on more realistic loads rather than 
+approximations. 
+-​
+Result: This workflow allowed us to reduce the wing weight by 0.6 lbs while ensuring 
+that peak deflection remained under 0.48” at 95 mph. We successfully limited the Cl loss 
+to 0.04. The parts were also designed to be more manufacturable.  
+ 
+
+2.1.3 DFM & Flat-Stock Optimization (FSAE) 
+-​
+Situation (The Production Risk): During the design season for our latest aero 
+package, there was a realization that manufacturing all the composite parts of the 
+subteam would be difficult to manufacture in the timeline we had. 
+-​
+Task: My goal was to redesign the internal structure to prioritize manufacturability, 
+ensuring the team could reliably build parts and meet our strict production deadlines.  
+-​
+Action: I transitioned the internal spars and ribs to be flat-stock composite components 
+that could be manufactured as simple laminate plates and trimmed afterward. To ensure 
+accurate assembly, I designed a cross-lap joint system with interlocking slots that 
+acted as a self-aligning fixture. To compensate for the loss of geometric stiffness (from 
+not using I/C beams), I optimized the laminate design by increasing the ply schedule in 
+high-stress regions from three to five plies.  
+-​
+Result: The redesigned structure significantly reduced layup complexity and build time, 
+and the interlocking geometry eliminated previous alignment issues. This allowed the 
+team to manufacture parts more reliably while still meeting all structural performance 
+requirements. 
+Questions: 
+1.​ Why are flat laminates easier to manufacture? 
+a.​ Simpler ply placement, no tight radii and better control over fiber directions 
+2.​ What are the trade offs of flat stock structures? 
+a.​ Slightly less structurally efficient 
+b.​ Required cross contact for alignment compared to conforming to the wing 
+surface. 
+3.​ How would you evaluate manufacturability earlier in the design process? 
+a.​ Consider tooling and layup paths 
+b.​ Simplify geometry 
+Situation: In previous years, complex 3D internal geometries (ribs and spars) were the primary 
+bottleneck in manufacturing, leading to missed deadlines and high scrap rates due to layup 
+difficulty in tight corners. 
+Task: Redesign the internal structural components to prioritize "buildability" and ensure the 
+team could hit strict production milestones. 
+Action: * Transitioned the internal structures from complex 3D shapes to flat-stock components. 
+●​ Engineered a Cross-Lap Joint system (interlocking slots) that served as a self-aligning 
+mechanical placer during the assembly of the internal skeleton. 
+●​ Selected Hysol EA 120 as the structural adhesive for the bond at the intersection points. 
+Result: * To compensate for the loss of structural efficiency (moving away from I-beam/C-beam 
+cross-sections), I increased the ply schedule from 3 to 5 plies in high-stress regions. 
+ 
+
+●​ This trade-off significantly reduced total layup hours and eliminated the placement errors 
+common in the previous 3D designs. 
+2.1.4 The Leading Edge Bridging RCA (Rear Wing) 
+-​
+Situation (The Quality Defect): While manufacturing our rear wing mainplane in a split 
+mold, we discovered structural bridging along the leading-edge radius. This was both a 
+structural and aerodynamic problem for us because the leading edge didn’t have clean 
+geometry.  
+-​
+Task: Upon looking at the situation and the vacuum bag, I realized what the problem 
+was. My goal was to ensure that this didn’t happen to any other part.  
+-​
+Action: During debagging, I identified that the vacuum bag was unusually taut across 
+the leading edge. After inspecting the bag geometry relative to the mold, I realized the 
+initial bag cut did not account for the vertical "draw" (depth) of the split mold, causing the 
+bag to span the radius rather than conforming to it. I made note of this and revised the 
+manufacturing SOP to add intentional bag slack and pleats at the leading edge to 
+ensure the bag could reach the deepest part of the tool without tension.  
+-​
+Result: We validated this process change during our front wing layup last weekend, 
+which resulted in a high-quality part with zero bridging. This correction saved our 
+production timeline because of the reduction in post processing and was a reminder that 
+vacuum bag geometry is just as critical as the ply layup itself to ensure a solid part. 
+ 
+Questions: 
+4.​ How did you confirm the root cause was bag tension? 
+a.​ Location of bridge aligned with tension zone in bag 
+5.​ Why do pleats help prevent bridging? 
+a.​ Add local bag slack which is often required in concave geometry 
+6.​ What other factors could’ve caused bridging? 
+a.​ Tight radii 
+b.​ Poor ply draping 
+c.​ Incorrect ply sched for geom 
+7.​ How would this scale in a production environment? 
+a.​ Standardized bag templates 
+b.​ Marks on tooling of where pleats need to be added 
+c.​ Work instruction 
+Situation: After curing a rear wing in a split mold, we discovered structural bridging along the 
+leading-edge radius—a "no-go" defect that creates resin-rich zones and lacks fiber 
+reinforcement. 
+Task: Perform a Root Cause Analysis (RCA) to identify the failure point and update the SOP to 
+prevent recurrence across the remaining 20 aero elements. 
+ 
+
+Action: * During the debagging process, I noticed the vacuum bag felt "short" and taut. 
+●​ Identified that the initial bag cut did not account for the "draw" (the vertical depth) of the 
+bottom half of the split mold. 
+●​ Revised the SOP to mandate the use of Pleats (extra bag folds) at the leading edge to 
+ensure the bag could reach the deepest part of the tool without tension. 
+Result: * Eliminated bridging defects on all subsequent 20 elements of the aero package. 
+●​ Improved the team’s overall understanding of vacuum bagging physics and the 
+importance of bag slack in complex molds. 
+2.2 3D Printed Composite Characterization (Research) 
+-​
+Situation (The Technical Challenge): I worked with a beta-model Continuous Fiber 3D 
+(CF3D) printer to characterize a new, experimental resin system. Because the hardware 
+was in a pre-production stage, we faced significant problems with tow lifting and fiber 
+pullaway during toolpath turns. 
+-​
+Task: My goal was to produce high-fidelity composite specimens that met strict ASTM 
+standards (D3039 and D3518) to generate reliable material property data for future 
+structural analysis.  
+-​
+Action: I identified that the lifting was caused by insufficient green strength in the 
+underlying layers. To resolve this consistent issue, I modified the manufacturing workflow 
+to include pauses in the print cycle. By allowing the resin to reach a partial cure, before 
+continuing, I ensured the substrate was tacky enough to anchor the new fiber deposition 
+without lifting.  
+-​
+Result: These process adjustments resolved the tow lifting issues and allowed us to 
+fabricate specimens with consistent fiber placement and volume fraction. We 
+successfully generated validated mechanical property data that now serves as the 
+foundation for structural analysis models. 
+-​
+Toray T1100- 12k and Ceremat 
+Questions: 
+1.​ Why is fiber volume fraction important in composites? 
+a.​ Determines stiffness and strength 
+b.​ Too little fiber is a weak laminate 
+2.​ What causes tow lifting in additive composite printing? 
+a.​ I think mostly because of a lack of tack when parts are partially cured 
+3.​ How does fiber alignment affect mechanical properties? 
+a.​ I mean that’s the principle of composites. They’re anisotropy 
+b.​ Strength is highest in the fiber direction.  
+4.​ How does this translate to AFP? 
+a.​ Both involve controlled fiber deposition  
+b.​ Both require process parameter optimization 
+ 
+
+Situation: Working with a beta-model Continuous Fiber 3D (CF3D) printer and a new Ceremat 
+(dual-cure acrylate) resin, we encountered frequent fabrication errors, including tow lifting and 
+poor fiber cutting during the additive process. 
+Task: Generate experimentally validated material property data following ASTM D3039 (Tensile) 
+and ASTM D3518 (Shear) standards. 
+Action: * Strictly followed ASTM standards to ensure the validity of the generated data. 
+●​ Developed custom toolpaths in the CF3D software to control the Ironing temperature 
+and deposition speed. 
+●​ Focused on managing the resin flow rate at the nozzle to maintain a consistent Fiber 
+Volume Fraction ($V_f$). 
+Result: * Successfully resolved "tow lifting" issues, allowing for the high-fidelity fabrication of 
+structurally representative specimens. 
+●​ Generated validated material data that serves as the foundation for future structural 
+analysis using this additive technology. 
+ 
+2.3 Force Motors 
+Situation: High-RPM operational stability in a powertrain assembly was compromised due to 
+net imbalance forces, which could lead to significant vibration and reduced bearing life. 
+Task: Reduce net imbalance forces by at least 80% to meet stability requirements for a 
+high-performance rotating assembly. 
+Action: * Performed a Vector Loop Analysis to identify the magnitude and phase of existing 
+imbalances. 
+●​ Iteratively calculated the placement and mass of counterweights using Python (NumPy), 
+phasing them across the assembly to counteract both primary and secondary forces. 
+●​ Migrated legacy data into CATIA V5 to validate the physical placement of counterweights 
+against the assembly's spatial constraints. 
+Result: * Achieved a >90% reduction in net imbalance forces. 
+3.​ Significantly improved high-RPM stability and projected component lifespan, 
+demonstrating an ability to apply analytical mechanics to physical hardware. 
+2.4 Gala Precision: Kaizen Conveyor Modification: 
+Situation 
+ 
+
+During my internship at Gala Precision, I spent time observing the shop floor even though most 
+of my assigned work was office-based. I noticed that springs frequently bounced out of a 
+slanted funnel on the conveyor system during the stress-relieving process, causing jams 
+and forcing operators to stop the machine to clear them. 
+Task 
+My goal was to reduce material spillage and eliminate the downtime operators were 
+spending clearing these jams. 
+Action 
+I conducted a simple time study and found that operators were losing about 20 minutes of 
+production time per shift clearing the jams. 
+I initiated a Kaizen improvement project and designed a mechanical solution: a custom lip 
+along the edges of the funnel to guide the springs back into the conveyor path. 
+I modeled the modification in CAD and created a Bill of Materials to justify the minimal cost 
+of implementation. 
+Result 
+By the end of my internship, the modification had been installed on two out of the three 
+machines, and the spillage issue was eliminated. 
+This removed approximately 20 minutes of downtime per shift, improving the overall 
+efficiency of the production line. 
+Questions: 
+1.​ Why did you perform a time study first? 
+a.​ Justify the solution and quantify the impact 
+2.​ Why did you choose a passive mechanical solution? 
+a.​ Minimal cost and quick remedy 
+3.​ How would you evaluate the improvement? 
+a.​ Compare downtime before and after 
+b.​ Operator feedback 
+Situation: While my primary internship tasks were office-based (procurement and suppliers), I 
+frequently visited the shop floor and observed a recurring issue where springs were bouncing 
+out of a slanted funnel on the conveyor line during the stress-relieving process. 
+Task: Minimize material spillage and reduce the resulting daily downtime spent by operators 
+clearing machine jams. 
+ 
+
+Action: * Conducted a time study and determined that manual cleaning and jam resolution were 
+costing 20 minutes of downtime per shift. 
+●​ Initiated a Kaizen (continuous improvement) project to design a passive mechanical 
+solution. 
+●​ Drafted a CAD model for a custom mechanical lip for the conveyor edges and created 
+a Bill of Materials (BOM) to justify the minor cost of implementation. 
+Result: * Successfully installed the modification on two out of three machines by the end of my 
+internship. 
+4.​ Eliminated the spillage issue and saved 20 minutes of production downtime per shift, 
+demonstrating a proactive approach to shop floor efficiency. 
+ 
+5.​ Technical Deep Dive & Grilling Prep 
+ 
+ 
+Feature 
+Wet Layup 
+Resin Infusion 
+Prepreg 
+RTM 
+Process 
+Overview 
+Dry fabric is 
+placed on tool; 
+liquid resin is 
+applied manually 
+with 
+rollers/brushes. 
+ 
+Dry fabric is 
+vacuum-bagged; 
+vacuum draws 
+liquid resin 
+through feed 
+lines from a 
+reservoir. 
+Fabric comes 
+"pre-impregnate
+d" with 
+semi-cured 
+resin. Laid on 
+tool and cured 
+under 
+heat/pressure. 
+Dry preform is 
+placed in a 
+two-sided, rigid 
+"matched" mold. 
+Resin is injected 
+under high 
+pressure. 
+Fiber Vol 
+30-40% (Low) 
+50-55% 
+(Medium-High) 
+60-65% (High) 
+55-60% (High) 
+Void Content 
+High (>3%). 
+High risk of 
+trapped air. 
+Low (1-2%). 
+Vacuum 
+removes most 
+air before resin 
+entry. 
+Ultra-Low 
+(<1%). Pressure 
+"crushes" 
+micro-voids. 
+Very Low. High 
+pressure 
+ensures full 
+impregnation. 
+Structural Pros 
+Good for 
+non-load 
+High stiffness to 
+weight; good for 
+Gold Standard. 
+Excellent 
+ 
+
+bearing fairings 
+large structural 
+skin 
+Highest 
+strength/stiffnes
+s repeatability. 
+ 
+dimensional 
+accuracy on 
+both sides of the 
+part. 
+ 
+Mfg Pros 
+Lowest cost; no 
+specialized 
+equipment; fast 
+for one-offs. 
+Scalable for 
+large parts (wing 
+skins); lower 
+VOCs than wet 
+layup. 
+ 
+High precision; 
+"tacky" plies 
+allow for 
+complex vertical 
+layups. 
+High production 
+rate (cycle time); 
+minimal "touch 
+labor" once set 
+up. 
+Mfg Cons 
+Highly 
+operator-depend
+ent; messy; 
+inconsistent 
+thickness. 
+Risk of "dry 
+spots" if 
+plumbing fails; 
+high 
+consumable 
+waste. 
+High cost; 
+requires freezer 
+storage; long 
+autoclave 
+cycles. 
+Extremely 
+expensive, 
+heavy 
+matched-metal 
+tooling. 
+Required equip 
+Brushes, rollers, 
+scale, PPE. 
+Vacuum pump, 
+resin catch pot, 
+spiral wrap, feed 
+lines. 
+Autoclave or 
+Oven, Freezer 
+storage, Clean 
+room. 
+Injection pump, 
+Heated hydraulic 
+press, Matched 
+molds. 
+FSAE Example 
+Nothing 
+Nosecone and 
+damper cover 
+Front wing and 
+structural carbon 
+parts 
+Nothing - not 
+required 
+Joby Context 
+ 
+Possible for 
+large, 
+lower-stress 
+housing 
+components. 
+Primary Flight 
+Structures 
+(Fuselage, Wing 
+Spars, Rotors). 
+ 
+High-rate 
+production of 
+brackets or 
+small structural 
+fittings. 
+ 
+ 
+
+ 
+3.1 Tooling & Materials 
+●​ Frekote: Semi-permanent release agent. Applied in thin coats; mirrors tool surface. 
+●​ EA 120 / EA 9309: Aerospace structural epoxies. High shear strength, requires 
+abrasion/solvent prep. 
+●​ Epibond: Potting compound for honeycomb edge closeouts or insert reinforcement. 
+●​ CTE (Coefficient of Thermal Expansion): Matching tool CTE to part CTE (e.g., carbon 
+tool for carbon part) prevents dimensional warping during the 250°F+ cure cycle. 
+ 
+
+●​ Plain vs. Twill Weave: Twill (2x2) is more "drapeable" for complex aero curves; Plain 
+(1x1) is more stable but prone to wrinkling on curves. 
+3.2 David Pedraza’s Likely Grilling Points 
+●​ Traceability: How do you track "Out-life" or batch numbers for flight hardware? (Answer: 
+Freezer logs and batch stickers). 
+●​ RCA (Root Cause Analysis): "If you see a void in a radius, what is your first check?" 
+(Answer: Check bag slack/pleats, then look for ply-overlap 'bridges'). 
+●​ Lean/Kaizen: "Why was the conveyor lip a better fix than a sensor?" (Answer: Passive 
+mechanical fixes are more reliable/durable in high-rate manufacturing). 
+ 
+6.​Behavioral Interview Questions: 
+ 4.1 Conflict & Teamwork 
+-​
+Situation: During a tight design timeline for our FSAE front wing, I was working with a 
+junior member on the FEA setup. We needed to iterate quickly on the design to meet our 
+manufacturing freeze. 
+-​
+Task: Establish an efficient workflow for iterating on CAD geometry within our analysis 
+software (Ansys). 
+-​
+Action: I advocated for using Ansys's internal CAD tools to make small, iterative 
+changes without the time-intensive process of re-importing and re-assigning boundary 
+conditions. My teammate preferred using external CAD software for its better modeling 
+tools, despite the longer import cycle. After sensing some hostility in our text 
+communications due to the high-stress environment, I scheduled a full-team meeting to 
+realign on our shared goal. I then had a one-on-one conversation with the individual to 
+"clear the air," acknowledging the stress of the timeline and validating his opinion while 
+explaining the data-driven need for iteration speed. 
+-​
+Result: We moved forward on the same page. By resolving the interpersonal friction 
+early and explaining the "why" behind the workflow, we maintained our timeline and 
+successfully hit our design freeze. 
+4.2 Initiative & Problem Solving 
+-​
+Situation: During my internship at Gala Precision, my primary tasks were office-based 
+(procurement and suppliers). However, I frequently visited the shop floor and noticed an 
+issue with the stress-relieving machines. 
+-​
+Task: Improve the flow of springs coming off the conveyor belt to reduce spillage and 
+machine jams. 
+ 
+
+-​
+Action: I observed that springs were bouncing out of a slanted funnel and onto the 
+machinery, causing 20 minutes of daily downtime. Although it wasn't my assigned task, I 
+proposed a "Kaizen" fix to my boss. He asked for a CAD model and a Bill of Materials 
+(BOM). I drafted the mechanical "lip" design and identified the necessary parts for 
+installation. 
+-​
+Result: By the end of my internship, I had helped install the modification on two of the 
+three machines. This passive mechanical fix eliminated the spillage and directly 
+improved the shop's daily production efficiency. 
+4.3 Failure & Accountability 
+-​
+Situation: Early in the season, we were laying up a rear wing in a complex split mold. To 
+help train new members, I had them assist with pressing the carbon into the 
+leading-edge radius. 
+-​
+Task: Ensure the carbon was perfectly consolidated in the tightest crevice of the tool 
+(the leading edge). 
+-​
+Action: Upon demolding, we discovered bridging at the leading edge. My initial guess 
+was that the hand-pressure from the new members wasn't enough. However, I 
+conducted a Root Cause Analysis (RCA) while debagging and realized the bag itself was 
+taut. The bag cut hadn't accounted for the "draw" of the mold. Instead of blaming 
+"technician error," I identified it as a process flaw. 
+-​
+Result: I updated our SOP to mandate Pleats on the vacuum bag at the leading edge. 
+This experience taught me that in manufacturing, knowing "what not to do" is just as 
+valuable as knowing the right steps. No subsequent parts had bridging defects. 
+ 
+4.4 Why did you do _? 
+7.​ Situation: 
+8.​ Task: 
+9.​ Action: 
+10.​Result:  
+11.​ Joby Aviation Company Research 
+●​ Mission: Save a billion people an hour a day through quiet, electric flight. 
+●​ Vertical Integration: Joby builds everything in-house (Marina, CA) to control quality and 
+certification timelines. 
+●​ Manufacturing Shift: Moving from "Prototype" to "Certification and High-Rate 
+Production." 
+●​ David Pedraza Connection: Focus on precision (his watchmaking hobby) and the 
+transition from SpaceX-style rapid prototyping to FAA-certified production standards. 
+ 
+ 
+
+12.​ Technical Case Study: “Explain how you would 
+design a mold for a laminated part” 
+This is the specific question a previous Joby candidate received. Don't just list steps; explain the 
+engineering logic. 
+Step 1: Material Selection (CTE Match) 
+●​ Question: Why choose one tool material over another? 
+●​ Answer: "I first consider the CTE (Coefficient of Thermal Expansion). If I'm curing a 
+carbon fiber part at 250°F, an Aluminum tool will expand significantly more than the part. 
+Upon cooling, the tool shrinks more than the part, inducing internal stresses or warping. 
+For aerospace tolerances, I would design a Carbon Fiber Tool 
+(Composite-to-Composite) to ensure the CTE is matched, or use Invar for extremely 
+high-volume production." 
+Step 2: Master Pattern & Flanges 
+●​ Logic: You need a "Plug" to pull the "Mold." 
+●​ Detail: "I would CNC machine a master pattern from a high-density tooling board (like 
+RenShape). I’d ensure the flanges are wide enough (at least 2-3 inches) to provide a 
+stable surface for the Tacky Tape and vacuum seal, and to prevent the bag from 'pulling' 
+on the part edges." 
+Step 3: Surface Finish & Release 
+●​ Logic: The part is only as smooth as the tool. 
+●​ Detail: "The pattern would be sealed with a high-temp sealer (like Duratec) and sanded 
+to 2000 grit. I’d apply a semi-permanent release agent like Frekote. I’d choose Frekote 
+over wax because it’s a 'chemical' release that doesn't build up in corners, preserving the 
+aerodynamic profile of the airfoil." 
+Step 4: Air-Pathing & Vacuum Integrity 
+●​ Logic: You can't have a vacuum if air is trapped. 
+●​ Detail: "I’d design the mold with integrated vacuum ports or ensures 'breather' paths 
+lead to every deep pocket. For a complex Joby part, I’d consider a Split Mold 
+(Clamshell) with indexed pins to ensure the two halves align perfectly for a seamless 
+leading edge." 
+13.​ Technical Intuition: Comparison Guide 
+Aluminum vs. Carbon Fiber Stress-Strain Curves (SpaceX Question) 
+ 
+
+●​ Aluminum: Ductile. It has a linear elastic region, a yield point, and then a long plastic 
+deformation region before failure. It "bends before it breaks." 
+●​ Carbon Fiber: Brittle and Anisotropic. It is linear elastic nearly all the way to failure. It 
+does not "yield"; it fails catastrophically once the fibers snap or the matrix cracks. 
+●​ The "Intuition": Aluminum is predictable and isotropic (same properties in all 
+directions). Carbon is a "designed material"—you can make it 10x stronger in one 
+direction than the other, which is why it's perfect for Joby's weight-sensitive rotors. 
+The "Lathe Cube" Logic (Skyroot Question) 
+●​ Question: How to cut a 50x50 cube from a cylinder on a Lathe? 
+●​ The Trick: Lathes rotate parts. You can't easily cut a "cube" purely on a lathe without a 
+4-jaw chuck and offset turning (turning one face at a time). 
+●​ The "Manufacturing Mindset": "While I could use a 4-jaw chuck to offset and turn four 
+flat faces, a more efficient manufacturing approach would be to face/center-drill the 
+cylinder on the lathe, then move it to a 3-axis Mill using a vice to cut the square profile." 
+(This shows you know when to switch machines). 
+ 
+14.​ High-level resources for Aerospace Manufacturing 
+To move beyond the hobbyist level, check these out: 
+1.​ SAMPE (Society for the Advancement of Material and Process Engineering): Their 
+"Technical Papers" are the gold standard for what SpaceX and Joby actually do. 
+2.​ CompositesWorld (Website/Magazine): Look for their "High-Rate Production" and 
+"Automated Fiber Placement (AFP)" articles. 
+3.​ YouTube - "The Efficient Engineer": Watch his videos on Stress Tensors and 
+Composite Mechanics. 
+4.​ Book: Manufacturing Processes for Advanced Composites by F.C. Campbell. This is the 
+"Bible" for aerospace manufacturing engineers. 
+5.​ NASA Technical Reports Server (NTRS): Search for "Composite Delamination" or 
+"Autoclave Processing." It’s free and is the exact data Joby engineers look at. 
+ 
+ 

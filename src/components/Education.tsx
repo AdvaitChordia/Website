@@ -6,7 +6,7 @@ import { GraduationCap } from "lucide-react";
 
 export const Education = () => {
     return (
-        <Section id="about" className="bg-background pt-0">
+        <Section id="education" className="bg-background pt-0">
             <div className="max-w-5xl mx-auto px-4">
                 <div className="border border-border bg-card/30 p-8 md:p-12 relative overflow-hidden rounded-sm">
 
