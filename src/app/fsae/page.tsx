@@ -12,8 +12,8 @@ import { Section } from "@/components/Section";
 // Short briefs for each sub-project displayed on the hub cards
 const projectBriefs: Record<string, string> = {
   "fsae-struts": "Replaced failure-prone CFRP struts with topology-optimized aluminum — 58% lighter than baseline, zero shear failures.",
-  "fsae-aero-elasticity": "Solved the L⁴ deflection scaling problem on a 50\" span wing, achieving <0.1\" surface deflection at 95 mph.",
-  "fsae-internal-structures": "Selected Corecell M80 from 13 foam candidates for a leading edge that absorbs cone strikes instead of shattering.",
+  "fsae-aero-elasticity": "Built an FSI loop connecting Star-CCM+ to Ansys ACP, iterating on ply schedules to hit 5.86 lbs while keeping wing deflection under 0.5\" at 95 mph.",
+  "fsae-internal-structures": "Replaced un-manufacturable 3D I-beams with waterjet flat-stock and self-aligning cross-lap joints. Selected Corecell M80 to survive cone strikes.",
   "fsae-manufacturing": "Reduced prepreg consumption by 70% and eliminated tribal-knowledge errors with standardized SOP manuals.",
 };
 
@@ -74,7 +74,7 @@ export default function FSAEHub() {
 
       <Section id="fsae-projects" className="pb-20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             {fsaeProjects.map((project) => (
               <motion.div
                 key={project.id}

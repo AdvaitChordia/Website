@@ -72,6 +72,7 @@ export function ProjectContent({ project }: { project: any }) {
                                                                 width={600}
                                                                 height={400}
                                                                 className="w-full h-auto"
+                                                                unoptimized={entry.image.endsWith('.gif')}
                                                             />
                                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                                                                 <ZoomIn className="w-8 h-8 text-white drop-shadow-md" />
@@ -203,6 +204,7 @@ export function ProjectContent({ project }: { project: any }) {
                                                                                 width={500}
                                                                                 height={350}
                                                                                 className="w-full h-auto"
+                                                                                unoptimized={sub.image.endsWith('.gif')}
                                                                             />
                                                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                                                                                 <ZoomIn className="w-6 h-6 text-white drop-shadow-md" />
@@ -263,6 +265,7 @@ export function ProjectContent({ project }: { project: any }) {
                                             width={600}
                                             height={400}
                                             className="w-full h-auto rounded-lg"
+                                            unoptimized={photo.src.endsWith('.gif')}
                                         />
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
