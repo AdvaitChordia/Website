@@ -719,7 +719,7 @@ export const resumeData = {
   ],
   // Maps each technical skill to the project IDs that demonstrate it
   skillProjects: {
-    "PTC Creo/Pro Engineer": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
+    "PTC Creo/Pro Engineer": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
     "Siemens NX": ["asme-autonomous-car"],
     "SolidWorks": ["composites-lab", "3d-printed-clock", "me170-footrest"],
     "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
@@ -729,16 +729,16 @@ export const resumeData = {
     "Abaqus": [],
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
     "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
-    "Microsoft Office": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
-    "GD&T": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "force-motors-cad-migration", "me170-footrest"],
-    "3D Printing/Rapid Prototyping": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "3d-printed-clock"],
+    "Microsoft Office": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
+    "GD&T": ["fsae-hub", "fsae-internal-structures", "fsae-manufacturing", "force-motors-cad-migration", "me170-footrest"],
+    "3D Printing/Rapid Prototyping": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-manufacturing", "3d-printed-clock"],
     "Product Design": ["me170-footrest", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs
   certificationProjects: {
-    "CNC/Waterjet": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing"],
+    "CNC/Waterjet": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing"],
     "UTM": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "composites-lab"],
-    "Power tools": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "composites-lab", "gala-precision-springs"]
+    "Power tools": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "composites-lab", "gala-precision-springs"]
   } as Record<string, string[]>
 };
 
