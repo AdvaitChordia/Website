@@ -141,23 +141,6 @@ export const resumeData = {
           image: "/projects/fsae/top_opt_iterations.gif"
         },
         {
-          title: "Failure Analysis: The Importance of Load Paths",
-          layout: "subsections",
-          intro: "To understand why the CFRP struts failed previously, I analyzed the old parts and their mounting points. The failures highlighted critical design flaws that the new topology-optimized aluminum struts would address.",
-          subsections: [
-            {
-              title: "Previous Failure Point",
-              content: "The original design featured relief cuts in the carbon fiber front wing that acted as severe stress concentrations. Under dynamic loading, these cuts initiated cracks that propagated through the structure.",
-              image: "/projects/fsae/Relief cuts made in front wing which could be a possible failure point from last year.png"
-            },
-            {
-              title: "Dealing with the Y-Axis Moment",
-              content: "Further analysis revealed that the old mounting solution cracked because there was nothing designed to handle the moment in the Y-axis. The out-of-plane forces from steering and cone strikes were not properly transferred, leading to catastrophic failure.",
-              image: "/projects/fsae/Rendition of why the failure point was possibly loaded and cracked because there was nothing to deal with the moment in y axis.png"
-            }
-          ]
-        },
-        {
           title: "Results",
           layout: "checklist",
           checklist: [
@@ -245,6 +228,23 @@ export const resumeData = {
       ],
       journal: [
         {
+          title: "Failure Analysis: The Need for Internal Structure",
+          layout: "subsections",
+          intro: "To understand the necessity of a robust internal skeleton, I analyzed the failure points on last year's front wing. The absence of proper internal structuring led directly to catastrophic skin failure.",
+          subsections: [
+            {
+              title: "Previous Manufacturing Flaws",
+              content: "The original design featured relief cuts in the carbon fiber front wing that acted as stress concentrations. These cuts were made to ease manufacturing, but they created significant weak points in the skin.",
+              image: "/projects/fsae/Relief cuts made in front wing which could be a possible failure point from last year.png"
+            },
+            {
+              title: "The Y-Axis Moment Failure",
+              content: "Further analysis revealed that the wing cracked because there was no internal spar designed to handle the moment in the Y-axis. The out-of-plane forces from steering and cone strikes overloaded the skin plies, which naturally failed at the manufacturing relief cuts.",
+              image: "/projects/fsae/Rendition of why the failure point was possibly loaded and cracked because there was nothing to deal with the moment in y axis.png"
+            }
+          ]
+        },
+        {
           title: "The Problem: The Tolerance Stack-Up",
           layout: "text",
           content: "Under extreme aerodynamic stresses, a wing's internal ribs and spars are what hold it together. Previously, these were complex 3D structures (curved I-beams and C-channels). These were structurally efficient but a nightmare to manufacture and even worse to assemble. They required separate molds, were extremely difficult to layup perfectly against sweeping wing contours, and depended on sequential placement during bonding. This caused massive tolerance stack-up issues. Thermal expansion, imperfect prep/layup, and excessive bonding surfaces meant using heavy adhesive and poly-filler to fix gaps, destroying our weight margins."
@@ -263,7 +263,7 @@ export const resumeData = {
         {
           title: "Crash Survivability: Corecell M80",
           layout: "text",
-          content: "The front wing leading edge is the first point of impact. In the past, brute-force carbon or brittle foams would shatter completely on a cone strike, and Kevlar would frill, making surface repairs impossible. After evaluating 13 different foam options for the leading-edge core, I selected 3mm Corecell M80. It possesses a 40% elongation at break, meaning its compressive and absorption strength allow it to deform and absorb energy plastically beneath the carbon skins rather than fracturing catastrophically."
+          content: "The front wing leading edge is the first point of impact. In the past, brute-force carbon or brittle foams would shatter completely on a cone strike, and Kevlar would frill, making surface repairs impossible. After evaluating 13 different foam options for the leading-edge core, I selected Corecell M80. It possesses a 40% elongation at break, meaning its compressive and absorption strength allow it to deform and absorb energy plastically beneath the carbon skins rather than fracturing catastrophically."
         }
       ]
     },
