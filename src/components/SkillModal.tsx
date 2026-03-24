@@ -244,7 +244,7 @@ export const SkillModal = ({ skill, onClose }: SkillModalProps) => {
                                                                     {project.role} • {project.date}
                                                                 </p>
                                                                 <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                                                                    {project.description[0]}
+                                                                    {project.description?.[0]}
                                                                 </p>
                                                             </div>
 

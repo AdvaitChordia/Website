@@ -351,7 +351,7 @@ const CourseModal = ({ course, onClose }: { course: string; onClose: () => void 
                           {project.role} • {project.date}
                         </p>
                         <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                          {project.description[0]}
+                          {project.description?.[0]}
                         </p>
                       </div>
 
@@ -501,7 +501,7 @@ const CertificationModal = ({ cert, onClose }: { cert: string; onClose: () => vo
                           {project.role} • {project.date}
                         </p>
                         <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                          {project.description[0]}
+                          {project.description?.[0]}
                         </p>
                       </div>
 
