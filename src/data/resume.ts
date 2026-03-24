@@ -109,7 +109,8 @@ export const resumeData = {
       overview: "A deep dive into replacing failure-prone CFRP mounting struts with topology-optimized aluminum counterparts. This project highlights failure analysis, yielding behavior over catastrophic fracture, and achieving a 58% mass reduction through iterative optimization.",
       photos: [
         { src: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png", caption: "Topology-optimized aluminum mounting struts on the chassis" },
-        { src: "/projects/fsae/Screenshot 2026-01-02 103425.png", caption: "FEA model of strut loads and topology optimization" }
+        { src: "/projects/fsae/Screenshot 2026-01-02 103425.png", caption: "FEA model of strut loads and topology optimization" },
+        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
       ],
       journal: [
         {
@@ -133,6 +134,12 @@ export const resumeData = {
           layout: "text",
           content: "At one point during the initial design phase, I explored a weight-saving approach: mount the main struts only to the second mainplane (the one closest to the chassis), and then use smaller, lighter brackets between the two mainplanes to transfer the load forward. Intuitively, at first, I thought this would work and provide significant weight savings.\n\nIn practice, I didn't realise that this arrangement made the first mainplane act as a simply supported beam with a massive distributed aerodynamic load across its entire span. Simply supported beams deflect with an L⁴ relationship to span, and at our scale of 50\" length, the resulting deflection was a huge no-go. I've attached a photo to show how significant the smile created was. The whole forward section of the wing was bowing like a banana. The idea was scrapped entirely, and the struts were redesigned to mount directly to both mainplanes, distributing the load properly and eliminating the problematic span.",
           image: "/projects/fsae/Photo to show deflection with strut only mounting to mainplane 2.png"
+        },
+        {
+          title: "Boundary Conditions",
+          layout: "text",
+          content: "To properly optimize and size the parts, accurate boundary conditions reflecting both aerodynamic loads and dynamic track scenarios were applied.",
+          image: "/projects/fsae/Boundary conditions for sizing the parts.png"
         },
         {
           title: "Iterating on Thickness and Topology",
@@ -165,7 +172,8 @@ export const resumeData = {
       overview: "Implemented a one-way Fluid-Structure Interaction (FSI) workflow to map real CFD pressure fields onto composite FEA models for accurate deflection sizing. Iterated on ply schedules and internal layouts to hit a 5.86 lb assembly weight while minimizing aerodynamic performance loss.",
       photos: [
         { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
-        { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" }
+        { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" },
+        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
       ],
       journal: [
         {
@@ -175,9 +183,20 @@ export const resumeData = {
         },
         {
           title: "The Methodology: The FSI Loop",
-          layout: "text",
-          content: "To build a realistic physics model, I implemented a Fluid-Structure Interaction (FSI) workflow that could be used iteratively. We ran CFD in Star-CCM+ with all elements and endplates to get a baseline, then exported the pressure field data as a .csv file. I imported this into Ansys, defined the composite stack-ups using ACP (Ansys Composite PrepPost), and used pinball regions to map the pressures perfectly onto the skin. For a sanity check, I checked if the fixed-joint reaction forces equaled the CFD's total downforce and drag outputs. Finally, I solved the high-fidelity structural mesh, exported the deformed geometry, and ran it back through CFD to examine the actual C_l loss.",
-          image: "/projects/fsae/Pressure field map.png"
+          layout: "subsections",
+          intro: "To build a realistic physics model, I implemented a Fluid-Structure Interaction (FSI) workflow that could be used iteratively. We ran CFD in Star-CCM+ with all elements and endplates to get a baseline, then exported the pressure field data as a .csv file.",
+          subsections: [
+            {
+              title: "Pressure Mapping",
+              content: "I imported this into Ansys, defined the composite stack-ups using ACP (Ansys Composite PrepPost), and used pinball regions to map the pressures perfectly onto the skin.",
+              image: "/projects/fsae/Pressure field map.png"
+            },
+            {
+              title: "Boundary Conditions",
+              content: "For a sanity check, I checked if the fixed-joint reaction forces equaled the CFD's total downforce and drag outputs. Finally, I solved the high-fidelity structural mesh, exported the deformed geometry, and ran it back through CFD to examine the actual C_l loss.",
+              image: "/projects/fsae/Boundary conditions for sizing the parts.png"
+            }
+          ]
         },
         {
           title: "Iteration & The Sweet Spot",
@@ -224,7 +243,8 @@ export const resumeData = {
       overview: "Engineering the front wing's internal skeleton for manufacturability by replacing complex 3D I-beams with waterjet-cut flat-stock and self-aligning cross-lap joints, while selecting Corecell M80 to survive cone strikes.",
       photos: [
         { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
-        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" }
+        { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
+        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
       ],
       journal: [
         {
@@ -247,7 +267,8 @@ export const resumeData = {
         {
           title: "The Problem: The Tolerance Stack-Up",
           layout: "text",
-          content: "Under extreme aerodynamic stresses, a wing's internal ribs and spars are what hold it together. Previously, these were complex 3D structures (curved I-beams and C-channels). These were structurally efficient but a nightmare to manufacture and even worse to assemble. They required separate molds, were extremely difficult to layup perfectly against sweeping wing contours, and depended on sequential placement during bonding. This caused massive tolerance stack-up issues. Thermal expansion, imperfect prep/layup, and excessive bonding surfaces meant using heavy adhesive and poly-filler to fix gaps, destroying our weight margins."
+          content: "Under extreme aerodynamic stresses, a wing's internal ribs and spars are what hold it together. Previously, these were complex 3D structures (curved I-beams and C-channels). These were structurally efficient but a nightmare to manufacture and even worse to assemble. They required separate molds, were extremely difficult to layup perfectly against sweeping wing contours, and depended on sequential placement during bonding. This caused massive tolerance stack-up issues. Thermal expansion, imperfect prep/layup, and excessive bonding surfaces meant using heavy adhesive and poly-filler to fix gaps, destroying our weight margins.",
+          image: "/projects/fsae/Boundary conditions for sizing the parts.png"
         },
         {
           title: "The DFM Pivot: Flat-Stock & Slots",
