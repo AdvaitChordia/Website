@@ -32,6 +32,9 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
   const hasTags = 'tags' in project && project.tags?.length > 0;
   const hasHeroImage = 'image' in project;
   const hasPhotos = 'photos' in project && project.photos?.length > 0;
+  const isSubProject = 'hideFromMain' in project && project.hideFromMain;
+  const backLink = isSubProject ? '/fsae' : '/#projects';
+  const backLabel = isSubProject ? 'Back to IEM Projects' : 'Back to Projects';
 
   return (
     <main className="min-h-screen selection:bg-primary/20">
@@ -42,10 +45,10 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         <div className="pt-20 bg-gradient-to-b from-primary/5 to-transparent">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <Link
-              href="/#projects"
+              href={backLink}
               className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group"
             >
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Projects
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> {backLabel}
             </Link>
 
             {/* Poster Embed */}
@@ -75,10 +78,10 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         <div className="pt-20">
           <div className="max-w-6xl mx-auto px-4 py-6">
             <Link
-              href="/#projects"
+              href={backLink}
               className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-4 group"
             >
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Projects
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> {backLabel}
             </Link>
 
             <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
@@ -125,10 +128,10 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         {/* Back link if no poster or hero image */}
         {!hasPoster && !hasHeroImage && (
           <Link
-            href="/#projects"
+            href={backLink}
             className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-primary transition-colors mb-8 group"
           >
-            <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Projects
+            <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> {backLabel}
           </Link>
         )}
 

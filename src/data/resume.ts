@@ -296,7 +296,7 @@ export const resumeData = {
       date: "Aug 2024 – Present",
       image: "/projects/fsae/car-assembly.jpg",
       tags: ["Design for Manufacturing", "Composites Fabrication", "Assembly"],
-      overview: "Bridging the gap between complex CAD assemblies and physical reality through intelligent design for manufacturability.",
+      overview: "This page just has some photos documenting the manufacturing processes I've worked on. I've had the opportunity to work extensively on composite layups. Processes like prepreg mold layups, sandwich panel flat stock, and resin infusion layups.",
       photos: [
         { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
         { src: "/projects/fsae/working like a team for a big layup!.jpg", caption: "Team collaborating on a large composite layup" },
@@ -323,6 +323,23 @@ export const resumeData = {
           layout: "text",
           content: "I developed a comprehensive Standard Operating Procedure (SOP) manual on the team wiki, integrating CAD dimensions, step-by-step checklists, and high-resolution bagging photos. To fix the leading edge bridging, I performed a Root Cause Analysis and identified that standard bagging didn't account for the mold's vertical \"draw\". I updated the SOP to mandate pleats (intentional bag slack) into deep crevices. Finally, I utilized deepnest.io to automate ply nesting, breaking large 45° plies into smaller sections that were butt-joined to eliminate relief cuts and waste.",
           image: "/projects/fsae/Front Wing Layup.jpg"
+        },
+        {
+          title: "Ply Breaking & Nesting Optimization",
+          layout: "subsections",
+          intro: "The front wing's 45° plies were too large to cut from a single sheet of prepreg without massive waste. I broke the full-span plies into smaller, optimally-shaped sections that could be butt-joined during layup. This allowed us to nest everything tightly on the available material, drastically cutting scrap.",
+          subsections: [
+            {
+              title: "Ply Breakdown",
+              content: "A sketch showing how the full-span plies on the front wing are broken down into smaller sections for efficient material usage.",
+              image: "/projects/fsae/Breakdown of plies on the front wing.png"
+            },
+            {
+              title: "Nested Layout",
+              content: "The final nested layout of all broken plies, optimized using deepnest.io to maximize carbon fiber utilization and minimize prepreg waste.",
+              image: "/projects/fsae/Front wing plies broken and nested.png"
+            }
+          ]
         },
         {
           title: "The Result",
