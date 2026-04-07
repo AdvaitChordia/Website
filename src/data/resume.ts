@@ -575,7 +575,7 @@ export const resumeData = {
     },
     {
       id: "me170-footrest",
-      title: "ME170 | ARROW FOOTREST DESIGN",
+      title: "ARROW FOOTREST DESIGN",
       role: "Design Team Member",
       date: "Fall 2023",
       image: "/projects/ME 170 Footrest project/Hero shot.png",
@@ -755,26 +755,26 @@ export const resumeData = {
   ],
   // Maps each technical skill to the project IDs that demonstrate it
   skillProjects: {
-    "PTC Creo/Pro Engineer": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
+    "PTC Creo/Pro Engineer": ["fsae-hub", "fsae-struts", "asme-autonomous-car", "gala-precision-springs"],
     "Siemens NX": ["asme-autonomous-car"],
     "SolidWorks": ["composites-lab", "3d-printed-clock", "me170-footrest"],
     "CATIA V5": ["force-motors-crankshaft", "force-motors-cad-migration"],
     "AutoCAD": ["composites-lab", "3d-printed-clock"],
     "Fusion360": ["conrod-optimization", "3d-printed-clock", "me170-footrest"],
-    "Ansys Mechanical": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "gala-precision-springs"],
+    "Ansys Mechanical": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "gala-precision-springs"],
     "Abaqus": [],
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
-    "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car"],
+    "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car", "uiuc-course-support"],
     "Microsoft Office": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
-    "GD&T": ["fsae-hub", "fsae-internal-structures", "fsae-manufacturing", "force-motors-cad-migration", "me170-footrest"],
-    "3D Printing/Rapid Prototyping": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-manufacturing", "3d-printed-clock"],
+    "GD&T": ["me170-footrest", "force-motors-cad-migration"],
+    "3D Printing/Rapid Prototyping": ["fsae-internal-structures", "composites-lab", "me170-footrest", "3d-printed-clock"],
     "Product Design": ["me170-footrest", "3d-printed-clock"]
   } as Record<string, string[]>,
   // Maps certifications to project IDs
   certificationProjects: {
-    "CNC/Waterjet": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing"],
-    "UTM": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "fsae-manufacturing", "composites-lab"],
-    "Power tools": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "composites-lab", "gala-precision-springs"]
+    "CNC/Waterjet": ["fsae-manufacturing", "composites-lab"],
+    "UTM": ["fsae-manufacturing", "composites-lab"],
+    "Power tools": ["composites-lab", "fsae-manufacturing", "3d-printed-clock"]
   } as Record<string, string[]>
 };
 
