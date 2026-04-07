@@ -170,7 +170,7 @@ export default function LifePage() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 + 0.4 }}
-                                        className={`relative group rounded-2xl border ${interest.borderColor} ${interest.color} p-6 hover:scale-[1.02] transition-transform cursor-pointer shadow-lg flex flex-col`}
+                                        className={`relative group rounded-2xl border ${interest.borderColor} ${interest.color} p-6 shadow-lg flex flex-col opacity-75`}
                                     >
                                         {CardContent}
                                     </motion.div>

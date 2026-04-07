@@ -8,7 +8,6 @@ export const resumeData = {
     summary: "Mechanical Engineering student at UIUC with a passion for design, analysis, and manufacturing. Experienced in CAD, FEA, and rapid prototyping with a strong background in automotive and composites.",
     links: {
       linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206",
-      github: "#", // Placeholder
     }
   },
   education: [
@@ -660,8 +659,7 @@ export const resumeData = {
       description: [
         "I designed a complete mechanical clock mechanism including escapement, gear train, and pendulum from scratch in SolidWorks.",
         "I optimized gear tooth profiles and tolerances for FDM printing, achieving smooth operation without post-processing.",
-        "I built and tested multiple prototypes, iterating on the escapement design to achieve reliable timekeeping.",
-        "Details coming soon: [Placeholder for additional technical details about the jump hour mechanism and assembly process]"
+        "I built and tested multiple prototypes, iterating on the escapement design to achieve reliable timekeeping."
       ],
       journal: [
         {

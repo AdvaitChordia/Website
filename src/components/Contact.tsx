@@ -2,7 +2,7 @@
 
 import { Section } from "./Section";
 import { resumeData } from "@/data/resume";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, MapPin, Linkedin } from "lucide-react";
 
 export const Contact = () => {
   return (
