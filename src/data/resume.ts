@@ -103,7 +103,7 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Hero Shot Engineering drawing.png",
+      image: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png",
       tags: ["Topology Optimization", "FEA", "Anisotropy Analysis", "Structural Design"],
       overview: "A deep dive into replacing failure-prone CFRP mounting struts with topology-optimized aluminum counterparts. This project highlights failure analysis, yielding behavior over catastrophic fracture, and achieving a 58% mass reduction through iterative optimization.",
       photos: [
@@ -173,7 +173,7 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Hero Shot Engineering drawing.png",
+      image: "/projects/fsae/Final deflection at 95 mph aero loads.png",
       tags: ["FSI - Star-CCM+ to Ansys", "Ansys ACP", "Composite Ply Optimization", "Aero-elasticity"],
       overview: "Implemented a one-way Fluid-Structure Interaction (FSI) workflow to map real CFD pressure fields onto composite FEA models for accurate deflection sizing. Iterated on ply schedules and internal layouts to hit a 5.86 lb assembly weight while minimizing aerodynamic performance loss.",
       photos: [
@@ -250,7 +250,7 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Hero Shot Engineering drawing.png",
+      image: "/projects/fsae/Photo of internal structure and Struts layout.png",
       tags: ["Design for Manufacturing", "Waterjet Flat-Stock", "Composites", "Crash Survivability"],
       overview: "Engineering the front wing's internal skeleton for manufacturability by replacing complex 3D I-beams with waterjet-cut flat-stock and self-aligning cross-lap joints, while selecting Corecell M80 to survive cone strikes.",
       photos: [
@@ -315,7 +315,7 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Hero Shot Engineering drawing.png",
+      image: "/projects/fsae/car-assembly.jpg",
       tags: ["Design for Manufacturing", "Composites Fabrication", "Assembly"],
       overview: "This page just has some photos documenting the manufacturing processes I've worked on. I've had the opportunity to work extensively on composite layups. Processes like prepreg mold layups, sandwich panel flat stock, and resin infusion layups.",
       photos: [
