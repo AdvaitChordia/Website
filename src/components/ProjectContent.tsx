@@ -263,9 +263,10 @@ export function ProjectContent({ project }: { project: any }) {
                                             <video
                                                 src={photo.src}
                                                 controls
-                                                preload="metadata"
+                                                playsInline
+                                                preload="auto"
+                                                poster={photo.poster}
                                                 className="w-full h-auto rounded-lg"
-                                                style={{ maxHeight: '400px' }}
                                             />
                                         </div>
                                         <p className="text-sm text-muted-foreground px-4 pb-3 pt-1 font-light">{photo.caption}</p>

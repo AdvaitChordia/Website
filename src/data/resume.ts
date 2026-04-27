@@ -326,7 +326,7 @@ export const resumeData = {
         { src: "/projects/fsae/Peel ply on Front wing layup.jpg", caption: "Applying peel ply during the front wing layup" },
         { src: "/projects/fsae/Undertray laid up.jpg", caption: "The undertray component laid up" },
         { src: "/projects/fsae/front wing resin infusion top down photo.png", caption: "Top-down view of the front wing resin infusion setup" },
-        { src: "/projects/fsae/resin infusion of the front wing.mp4", caption: "Timelapse: Front wing resin infusion process", isVideo: true },
+        { src: "/projects/fsae/resin infusion of the front wing.mp4", caption: "Timelapse: Front wing resin infusion process", isVideo: true, poster: "/projects/fsae/resin-infusion-poster.jpg" },
         { src: "/projects/fsae/Undertray under vacuum for debulking.png", caption: "Undertray core under vacuum for debulking" },
         { src: "/projects/fsae/Photo of big layup.jpg", caption: "Large-scale prepreg layup in progress" },
         { src: "/projects/fsae/PXL_20260307_213925542.jpg", caption: "Cutting peel ply material for the layup" },
