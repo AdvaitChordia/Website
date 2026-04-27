@@ -249,31 +249,53 @@ export function ProjectContent({ project }: { project: any }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {project.photos
                             .filter((photo: { src: string }) => photo.src !== project.image) // Skip hero image
-                            .map((photo: { src: string; caption: string }, i: number) => (
-                                <motion.button
-                                    key={i}
-                                    layoutId={`gallery-${photo.src}`}
-                                    onClick={() => setSelectedImage({ src: photo.src, caption: photo.caption })}
-                                    className="group relative rounded-xl overflow-hidden border border-border text-left w-full cursor-zoom-in bg-card"
-                                    whileHover={{ scale: 1.02 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <div className="p-2">
-                                        <Image
-                                            src={photo.src}
-                                            alt={photo.caption}
-                                            width={600}
-                                            height={400}
-                                            className="w-full h-auto rounded-lg"
-                                            unoptimized={photo.src.endsWith('.gif')}
-                                        />
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
-                                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm leading-relaxed px-2">
-                                            {photo.caption}
-                                        </p>
-                                    </div>
-                                </motion.button>
+                            .map((photo: { src: string; caption: string; isVideo?: boolean }, i: number) => (
+                                photo.isVideo ? (
+                                    <motion.div
+                                        key={i}
+                                        className="rounded-xl overflow-hidden border border-border bg-card"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                                    >
+                                        <div className="p-2">
+                                            <video
+                                                src={photo.src}
+                                                controls
+                                                preload="metadata"
+                                                className="w-full h-auto rounded-lg"
+                                                style={{ maxHeight: '400px' }}
+                                            />
+                                        </div>
+                                        <p className="text-sm text-muted-foreground px-4 pb-3 pt-1 font-light">{photo.caption}</p>
+                                    </motion.div>
+                                ) : (
+                                    <motion.button
+                                        key={i}
+                                        layoutId={`gallery-${photo.src}`}
+                                        onClick={() => setSelectedImage({ src: photo.src, caption: photo.caption })}
+                                        className="group relative rounded-xl overflow-hidden border border-border text-left w-full cursor-zoom-in bg-card"
+                                        whileHover={{ scale: 1.02 }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        <div className="p-2">
+                                            <Image
+                                                src={photo.src}
+                                                alt={photo.caption}
+                                                width={600}
+                                                height={400}
+                                                className="w-full h-auto rounded-lg"
+                                                unoptimized={photo.src.endsWith('.gif')}
+                                            />
+                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
+                                            <p className="absolute bottom-3 left-3 right-3 text-white text-sm leading-relaxed px-2">
+                                                {photo.caption}
+                                            </p>
+                                        </div>
+                                    </motion.button>
+                                )
                             ))}
                     </div>
                 </div>

@@ -92,7 +92,7 @@ export const resumeData = {
       title: "ILLINI ELECTRIC MOTORSPORTS",
       role: "Aerodynamics Structures Lead",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/car-drifting.jpg",
+      image: "/projects/fsae/Hero Shot Engineering drawing.png",
       customUrl: "/fsae",
       tags: ["Vehicle Dynamics", "Composites", "Motorsport", "Team Leadership"],
       overview: "I led the front wing structures sub-team for Illini Electric Motorsport, overseeing the design, analysis, and manufacturing of the 2026 electric formula race car aerodynamic structures.",
@@ -103,13 +103,20 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png",
+      image: "/projects/fsae/Hero Shot Engineering drawing.png",
       tags: ["Topology Optimization", "FEA", "Anisotropy Analysis", "Structural Design"],
       overview: "A deep dive into replacing failure-prone CFRP mounting struts with topology-optimized aluminum counterparts. This project highlights failure analysis, yielding behavior over catastrophic fracture, and achieving a 58% mass reduction through iterative optimization.",
       photos: [
         { src: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png", caption: "Topology-optimized aluminum mounting struts on the chassis" },
         { src: "/projects/fsae/Screenshot 2026-01-02 103425.png", caption: "FEA model of strut loads and topology optimization" },
-        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
+        { src: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png", caption: "Boundary conditions at 95 mph for sizing the parts for stiffness" },
+        { src: "/projects/fsae/Top Opt struts.png", caption: "Final topology-optimized strut geometry — waterjet-ready flat stock" },
+        { src: "/projects/fsae/Only mainplane 2 mounting struts.png", caption: "FEA showing deflection with strut mounting only to mainplane 2 — the scrapped single-mount concept" },
+        { src: "/projects/fsae/Photo to show deflection with strut only mounting to mainplane 2.png", caption: "Excessive span deflection from the simply-supported single-mainplane approach" },
+        { src: "/projects/fsae/FBD showing deflection relation from aero loads.jpeg", caption: "Free body diagram showing deflection relationship from aero loads" },
+        { src: "/projects/fsae/top_opt_iterations.gif", caption: "Animated topology optimization iteration — material removal from low-stress regions" },
+        { src: "/projects/fsae/Screenshot 2025-12-08 110033.png", caption: "Ansys directional deformation (Z-axis) under aero loading — strut stiffness verification" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 135753.png", caption: "Ansys close-up: strut deformation with total assembly context" }
       ],
       journal: [
         {
@@ -138,7 +145,7 @@ export const resumeData = {
           title: "Boundary Conditions",
           layout: "text",
           content: "To properly optimize and size the parts, accurate boundary conditions reflecting both aerodynamic loads and dynamic track scenarios were applied.",
-          image: "/projects/fsae/Boundary conditions for sizing the parts.png"
+          image: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png"
         },
         {
           title: "Iterating on Thickness and Topology",
@@ -166,13 +173,19 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Final deflection at 95 mph aero loads.png",
+      image: "/projects/fsae/Hero Shot Engineering drawing.png",
       tags: ["FSI - Star-CCM+ to Ansys", "Ansys ACP", "Composite Ply Optimization", "Aero-elasticity"],
       overview: "Implemented a one-way Fluid-Structure Interaction (FSI) workflow to map real CFD pressure fields onto composite FEA models for accurate deflection sizing. Iterated on ply schedules and internal layouts to hit a 5.86 lb assembly weight while minimizing aerodynamic performance loss.",
       photos: [
         { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
         { src: "/projects/fsae/FEA setup photo intricacy.png", caption: "Complex FEA mesh & boundary conditions setup" },
-        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
+        { src: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png", caption: "Boundary conditions at 95 mph for sizing the parts for stiffness" },
+        { src: "/projects/fsae/Pressure field map.png", caption: "CFD pressure field mapped onto the wing skin for FSI analysis" },
+        { src: "/projects/fsae/Element mesh example.png", caption: "High-fidelity FEA mesh detail on the front wing assembly" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 123515.png", caption: "Ansys total deformation with node probes — validating deflection limits" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 122536.png", caption: "Close-up of strut-to-wing junction deformation under 95 mph aero loads" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 221534.png", caption: "Endplate directional deformation analysis showing torsional effects" },
+        { src: "/projects/fsae/Only mainplane 2 mounting struts.png", caption: "FEA deflection comparison — strut mounting only to mainplane 2" }
       ],
       journal: [
         {
@@ -193,7 +206,7 @@ export const resumeData = {
             {
               title: "Boundary Conditions",
               content: "For a sanity check, I checked if the fixed-joint reaction forces equaled the CFD's total downforce and drag outputs. Finally, I solved the high-fidelity structural mesh, exported the deformed geometry, and ran it back through CFD to examine the actual C_l loss.",
-              image: "/projects/fsae/Boundary conditions for sizing the parts.png"
+              image: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png"
             }
           ]
         },
@@ -237,13 +250,22 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/Photo of internal structure and Struts layout.png",
+      image: "/projects/fsae/Hero Shot Engineering drawing.png",
       tags: ["Design for Manufacturing", "Waterjet Flat-Stock", "Composites", "Crash Survivability"],
       overview: "Engineering the front wing's internal skeleton for manufacturability by replacing complex 3D I-beams with waterjet-cut flat-stock and self-aligning cross-lap joints, while selecting Corecell M80 to survive cone strikes.",
       photos: [
         { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
         { src: "/projects/fsae/car-assembly.jpg", caption: "The car being assembled in the shop" },
-        { src: "/projects/fsae/Boundary conditions for sizing the parts.png", caption: "Boundary conditions for sizing the parts" }
+        { src: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png", caption: "Boundary conditions at 95 mph for sizing the parts for stiffness" },
+        { src: "/projects/fsae/Rib to spar interaction 1.png", caption: "CAD detail: rib-to-spar cross-lap joint interface — self-aligning assembly" },
+        { src: "/projects/fsae/Rib to spar interaction 2.png", caption: "Alternate angle showing rib slot engagement with the continuous spar" },
+        { src: "/projects/fsae/Rib to spar interaction 3.png", caption: "Full internal skeleton view — interlocking flat-stock ribs and spars" },
+        { src: "/projects/fsae/cross_lap_joint.gif", caption: "Animated cross-lap joint assembly — the self-aligning mechanical fixture" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 131822.png", caption: "Ansys geometry view: internal rib and spar layout within the wing skin" },
+        { src: "/projects/fsae/Screenshot 2025-12-09 132211.png", caption: "Alternate FEA view showing rib spacing and spar integration" },
+        { src: "/projects/fsae/Relief cuts made in front wing which could be a possible failure point from last year.png", caption: "Last year's failure: relief cuts in the carbon skin created stress concentrations" },
+        { src: "/projects/fsae/Rendition of why the failure point was possibly loaded and cracked because there was nothing to deal with the moment in y axis.png", caption: "Failure analysis rendition: Y-axis moment caused cracking at the relief cuts" },
+        { src: "/projects/fsae/Element mesh example.png", caption: "High-fidelity FEA mesh on the front wing internal structure" }
       ],
       journal: [
         {
@@ -267,7 +289,7 @@ export const resumeData = {
           title: "The Problem: The Tolerance Stack-Up",
           layout: "text",
           content: "Under extreme aerodynamic stresses, a wing's internal ribs and spars are what hold it together. Previously, these were complex 3D structures (curved I-beams and C-channels). These were structurally efficient but a nightmare to manufacture and even worse to assemble. They required separate molds, were extremely difficult to layup perfectly against sweeping wing contours, and depended on sequential placement during bonding. This caused massive tolerance stack-up issues. Thermal expansion, imperfect prep/layup, and excessive bonding surfaces meant using heavy adhesive and poly-filler to fix gaps, destroying our weight margins.",
-          image: "/projects/fsae/Boundary conditions for sizing the parts.png"
+          image: "/projects/fsae/Boundary conditions at 95 mph for sizing the parts for stiffness.png"
         },
         {
           title: "The DFM Pivot: Flat-Stock & Slots",
@@ -293,7 +315,7 @@ export const resumeData = {
       hideFromMain: true,
       role: "Structures Engineer",
       date: "Aug 2024 – Present",
-      image: "/projects/fsae/car-assembly.jpg",
+      image: "/projects/fsae/Hero Shot Engineering drawing.png",
       tags: ["Design for Manufacturing", "Composites Fabrication", "Assembly"],
       overview: "This page just has some photos documenting the manufacturing processes I've worked on. I've had the opportunity to work extensively on composite layups. Processes like prepreg mold layups, sandwich panel flat stock, and resin infusion layups.",
       photos: [
@@ -302,7 +324,16 @@ export const resumeData = {
         { src: "/projects/fsae/Front Wing Layup.jpg", caption: "Front wing layup process" },
         { src: "/projects/fsae/Undertray + Front wing bagged and laid up.jpg", caption: "Undertray and front wing bagged under vacuum" },
         { src: "/projects/fsae/Peel ply on Front wing layup.jpg", caption: "Applying peel ply during the front wing layup" },
-        { src: "/projects/fsae/Undertray laid up.jpg", caption: "The undertray component laid up" }
+        { src: "/projects/fsae/Undertray laid up.jpg", caption: "The undertray component laid up" },
+        { src: "/projects/fsae/front wing resin infusion top down photo.png", caption: "Top-down view of the front wing resin infusion setup" },
+        { src: "/projects/fsae/resin infusion of the front wing.mp4", caption: "Timelapse: Front wing resin infusion process", isVideo: true },
+        { src: "/projects/fsae/Undertray under vacuum for debulking.png", caption: "Undertray core under vacuum for debulking" },
+        { src: "/projects/fsae/Photo of big layup.jpg", caption: "Large-scale prepreg layup in progress" },
+        { src: "/projects/fsae/PXL_20260307_213925542.jpg", caption: "Cutting peel ply material for the layup" },
+        { src: "/projects/fsae/rear-manufacturing.jpg", caption: "Rear wing component manufacturing" },
+        { src: "/projects/fsae/Failed prepreg layup (bridging because of padup on the leading edge).jpg", caption: "Failed prepreg layup — bridging defect at the leading edge padup" },
+        { src: "/projects/fsae/Breakdown of plies on the front wing.png", caption: "Ply breakdown diagram for the front wing" },
+        { src: "/projects/fsae/Front wing plies broken and nested.png", caption: "Nested ply layout optimized for material utilization" }
       ],
       journal: [
         {
@@ -358,7 +389,7 @@ export const resumeData = {
       title: "FORCE MOTORS | CRANKSHAFT PROTOTYPE",
       role: "Mechanical Engineering Intern",
       date: "Jun 2025 – Aug 2025",
-      image: "/projects/force-motors-crankshaft/engine-graphic.png",
+      image: "/projects/force-motors-crankshaft/Hero Shot Engineering drawing.png",
       presentation: "/projects/force-motors-crankshaft/presentation.pdf",
       paper: "/projects/force-motors-crankshaft/report.pdf",
       tags: ["Analytical Modeling", "Design Validation", "Python", "CATIA V5", "Automotive"],
@@ -450,7 +481,7 @@ export const resumeData = {
       title: "CONNECTING ROD MULTI-OBJECTIVE OPTIMIZATION",
       role: "Personal Project",
       date: "Aug 2025 – Dec 2025",
-      image: "/projects/conrod-optimization/hero.png",
+      image: "/projects/conrod-optimization/Hero Shot Engineering drawing.png",
       paper: "/projects/conrod-optimization/optimization-paper.pdf",
       proposal: "/projects/conrod-optimization/project-proposal.pdf",
       tags: ["Optimization", "Python", "Beam Theory", "FEA", "Automotive"],
@@ -522,7 +553,7 @@ export const resumeData = {
       title: "COMPOSITES ADDITIVE MANUFACTURING LAB",
       role: "Undergraduate Researcher",
       date: "Jan 2025 – June 2025",
-      image: "/projects/composites-lab/printing-action.jpg",
+      image: "/projects/composites-lab/Hero Shot Engineering drawing.png",
       poster: "/projects/composites-lab/cam-lab-poster.pdf",
       paper: "/projects/composites-lab/cam-lab-paper.pdf",
       tags: ["Research", "Composites", "Materials Testing", "Additive Manufacturing"],
@@ -578,7 +609,7 @@ export const resumeData = {
       title: "ARROW FOOTREST DESIGN",
       role: "Design Team Member",
       date: "Fall 2023",
-      image: "/projects/ME 170 Footrest project/Hero shot.png",
+      image: "/projects/ME 170 Footrest project/Hero Shot Engineering drawing.png",
       tags: ["Human-Centered Design", "CAD", "Injection Molding", "Sheet Metal", "GD&T"],
       overview: "As part of a four-person team in ME170 (Design for Manufacturing), I helped design the ARROW Footrest — an adjustable, chair-mounted footrest that prioritizes comfort and modularity. We took the project from user interviews through CAD modeling and manufacturing planning.",
       description: [
@@ -647,7 +678,7 @@ export const resumeData = {
       title: "3D PRINTED MECHANICAL CLOCK",
       role: "Personal Project",
       date: "2024",
-      image: "/projects/3d-printed-clock/temporary hero.jpeg",
+      image: "/projects/3d-printed-clock/Hero Shot Engineering drawing.png",
       tags: ["3D Printing", "Mechanical Design", "CAD", "Horology"],
       overview: "I designed and built a fully functional mechanical clock using 3D printed gears, escapements, and a pendulum. No electronics — just pure mechanical engineering.",
       photos: [
