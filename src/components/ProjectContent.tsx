@@ -249,7 +249,7 @@ export function ProjectContent({ project }: { project: any }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {project.photos
                             .filter((photo: { src: string }) => photo.src !== project.image) // Skip hero image
-                            .map((photo: { src: string; caption: string; isVideo?: boolean }, i: number) => (
+                            .map((photo: { src: string; caption: string; isVideo?: boolean; poster?: string }, i: number) => (
                                 photo.isVideo ? (
                                     <motion.div
                                         key={i}
