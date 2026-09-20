@@ -76,6 +76,16 @@ export const resumeData = {
       ]
     },
     {
+      company: "CHARPAGNE RESEARCH GROUP — UIUC",
+      title: "Simulation Engineering Intern",
+      date: "Jun 2026 – Present",
+      description: [
+        "Built and ran a 25-case parametric explicit dynamics study in Ansys on additively manufactured bimetallic steel specimens, mapping stiffness, yield strength, and elongation against reinforcement count and volume fraction.",
+        "Traced a model-wide instability to an inherited equation-of-state setting that silently disabled mass scaling, plus a timestep floor set four orders of magnitude above the natural timestep — a debugging effort that took weeks and is invisible in every output plot.",
+        "Diagnosed premature composite failure as a truncated hardening curve violating the Considère condition, rather than a physical fracture event, and refused the expedient fix of raising the failure threshold."
+      ]
+    },
+    {
       company: "FORCE MOTORS LTD.",
       title: "Mechanical Engineering Intern",
       date: "Jun 2025 – Aug 2025",

@@ -1,0 +1,149 @@
+================================================================================
+WEBSITE CONTENT — EDIT THIS FILE
+================================================================================
+Edit any text below, then tell me to update the website with your changes.
+Each section is labeled to match what appears on the home page.
+================================================================================
+
+
+================================================================================
+HERO SECTION (top of the page)
+================================================================================
+
+Name: Advait Chordia
+
+Title: Mechanical Engineer
+
+Summary:
+I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently working at Tesla as a Crash Analysis Intern.
+
+Button Labels:
+- VIEW WORK
+- CONTACT
+- BEYOND ENGINEERING →
+
+
+================================================================================
+ABOUT ME SECTION
+================================================================================
+
+Paragraph 1:
+I am an Engineering Mechanics student at the University of Illinois Urbana-Champaign, complementing it with a minor in Materials Science. My pursuit of engineering as a career is rooted in a fascination with problem solving, but my academic career has narrowed that curiosity into structural analysis, design optimization, and mechanical theory.
+
+Paragraph 2:
+My professional experiences have been the true catalyst for my career trajectory. My time at Force Motors gave me a firsthand look at the rigors of the automotive industry, teaching me that effective product development requires balancing high-performance engineering with manufacturability. Whether I am running FEA simulations to validate a design or iterating on a prototype, I approach every problem with a focus on precision and reliability.
+
+Paragraph 3:
+I am particularly passionate about the intersection of automotive engineering and sustainability. As a petrolhead myself, I want to build towards a generation of vehicles that are as sustainable as they are powerful. I am driven to create engineering solutions that reduce environmental impact without sacrificing performance.
+
+Paragraph 4:
+Currently, I am seeking an internship in the automotive, sustainability, or product development sectors for the summer of 2026. I am eager to join a forward-thinking team where I can apply my background in design and analysis to build systems that define the future of mobility, while continuously expanding my technical expertise.
+
+
+================================================================================
+EDUCATION SECTION
+================================================================================
+
+School: University of Illinois Urbana Champaign
+Degree: Bachelor of Science in Engineering Mechanics
+Minors: Minors in Materials Science and Architecture
+Graduation: Expected May 2027
+GPA: 3.86/4.0
+Location: Champaign, IL
+
+
+================================================================================
+EXPERIENCE SECTION
+================================================================================
+
+--- Experience 1 ---
+Company: TESLA, INC.
+Title: Crash Analysis Intern — Battery Analysis
+Date: Jun 2026 – Present
+Bullet 1: Designed and iterated on a mechanical test fixture for underside battery pack abuse testing, matching the bending stiffness of a vehicle monocoque to replicate field-representative boundary conditions.
+Bullet 2: Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols.
+Bullet 3: Applied structural analysis and hand calculations to size fixture components, ensuring repeatable and representative test conditions across multiple abuse scenarios.
+
+--- Experience 2 ---
+Company: CHARPAGNE RESEARCH GROUP — UIUC
+Title: Simulation Engineering Intern
+Date: Jun 2026 – Present
+Bullet 1: Built and ran a 25-case parametric explicit dynamics study in Ansys on additively manufactured bimetallic steel specimens, mapping stiffness, yield strength, and elongation against reinforcement count and volume fraction.
+Bullet 2: Traced a model-wide instability to an inherited equation-of-state setting that silently disabled mass scaling, plus a timestep floor set four orders of magnitude above the natural timestep — a debugging effort that took weeks and is invisible in every output plot.
+Bullet 3: Diagnosed premature composite failure as a truncated hardening curve violating the Considère condition, rather than a physical fracture event, and refused the expedient fix of raising the failure threshold.
+
+--- Experience 3 ---
+Company: FORCE MOTORS LTD.
+Title: Mechanical Engineering Intern
+Date: Jun 2025 – Aug 2025
+Bullet 1: Developed a Python-based mechanical guideline to define critical component geometry for a new 8-web crankshaft prototype with an increased peak firing pressure, reducing simulation iterations by an estimated 20-25%.
+Bullet 2: Transformed 10+ 2D legacy powertrain component drawings into 3D models using CATIA V5 for the CAD data migration process using GD&T methods.
+Bullet 3: Formulated an Excel-based tool to calculate optimal counterweight COG placement using polar moment of inertia, reducing static and dynamic crankshaft imbalance by >90%.
+
+--- Experience 4 ---
+Company: GALA PRECISION LTD.
+Title: Mechanical Engineering Intern
+Date: Jun 2024 – Aug 2024
+Bullet 1: Conducted FEA simulations using Ansys Static Structural and modal analysis on coil spring designs to compare open vs. closed coil configurations, providing data-backed recommendations to the client.
+Bullet 2: Optimized the conveyor systems by introducing angled brackets in a Kaizen-based initiative, reducing part loss from spring spillage during the stress-relieving stage by 90%, saving 15 minutes of labor, daily.
+Bullet 3: Demonstrated a 20% difference in compressive force and a 12% variation in displacement under load, highlighting reduced stress concentrations in closed spring designs.
+
+
+================================================================================
+SKILLS SECTION
+================================================================================
+
+CAD/FEA Software:
+- PTC Creo/Pro Engineer
+- Siemens NX
+- SolidWorks
+- CATIA V5
+- AutoCAD
+- Fusion360
+- Ansys Mechanical
+- Abaqus
+
+Software/Programming:
+- MATLAB
+- Python
+- Microsoft Office
+- GD&T
+- 3D Printing/Rapid Prototyping
+
+Courses:
+- Engineering Materials
+- Mech. Design Optimization
+- Design for Manufacturing
+- Statics
+- Dynamics
+- Mechanics & Thermodynamics
+
+Certifications:
+- CNC/Waterjet
+- UTM
+- Power tools
+
+
+================================================================================
+CONTACT SECTION (bottom of the page)
+================================================================================
+
+Heading: Let's Build Something Great
+
+Message:
+I'm currently working at Tesla, but I'm excited about the possibilities for the upcoming summer! Whether you have a question about my work or want to discuss a project, my inbox is open.
+
+Email: advaitc2@illinois.edu
+LinkedIn: https://www.linkedin.com/in/advait-chordia-3bbb31206
+Location: Champaign, IL
+
+
+================================================================================
+PERSONAL INFO (used across multiple sections)
+================================================================================
+
+Name: Advait Chordia
+Email: advaitc2@illinois.edu
+Phone: +1 217 318 7042
+Location: Champaign, IL
+LinkedIn: https://www.linkedin.com/in/advait-chordia-3bbb31206
