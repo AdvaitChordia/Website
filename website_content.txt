@@ -59,10 +59,11 @@ EXPERIENCE SECTION
 --- Experience 1 ---
 Company: TESLA, INC.
 Title: Crash Analysis Intern — Battery Analysis
-Date: Jun 2026 – Present
-Bullet 1: Designed and iterated on a mechanical test fixture for underside battery pack abuse testing, matching the bending stiffness of a vehicle monocoque to replicate field-representative boundary conditions.
-Bullet 2: Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols.
-Bullet 3: Applied structural analysis and hand calculations to size fixture components, ensuring repeatable and representative test conditions across multiple abuse scenarios.
+Date: Aug 2026 – Present
+Bullet 1: Built and ran LS-DYNA crash simulations for battery pack abuse and crash qualification, using BETA CAE ANSA for pre-processing and META for post-processing across multiple load cases.
+Bullet 2: Designed and iterated on a mechanical test fixture for underside battery pack abuse testing, matching the bending stiffness of a vehicle monocoque to replicate field-representative boundary conditions.
+Bullet 3: Developed scripts to streamline simulation workflows, automating repetitive pre- and post-processing tasks to reduce turnaround time across the team.
+Bullet 4: Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols.
 
 --- Experience 2 ---
 Company: CHARPAGNE RESEARCH GROUP — UIUC
@@ -102,6 +103,9 @@ CAD/FEA Software:
 - Fusion360
 - Ansys Mechanical
 - Abaqus
+- LS-DYNA
+- BETA CAE ANSA
+- BETA CAE META
 
 Software/Programming:
 - MATLAB

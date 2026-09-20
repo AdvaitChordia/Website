@@ -30,7 +30,10 @@ export const resumeData = {
       "AutoCAD",
       "Fusion360",
       "Ansys Mechanical",
-      "Abaqus"
+      "Abaqus",
+      "LS-DYNA",
+      "BETA CAE ANSA",
+      "BETA CAE META"
     ],
     // Common software/programming - displayed horizontally
     software: [
@@ -68,11 +71,12 @@ export const resumeData = {
     {
       company: "TESLA, INC.",
       title: "Crash Analysis Intern — Battery Analysis",
-      date: "Jun 2026 – Present",
+      date: "Aug 2026 – Present",
       description: [
+        "Built and ran LS-DYNA crash simulations for battery pack abuse and crash qualification, using BETA CAE ANSA for pre-processing and META for post-processing across multiple load cases.",
         "Designed and iterated on a mechanical test fixture for underside battery pack abuse testing, matching the bending stiffness of a vehicle monocoque to replicate field-representative boundary conditions.",
-        "Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols.",
-        "Applied structural analysis and hand calculations to size fixture components, ensuring repeatable and representative test conditions across multiple abuse scenarios."
+        "Developed scripts to streamline simulation workflows, automating repetitive pre- and post-processing tasks to reduce turnaround time across the team.",
+        "Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols."
       ]
     },
     {
@@ -108,10 +112,22 @@ export const resumeData = {
   ],
   projects: [
     {
-      id: "tesla-battery-analysis",
-      title: "TESLA | BATTERY PACK CRASH ANALYSIS",
+      id: "tesla-hub",
+      title: "TESLA | BATTERY ANALYSIS",
       role: "Crash Analysis Intern — Battery Analysis",
-      date: "Jun 2026 – Present",
+      date: "Aug 2026 – Present",
+      image: "/projects/Tesla_FSDing hero.jpeg",
+      customUrl: "/tesla",
+      tags: ["LS-DYNA", "Crash Simulation", "Fixture Design", "ANSA/META", "Scripting"],
+      headline: "Crash simulation, abuse fixture design, and workflow automation on the Battery Analysis team.",
+      overview: "I'm currently at Tesla for the fall semester as a Battery Analysis intern, working on abuse and crash simulations for the battery pack. I'm excited to be contributing alongside the incredible engineers here, building toward a cleaner future.",
+    },
+    {
+      id: "tesla-abuse-fixture",
+      title: "TESLA | UNDERSIDE ABUSE FIXTURE",
+      hideFromMain: true,
+      role: "Crash Analysis Intern",
+      date: "Aug 2026 – Present",
       tags: ["Structural Analysis", "Fixture Design", "Crash Safety", "Battery Systems"],
       headline: "Designing abuse test fixtures that replicate vehicle-level boundary conditions for battery pack crash qualification.",
       overview: "On the Battery Analysis team at Tesla, I work on mechanical test fixture design for underside abuse testing of battery packs. The core challenge is matching the bending stiffness of a vehicle monocoque in a lab fixture so that pack-level tests produce field-representative failure modes rather than artifacts of the test setup.",
@@ -1038,8 +1054,11 @@ export const resumeData = {
     "Fusion360": ["conrod-optimization", "3d-printed-clock", "me170-footrest"],
     "Ansys Mechanical": ["fsae-hub", "fsae-struts", "fsae-aero-elasticity", "fsae-internal-structures", "gala-precision-springs"],
     "Abaqus": [],
+    "LS-DYNA": ["tesla-abuse-fixture"],
+    "BETA CAE ANSA": ["tesla-abuse-fixture"],
+    "BETA CAE META": ["tesla-abuse-fixture"],
     "MATLAB": ["conrod-optimization", "asme-autonomous-car"],
-    "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car", "uiuc-course-support"],
+    "Python": ["force-motors-crankshaft", "conrod-optimization", "asme-autonomous-car", "uiuc-course-support", "tesla-abuse-fixture"],
     "Microsoft Office": ["fsae-hub", "fsae-struts", "fsae-internal-structures", "fsae-manufacturing", "force-motors-crankshaft", "force-motors-cad-migration", "gala-precision-springs", "uiuc-course-support", "me170-footrest"],
     "GD&T": ["me170-footrest", "force-motors-cad-migration"],
     "3D Printing/Rapid Prototyping": ["fsae-internal-structures", "composites-lab", "me170-footrest", "3d-printed-clock"],
