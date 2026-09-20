@@ -5,7 +5,7 @@ export const resumeData = {
     location: "Champaign, IL",
     email: "advaitc2@illinois.edu",
     phone: "+1 217 318 7042",
-    summary: "I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently working at Tesla as a Crash Analysis Intern.",
+    summary: "I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently taking the fall semester to work at Tesla as a Battery Analysis Intern, focusing on battery abuse and crash simulation. I'm super excited to contribute and work alongside an amazing team toward a greener future!",
     links: {
       linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206",
     }
@@ -81,6 +81,7 @@ export const resumeData = {
     },
     {
       company: "CHARPAGNE RESEARCH GROUP — UIUC",
+      url: "https://charpagne.matse.illinois.edu/",
       title: "Simulation Engineering Intern",
       date: "Jun 2026 – Present",
       description: [
@@ -116,7 +117,7 @@ export const resumeData = {
       title: "TESLA | BATTERY ANALYSIS",
       role: "Crash Analysis Intern — Battery Analysis",
       date: "Aug 2026 – Present",
-      image: "/projects/Tesla_FSDing hero.jpeg",
+      image: "/projects/tesla_hero.jpeg",
       customUrl: "/tesla",
       tags: ["LS-DYNA", "Crash Simulation", "Fixture Design", "ANSA/META", "Scripting"],
       headline: "Crash simulation, abuse fixture design, and workflow automation on the Battery Analysis team.",
@@ -165,21 +166,18 @@ export const resumeData = {
       title: "CHARPAGNE LAB | BIMETALLIC STEEL SIMULATION",
       role: "Simulation Engineering Intern",
       date: "Jun 2026 - Present",
-      image: "/projects/charpagne/hero-geometry-matrix.png",
+      image: "/projects/charpagne/hero_hetero_print.jpg",
+      link: "https://charpagne.matse.illinois.edu/",
       tags: ["Explicit Dynamics", "FEA", "Parametric Study", "Additive Manufacturing", "Design of Experiments"],
       headline: "Twenty-five parametric explicit dynamics runs on additively manufactured bimetallic steel, and the solver bugs that nearly made all of them meaningless.",
       overview: "This one is a decision tree, not a report. Every node below is a fork I actually stood at, what I picked, and what I killed. Most of the interesting parts of this project were things the model told me confidently that turned out to be wrong.",
       photos: [
-        { src: "/projects/charpagne/09-geometry-matrix-5x5.png", caption: "The 25 specimen geometry matrix." },
-        { src: "/projects/charpagne/hero-geometry-matrix.png", caption: "Gauge section view showing PH17-4 fibers embedded in the 316L matrix." },
-        { src: "/projects/charpagne/04a-mesh-convergence.png", caption: "Mesh convergence: peak stress against element size." },
-        { src: "/projects/charpagne/03a-ke-ie-loading-rates.png", caption: "Kinetic to internal energy ratio across four loading rates." },
-        { src: "/projects/charpagne/03b-grip-fracture-50ms.png", caption: "Fracture at the grip radius at 50 m/s, a stress wave artifact rather than a material result." },
-        { src: "/projects/charpagne/05a-low-peak-stress-before.png", caption: "Peak stress before the equation of state fix." },
-        { src: "/projects/charpagne/05b-corrected-after.png", caption: "The same run after the fix." },
-        { src: "/projects/charpagne/06a-vonmises-capped-1003mpa.png", caption: "Von Mises capped at 1003 MPa where the hardening table ends." },
-        { src: "/projects/charpagne/08-force-driven-vs-fixed.png", caption: "Reaction force at the driven end versus the fixed support." },
-        { src: "/projects/charpagne/10b-stress-strain-partitioning.png", caption: "Stress and strain partitioning between the two phases." }
+        { src: "/projects/charpagne/geometry_schematic.png", caption: "Old geometry for FEA studies with 1.5mm fiber width and spacing." },
+        { src: "/projects/charpagne/strain_rate_50ms.png", caption: "Strain rate sensitivity study showing 50 m/s with 20.6% KE/IE ratio." },
+        { src: "/projects/charpagne/volume_fraction_study.png", caption: "Volume fraction vs number of fibers study." },
+        { src: "/projects/charpagne/rom_comparison.png", caption: "Comparing simulation results to ROM mechanical values." },
+        { src: "/projects/charpagne/failure_modeling.png", caption: "Failure modeling showing a shear-dominated state that produces a Bridgman neck." },
+        { src: "/projects/charpagne/decision-tree.svg", caption: "Decision tree." }
       ],
       journal: [
         {
@@ -192,61 +190,56 @@ export const resumeData = {
           title: "What I was actually chasing",
           layout: "text",
           content: "Print a soft steel and a hard steel into the same part and the composite beats both. 316L stretches to about 42 percent but gives up early on strength. PH17-4 is nearly twice as strong and snaps at 8 percent. Held inside the 316L, that same PH17-4 has been measured reaching roughly 60 percent strain, because the soft phase physically stops it necking when it wants to.\n\nMy job was to build that in Ansys and find out whether the effect survives when you change the layout.",
-          image: "/projects/charpagne/01-bimetallic-specimen.png"
+          image: "/projects/charpagne/geometry_schematic.png"
         },
         {
           title: "Implicit or explicit",
           layout: "text",
           content: "Implicit is the obvious default for a slow tensile pull. I went explicit instead. Necking is an instability, and an implicit solver has to iterate to equilibrium at exactly the moment equilibrium stops existing. Explicit marches forward in tiny steps and never has to converge, so it walks straight through the neck.\n\nThe cost of that choice shows up immediately in the next node.",
-          image: "/projects/charpagne/02-mesh-undeformed-vs-necked.png"
+          image: "/projects/charpagne/failure_modeling.png"
         },
         {
           title: "Pulling a slow test in a fast solver",
           layout: "text",
           content: "Explicit solvers are built for crashes. To finish a run in reasonable time you have to pull the specimen far faster than any real machine would, which quietly turns a static problem into a dynamic one.\n\nI ran the same specimen at 50, 25, 5 and 0.5 m/s and tracked kinetic energy against internal energy. At 50 m/s the specimen fractured at the grip radius instead of mid gauge. That is not a material result. That is a stress wave arriving at a geometric discontinuity before the rest of the bar has noticed it is being pulled. The solution crossed into quasi-static behaviour somewhere between 5 and 25 m/s, so I settled at 5 m/s, where kinetic energy stays under 5 percent of internal energy.",
-          image: "/projects/charpagne/03a-ke-ie-loading-rates.png"
+          image: "/projects/charpagne/strain_rate_50ms.png"
         },
         {
           title: "How much mesh is enough",
           layout: "text",
           content: "Ran 5, 2, 1.5 and 1 mm in the gauge region. Peak stress moved 0.5 percent between 2 mm and 1 mm, so 2 mm was the answer. Refining past that buys nothing and costs everything, because element size sets the solver timestep and I was working inside a 32,000 element student license.",
-          image: "/projects/charpagne/04a-mesh-convergence.png"
+          image: "/projects/charpagne/volume_fraction_study.png"
         },
         {
           title: "The weeks I lost to one field on a material card",
           layout: "text",
-          content: "The model was returning a peak stress far below anything structural steel can do, alongside energy error terminations and elements reporting negative density.\n\nI went hunting in the wrong places first. Mesh quality came back fine at a minimum element quality of 0.857, which ruled it out. The actual cause was one field on the stock material card: it was set to a shock equation of state, meant for genuine impact problems, and its presence silently disabled automatic mass scaling across the entire model. Not for that body. For everything. One inherited setting on one material was invalidating every run in the project.\n\nA second setting was compounding it. The minimum timestep floor had been left at 1e-4 s against a natural timestep near 9e-8 s, so the solver was adding enormous artificial mass to hold that floor.\n\nWriting custom cards with a linear equation of state, and dropping the floor to 1e-8 s, made the numbers physical again. This is the most useful thing I learned all summer and it is invisible in every plot I produced.",
-          image: "/projects/charpagne/05a-low-peak-stress-before.png"
+          content: "The model was returning a peak stress far below anything structural steel can do, alongside energy error terminations and elements reporting negative density.\n\nI went hunting in the wrong places first. Mesh quality came back fine at a minimum element quality of 0.857, which ruled it out. The actual cause was one field on the stock material card: it was set to a shock equation of state, meant for genuine impact problems, and its presence silently disabled automatic mass scaling across the entire model. Not for that body. For everything. One inherited setting on one material was invalidating every run in the project.\n\nA second setting was compounding it. The minimum timestep floor had been left at 1e-4 s against a natural timestep near 9e-8 s, so the solver was adding enormous artificial mass to hold that floor.\n\nWriting custom cards with a linear equation of state, and dropping the floor to 1e-8 s, made the numbers physical again. This is the most useful thing I learned all summer and it is invisible in every plot I produced."
         },
         {
           title: "When it broke is a lie",
           layout: "text",
-          content: "The composite kept failing at 10 to 12 percent strain with none of the confined necking the experiments show. It looked like a real fracture result.\n\nIt was not. My hardening curve only had data out to about 4.4 percent plastic strain, and past the last point the solver holds the curve flat. Stress pinned at exactly 1003 MPa, the last value in the table. A flat hardening curve violates the Considere condition, which is the criterion that says a material can only keep deforming uniformly while it is getting stronger faster than it is getting thinner. With zero slope, the first element to yield takes all the strain and runs away.\n\nThe tell was in my own output: max plastic strain jumped from 0.040 to 0.232 in a single timestep, exactly at the plateau. The tempting fix was to raise the failure threshold and make the symptom go away. That would have buried the bug and kept every number wrong.",
-          image: "/projects/charpagne/06b-plastic-strain-runaway.png"
+          content: "The composite kept failing at 10 to 12 percent strain with none of the confined necking the experiments show. It looked like a real fracture result.\n\nIt was not. My hardening curve only had data out to about 4.4 percent plastic strain, and past the last point the solver holds the curve flat. Stress pinned at exactly 1003 MPa, the last value in the table. A flat hardening curve violates the Considere condition, which is the criterion that says a material can only keep deforming uniformly while it is getting stronger faster than it is getting thinner. With zero slope, the first element to yield takes all the strain and runs away.\n\nThe tell was in my own output: max plastic strain jumped from 0.040 to 0.232 in a single timestep, exactly at the plateau. The tempting fix was to raise the failure threshold and make the symptom go away. That would have buried the bug and kept every number wrong."
         },
         {
           title: "Failure is not a number",
           layout: "text",
-          content: "Then the harder question. I had been telling the solver to delete an element once it passed a fixed strain or stress value. But the entire point of this material is that confinement lets the hard phase survive far past the strain it could reach on its own, roughly 60 percent against 8 percent unconfined. A single fixed number cannot represent a failure point that the surrounding geometry is actively pushing further out.\n\nSo the criterion came off entirely, as a diagnostic baseline rather than a fix. Doing that also exposed a separate conflict where the hard-phase threshold was deleting reinforcement elements before they ever carried load. The direction it points is a triaxiality-dependent description, where lateral constraint from the soft phase raises hydrostatic stress and suppresses the instability, rather than a hand-tuned cutoff.",
-          image: "/projects/charpagne/07-premature-fiber-deletion.png"
+          content: "Then the harder question. I had been telling the solver to delete an element once it passed a fixed strain or stress value. But the entire point of this material is that confinement lets the hard phase survive far past the strain it could reach on its own, roughly 60 percent against 8 percent unconfined. A single fixed number cannot represent a failure point that the surrounding geometry is actively pushing further out.\n\nSo the criterion came off entirely, as a diagnostic baseline rather than a fix. Doing that also exposed a separate conflict where the hard-phase threshold was deleting reinforcement elements before they ever carried load. The direction it points is a triaxiality-dependent description, where lateral constraint from the soft phase raises hydrostatic stress and suppresses the instability, rather than a hand-tuned cutoff."
         },
         {
           title: "Where you put the probe changes the answer",
           layout: "text",
-          content: "I was reading reaction force at the end I was pulling. Wrong end. That face is where the loading wave is launched, so it reads the wave before it reads the specimen, and the early part of the curve rings badly enough to be unusable.\n\nThe fixed support reads the load that actually made it through the gauge. I also dropped the habit of charting maximum stress against maximum strain, because the element carrying peak stress and the element carrying peak strain are not the same element at any given timestep, so that curve describes no physical point in the specimen.\n\nThen I froze the method as a one line protocol and applied it identically to all 25 runs, so the sweep would at least be internally consistent.",
-          image: "/projects/charpagne/08-force-driven-vs-fixed.png"
+          content: "I was reading reaction force at the end I was pulling. Wrong end. That face is where the loading wave is launched, so it reads the wave before it reads the specimen, and the early part of the curve rings badly enough to be unusable.\n\nThe fixed support reads the load that actually made it through the gauge. I also dropped the habit of charting maximum stress against maximum strain, because the element carrying peak stress and the element carrying peak strain are not the same element at any given timestep, so that curve describes no physical point in the specimen.\n\nThen I froze the method as a one line protocol and applied it identically to all 25 runs, so the sweep would at least be internally consistent."
         },
         {
           title: "The actual study",
           layout: "text",
-          content: "The real question is whether the composite cares about how much hard phase there is, or how it is arranged.\n\nSo I built 25 specimens: five reinforcement counts crossed with five volume fractions, in a dogbone scaled from the ASTM E8 subsize reference by a factor of 1.75. Gauge cross section held fixed at 10.5 by 3 mm, fiber height fixed at 1 mm, fiber width solved per cell, and the leftover width split into equal segments.\n\nThe tightest case leaves 0.44 mm between fibers, close to a single deposition bead. Worth knowing before anyone tries to print it.",
-          image: "/projects/charpagne/09-geometry-matrix-5x5.png"
+          content: "The real question is whether the composite cares about how much hard phase there is, or how it is arranged.\n\nSo I built 25 specimens: five reinforcement counts crossed with five volume fractions, in a dogbone scaled from the ASTM E8 subsize reference by a factor of 1.75. Gauge cross section held fixed at 10.5 by 3 mm, fiber height fixed at 1 mm, fiber width solved per cell, and the leftover width split into equal segments.\n\nThe tightest case leaves 0.44 mm between fibers, close to a single deposition bead. Worth knowing before anyone tries to print it."
         },
         {
           title: "What came out",
           layout: "text",
           content: "The two steels differ in stiffness by about 1 percent, so almost nothing partitions elastically. Everything interesting happens after yield, when 316L saturates near 403 MPa while PH17-4 climbs past 701. That gap is the whole mechanism, and it is what the partitioning plots are built to show.",
-          image: "/projects/charpagne/10b-stress-strain-partitioning.png"
+          image: "/projects/charpagne/rom_comparison.png"
         },
         {
           title: "Results",

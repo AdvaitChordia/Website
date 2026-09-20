@@ -37,7 +37,7 @@ export default function TeslaHub() {
           <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
             <div className="relative w-full h-[400px] md:h-[500px]">
               <Image
-                src="/projects/Tesla_FSDing hero.jpeg"
+                src="/projects/tesla_hero.jpeg"
                 alt="Tesla Model X — FSD ING"
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"

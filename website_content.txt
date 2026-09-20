@@ -15,7 +15,7 @@ Name: Advait Chordia
 Title: Mechanical Engineer
 
 Summary:
-I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently working at Tesla as a Crash Analysis Intern.
+I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently taking the fall semester to work at Tesla as a Battery Analysis Intern, focusing on battery abuse and crash simulation. I'm super excited to contribute and work alongside an amazing team toward a greener future!
 
 Button Labels:
 - VIEW WORK

@@ -43,7 +43,13 @@ export const Experience = () => {
                     {job.title}
                   </h3>
                   <div className="flex items-center gap-2 text-primary font-medium mt-1">
-                    {job.company}
+                    {job.url ? (
+                      <a href={job.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {job.company}
+                      </a>
+                    ) : (
+                      job.company
+                    )}
                   </div>
                 </div>
                 <div className="flex flex-col sm:items-end text-sm text-muted-foreground font-mono">
