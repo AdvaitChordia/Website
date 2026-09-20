@@ -112,14 +112,37 @@ export const Projects = () => {
                     </div>
                   )}
 
+                  {/* Impact Metric Badge */}
+                  {'impactMetric' in project && project.impactMetric && (
+                    <div className="absolute top-3 right-3 px-2.5 py-1 bg-primary/90 text-primary-foreground text-[10px] font-mono font-bold tracking-wider rounded-sm shadow-lg backdrop-blur-sm z-10">
+                      {project.impactMetric as string}
+                    </div>
+                  )}
+
                   {/* Overlay Text */}
-                  <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-12 flex flex-col justify-end">
+                  <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-16 flex flex-col justify-end">
                     <h3 className="text-white font-bold text-lg leading-tight mb-1 group-hover:text-primary-foreground transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-white/80 font-mono text-[10px] tracking-wide uppercase">
+                    <p className="text-white/80 font-mono text-[10px] tracking-wide uppercase mb-2">
                       {project.role} | {project.date}
                     </p>
+                    {/* Engineering headline */}
+                    {'headline' in project && project.headline && (
+                      <p className="text-white/70 text-xs leading-relaxed mb-2 line-clamp-2">
+                        {project.headline as string}
+                      </p>
+                    )}
+                    {/* Tag pills - always visible */}
+                    {'tags' in project && project.tags && (
+                      <div className="flex flex-wrap gap-1">
+                        {(project.tags as string[]).slice(0, 3).map((tag: string, j: number) => (
+                          <span key={j} className="px-1.5 py-0.5 bg-white/15 text-[9px] font-mono text-white/80 rounded-sm backdrop-blur-sm">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </Link>
               </motion.div>

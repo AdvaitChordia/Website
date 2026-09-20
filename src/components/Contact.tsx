@@ -24,7 +24,7 @@ export const Contact = () => {
         </h2>
 
         <p className="text-muted-foreground mb-12 text-lg md:text-xl font-light max-w-2xl mx-auto">
-          I'm currently looking for new opportunities in mechanical design and analysis.
+          I'm currently working at Tesla, but I'm excited about the possibilities for the upcoming summer! 
           Whether you have a question about my work or want to discuss a project, my inbox is open.
         </p>
 

@@ -100,10 +100,14 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                 <h1 className="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">{project.title}</h1>
-                <div className="flex flex-wrap items-center gap-3 text-white/90 font-mono text-sm mb-3">
+                <div className="flex flex-wrap items-center gap-3 text-white/90 font-mono text-sm mb-1">
                   <span className="text-primary-foreground bg-primary/80 px-2 py-0.5 rounded">{project.role}</span>
                   <span>{project.date}</span>
                 </div>
+                {'team' in project && project.team && (
+                  <p className="text-white/70 text-xs font-mono mb-3">{project.team}</p>
+                )}
+                {!('team' in project) && <div className="mb-2" />}
                 {hasTags && (
                   <div className="flex flex-wrap gap-2">
                     {project.tags.slice(0, 5).map((tag: string, i: number) => (

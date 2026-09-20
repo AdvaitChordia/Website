@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, ChevronDown, ChevronUp, Target, Wrench, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 
 export function ProjectContent({ project }: { project: any }) {
     const [selectedImage, setSelectedImage] = useState<{ src: string; caption: string } | null>(null);
+    const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({});
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -23,36 +24,127 @@ export function ProjectContent({ project }: { project: any }) {
     const hasOverview = 'overview' in project;
     const hasJournal = 'journal' in project && project.journal?.length > 0;
     const hasSections = 'sections' in project && project.sections?.length > 0;
-    const hasPhotos = 'photos' in project && project.photos?.length > 0;
+    const hasTldr = 'tldr' in project && project.tldr;
+    const hasConstraints = 'constraints' in project && project.constraints?.length > 0;
+
+    const toggleSection = (index: number) => {
+        setExpandedSections(prev => ({ ...prev, [index]: !prev[index] }));
+    };
 
     return (
         <>
             {/* Overview */}
             {hasOverview && (
-                <div className="mb-16 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-border rounded-2xl">
+                <div className="mb-10 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-border rounded-2xl">
                     <p className="text-xl text-foreground leading-relaxed italic">
-                        "{project.overview}"
+                        &quot;{project.overview}&quot;
                     </p>
                 </div>
             )}
 
-            {/* Journal Entries - Custom Layouts */}
+            {/* ═══ TL;DR Banner ═══ */}
+            {hasTldr && (
+                <div className="mb-10">
+                    <div className="bg-card border-2 border-primary/20 rounded-xl overflow-hidden shadow-sm">
+                        <div className="px-6 py-3 bg-primary/5 border-b border-primary/10">
+                            <span className="font-mono text-xs tracking-widest uppercase text-primary font-semibold">Engineering Summary</span>
+                        </div>
+                        <div className="p-6 space-y-4">
+                            <div className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <Target className="w-4 h-4 text-red-500" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">The Problem</p>
+                                    <p className="text-foreground font-medium leading-relaxed">{project.tldr.problem}</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <Wrench className="w-4 h-4 text-blue-500" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">My Approach</p>
+                                    <p className="text-foreground font-medium leading-relaxed">{project.tldr.approach}</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <TrendingUp className="w-4 h-4 text-green-500" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">Key Result</p>
+                                    <p className="text-foreground font-medium leading-relaxed">{project.tldr.result}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* ═══ Constraints & Specifications Panel ═══ */}
+            {hasConstraints && (
+                <div className="mb-12">
+                    <div className="bg-card border border-border rounded-xl overflow-hidden">
+                        <div className="px-6 py-3 bg-primary/5 border-b border-border">
+                            <span className="font-mono text-xs tracking-widest uppercase text-primary font-semibold">Design Constraints & Specifications</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+                            {project.constraints.map((c: { label: string; value: string }, i: number) => (
+                                <div
+                                    key={i}
+                                    className={`px-6 py-4 flex flex-col gap-1 border-b border-border last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0 ${i % 2 === 0 ? 'sm:border-r' : ''} ${i % 2 !== 0 ? '' : ''}`}
+                                >
+                                    <span className="text-xs font-mono uppercase tracking-wider text-primary/70">{c.label}</span>
+                                    <span className="text-foreground font-medium text-sm">{c.value}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* ═══ Case Study Sections (formerly "My Journey") ═══ */}
             {hasJournal && (
                 <div className="mb-16">
-                    <h2 className="text-2xl font-bold mb-8 text-foreground">My Journey</h2>
-                    <div className="space-y-16">
+                    <div className="flex items-center gap-3 mb-8">
+                        <div className="h-[1px] flex-1 bg-border"></div>
+                        <h2 className="text-sm font-mono tracking-widest uppercase text-primary font-semibold">Engineering Deep Dive</h2>
+                        <div className="h-[1px] flex-1 bg-border"></div>
+                    </div>
+                    <div className="space-y-10">
                         {project.journal.map((entry: any, i: number) => {
                             const isHeroImage = entry.image === project.image;
+                            const isExpanded = expandedSections[i] !== false; // Default to expanded on desktop
 
                             return (
                                 <article key={i} className="relative">
-                                    {/* Entry number indicator */}
-                                    <div className="absolute -left-4 top-0 w-8 h-8 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold">
-                                        {i + 1}
-                                    </div>
+                                    {/* Section header with expand/collapse on mobile */}
+                                    <button
+                                        onClick={() => toggleSection(i)}
+                                        className="w-full text-left flex items-start gap-4 group md:cursor-default"
+                                    >
+                                        {/* Section indicator */}
+                                        <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold font-mono shrink-0 mt-0.5">
+                                            {i + 1}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                                                {entry.title}
+                                            </h3>
+                                        </div>
+                                        {/* Mobile-only expand indicator */}
+                                        <div className="md:hidden shrink-0 mt-1">
+                                            {isExpanded ? (
+                                                <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                                            ) : (
+                                                <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                                            )}
+                                        </div>
+                                    </button>
 
-                                    <div className="pl-8">
-                                        <h3 className="text-xl font-bold text-primary mb-6">{entry.title}</h3>
+                                    {/* Content — always visible on desktop, toggle on mobile */}
+                                    <div className={`mt-4 pl-12 ${isExpanded ? 'block' : 'hidden md:block'}`}>
 
                                         {/* Image handling - Interactive & Floated */}
                                         {entry.image && !isHeroImage && (
@@ -87,7 +179,7 @@ export function ProjectContent({ project }: { project: any }) {
                                         )}
 
                                         {/* Layout Switcher */}
-                                        <div className="text-muted-foreground leading-relaxed text-lg font-light">
+                                        <div className="text-muted-foreground leading-relaxed text-base font-light">
 
                                             {/* 1. Problem-Solution Layout */}
                                             {entry.layout === 'problem-solution' && entry.items?.map((item: any, j: number) => (
@@ -113,6 +205,9 @@ export function ProjectContent({ project }: { project: any }) {
                                             {/* 2. Checklist Layout */}
                                             {entry.layout === 'checklist' && (
                                                 <div className="space-y-3">
+                                                    {entry.intro && (
+                                                        <p className="text-muted-foreground mb-4 font-medium">{entry.intro}</p>
+                                                    )}
                                                     {entry.checklist?.map((item: string, j: number) => (
                                                         <div key={j} className="flex items-start gap-4 p-3 bg-card/30 rounded-lg border border-transparent hover:border-border transition-colors">
                                                             <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-500 shrink-0 mt-0.5">
@@ -177,6 +272,7 @@ export function ProjectContent({ project }: { project: any }) {
                                                     </pre>
                                                 </div>
                                             )}
+
                                             {/* 6. Subsections Layout */}
                                             {entry.layout === 'subsections' && entry.subsections && (
                                                 <div className="space-y-8">
@@ -225,8 +321,34 @@ export function ProjectContent({ project }: { project: any }) {
                                                 </div>
                                             )}
 
-                                            {/* 7. Text Layout (default) */}
-                                            {(entry.layout === 'text' || (!entry.layout && !entry.bullets && !entry.checklist && !entry.items && !entry.table && !entry.code && !entry.subsections)) && (
+                                            {/* 7. Decision Log Layout (NEW) */}
+                                            {entry.layout === 'decision' && entry.decisions && (
+                                                <div className="overflow-x-auto">
+                                                    <table className="w-full text-sm text-left border border-border rounded-xl overflow-hidden">
+                                                        <thead className="bg-primary/5 text-primary uppercase text-xs">
+                                                            <tr>
+                                                                <th className="px-4 py-3 font-semibold tracking-wider">Decision</th>
+                                                                <th className="px-4 py-3 font-semibold tracking-wider">Option A</th>
+                                                                <th className="px-4 py-3 font-semibold tracking-wider">Option B</th>
+                                                                <th className="px-4 py-3 font-semibold tracking-wider">Why I Chose</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody className="divide-y divide-border">
+                                                            {entry.decisions.map((d: any, j: number) => (
+                                                                <tr key={j} className="hover:bg-card/50 transition-colors">
+                                                                    <td className="px-4 py-3 font-semibold text-foreground">{d.decision}</td>
+                                                                    <td className="px-4 py-3 text-foreground/70">{d.optionA}</td>
+                                                                    <td className="px-4 py-3 text-foreground/70">{d.optionB}</td>
+                                                                    <td className="px-4 py-3 text-foreground/90 font-medium">{d.rationale}</td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            )}
+
+                                            {/* 8. Text Layout (default) */}
+                                            {(entry.layout === 'text' || (!entry.layout && !entry.bullets && !entry.checklist && !entry.items && !entry.table && !entry.code && !entry.subsections && !entry.decisions)) && (
                                                 <div className="whitespace-pre-line">
                                                     {entry.content}
                                                 </div>
@@ -238,66 +360,6 @@ export function ProjectContent({ project }: { project: any }) {
                                 </article>
                             );
                         })}
-                    </div>
-                </div>
-            )}
-
-            {/* Photo Gallery - Interactive */}
-            {hasPhotos && (
-                <div className="mb-16">
-                    <h2 className="text-2xl font-bold mb-6 text-foreground">Gallery</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {project.photos
-                            .filter((photo: { src: string }) => photo.src !== project.image) // Skip hero image
-                            .map((photo: { src: string; caption: string; isVideo?: boolean; poster?: string }, i: number) => (
-                                photo.isVideo ? (
-                                    <motion.div
-                                        key={i}
-                                        className="rounded-xl overflow-hidden border border-border bg-card"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: i * 0.05 }}
-                                    >
-                                        <div className="p-2">
-                                            <video
-                                                src={photo.src}
-                                                controls
-                                                playsInline
-                                                preload="auto"
-                                                poster={photo.poster}
-                                                className="w-full h-auto rounded-lg"
-                                            />
-                                        </div>
-                                        <p className="text-sm text-muted-foreground px-4 pb-3 pt-1 font-light">{photo.caption}</p>
-                                    </motion.div>
-                                ) : (
-                                    <motion.button
-                                        key={i}
-                                        layoutId={`gallery-${photo.src}`}
-                                        onClick={() => setSelectedImage({ src: photo.src, caption: photo.caption })}
-                                        className="group relative rounded-xl overflow-hidden border border-border text-left w-full cursor-zoom-in bg-card"
-                                        whileHover={{ scale: 1.02 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <div className="p-2">
-                                            <Image
-                                                src={photo.src}
-                                                alt={photo.caption}
-                                                width={600}
-                                                height={400}
-                                                className="w-full h-auto rounded-lg"
-                                                unoptimized={photo.src.endsWith('.gif')}
-                                            />
-                                        </div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
-                                            <p className="absolute bottom-3 left-3 right-3 text-white text-sm leading-relaxed px-2">
-                                                {photo.caption}
-                                            </p>
-                                        </div>
-                                    </motion.button>
-                                )
-                            ))}
                     </div>
                 </div>
             )}

@@ -5,7 +5,7 @@ export const resumeData = {
     location: "Champaign, IL",
     email: "advaitc2@illinois.edu",
     phone: "+1 217 318 7042",
-    summary: "Mechanical Engineering student at UIUC with a passion for design, analysis, and manufacturing. Experienced in CAD, FEA, and rapid prototyping with a strong background in automotive and composites.",
+    summary: "I am a Mechanical Engineering student at UIUC. I want to help engineer sustainability and build toward a cleaner, more eco-friendly tomorrow. I'm currently working at Tesla as a Crash Analysis Intern.",
     links: {
       linkedin: "https://www.linkedin.com/in/advait-chordia-3bbb31206",
     }
@@ -66,6 +66,16 @@ export const resumeData = {
   } as Record<string, string[]>,
   experience: [
     {
+      company: "TESLA, INC.",
+      title: "Crash Analysis Intern — Battery Analysis",
+      date: "Jun 2026 – Present",
+      description: [
+        "Designed and iterated on a mechanical test fixture for underside battery pack abuse testing, matching the bending stiffness of a vehicle monocoque to replicate field-representative boundary conditions.",
+        "Collaborated cross-functionally with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria for pack-level abuse protocols.",
+        "Applied structural analysis and hand calculations to size fixture components, ensuring repeatable and representative test conditions across multiple abuse scenarios."
+      ]
+    },
+    {
       company: "FORCE MOTORS LTD.",
       title: "Mechanical Engineering Intern",
       date: "Jun 2025 – Aug 2025",
@@ -88,6 +98,151 @@ export const resumeData = {
   ],
   projects: [
     {
+      id: "tesla-battery-analysis",
+      title: "TESLA | BATTERY PACK CRASH ANALYSIS",
+      role: "Crash Analysis Intern — Battery Analysis",
+      date: "Jun 2026 – Present",
+      tags: ["Structural Analysis", "Fixture Design", "Crash Safety", "Battery Systems"],
+      headline: "Designing abuse test fixtures that replicate vehicle-level boundary conditions for battery pack crash qualification.",
+      overview: "On the Battery Analysis team at Tesla, I work on mechanical test fixture design for underside abuse testing of battery packs. The core challenge is matching the bending stiffness of a vehicle monocoque in a lab fixture so that pack-level tests produce field-representative failure modes rather than artifacts of the test setup.",
+      journal: [
+        {
+          title: "The problem",
+          layout: "text",
+          content: "When a battery pack is tested outside the vehicle, the boundary conditions change. The pack no longer sees the stiffness and constraint of the surrounding monocoque, and its structural response under abuse loads shifts. A fixture that is too stiff will over-constrain the pack and mask real failure modes. A fixture that is too compliant will let the pack deform in ways it never would in the car. Getting this right is the difference between a test that tells you something useful and one that doesn't."
+        },
+        {
+          title: "The approach",
+          layout: "text",
+          content: "I designed an underside abuse fixture whose stiffness is tuned to match the bending behavior of the vehicle monocoque at the pack mounting interface. This required working through the structural stiffness of the vehicle architecture, translating that into a fixture geometry, and iterating until the fixture-to-vehicle stiffness match was within an acceptable range. The work involved hand calculations, CAD modeling, and close collaboration with the crash safety and test engineering teams to define load cases and acceptance criteria."
+        },
+        {
+          title: "What I learned",
+          layout: "text",
+          content: "Fixture design for crash-level abuse testing is deceptively hard. The loads are high, the failure modes are violent, and the fixture has to survive repeated tests without drifting out of spec. Every design decision — material choice, fastener layout, stiffener placement — feeds back into the boundary condition the pack sees. This project taught me to think about test design as a structural problem in its own right, not just a jig to hold the part."
+        },
+        {
+          title: "Results",
+          layout: "checklist",
+          checklist: [
+            "Designed a stiffness-matched underside abuse fixture for battery pack crash qualification testing.",
+            "Collaborated with crash safety, battery systems, and test engineering teams to define load cases and acceptance criteria.",
+            "Iterated on fixture geometry to achieve representative boundary conditions across multiple abuse scenarios.",
+            "Applied structural hand calculations and CAD modeling to size and validate fixture components."
+          ]
+        }
+      ]
+    },
+
+    {
+      id: "charpagne-lab",
+      title: "CHARPAGNE LAB | BIMETALLIC STEEL SIMULATION",
+      role: "Simulation Engineering Intern",
+      date: "Jun 2026 - Present",
+      image: "/projects/charpagne/hero-geometry-matrix.png",
+      tags: ["Explicit Dynamics", "FEA", "Parametric Study", "Additive Manufacturing", "Design of Experiments"],
+      headline: "Twenty-five parametric explicit dynamics runs on additively manufactured bimetallic steel, and the solver bugs that nearly made all of them meaningless.",
+      overview: "This one is a decision tree, not a report. Every node below is a fork I actually stood at, what I picked, and what I killed. Most of the interesting parts of this project were things the model told me confidently that turned out to be wrong.",
+      photos: [
+        { src: "/projects/charpagne/09-geometry-matrix-5x5.png", caption: "The 25 specimen geometry matrix." },
+        { src: "/projects/charpagne/hero-geometry-matrix.png", caption: "Gauge section view showing PH17-4 fibers embedded in the 316L matrix." },
+        { src: "/projects/charpagne/04a-mesh-convergence.png", caption: "Mesh convergence: peak stress against element size." },
+        { src: "/projects/charpagne/03a-ke-ie-loading-rates.png", caption: "Kinetic to internal energy ratio across four loading rates." },
+        { src: "/projects/charpagne/03b-grip-fracture-50ms.png", caption: "Fracture at the grip radius at 50 m/s, a stress wave artifact rather than a material result." },
+        { src: "/projects/charpagne/05a-low-peak-stress-before.png", caption: "Peak stress before the equation of state fix." },
+        { src: "/projects/charpagne/05b-corrected-after.png", caption: "The same run after the fix." },
+        { src: "/projects/charpagne/06a-vonmises-capped-1003mpa.png", caption: "Von Mises capped at 1003 MPa where the hardening table ends." },
+        { src: "/projects/charpagne/08-force-driven-vs-fixed.png", caption: "Reaction force at the driven end versus the fixed support." },
+        { src: "/projects/charpagne/10b-stress-strain-partitioning.png", caption: "Stress and strain partitioning between the two phases." }
+      ],
+      journal: [
+        {
+          title: "Decision Tree",
+          layout: "text",
+          content: "This one is a decision tree, not a report. Every node below is a fork I actually stood at, what I picked, and what I killed. Most of the interesting parts of this project were things the model told me confidently that turned out to be wrong.",
+          image: "/projects/charpagne/decision-tree.svg"
+        },
+        {
+          title: "What I was actually chasing",
+          layout: "text",
+          content: "Print a soft steel and a hard steel into the same part and the composite beats both. 316L stretches to about 42 percent but gives up early on strength. PH17-4 is nearly twice as strong and snaps at 8 percent. Held inside the 316L, that same PH17-4 has been measured reaching roughly 60 percent strain, because the soft phase physically stops it necking when it wants to.\n\nMy job was to build that in Ansys and find out whether the effect survives when you change the layout.",
+          image: "/projects/charpagne/01-bimetallic-specimen.png"
+        },
+        {
+          title: "Implicit or explicit",
+          layout: "text",
+          content: "Implicit is the obvious default for a slow tensile pull. I went explicit instead. Necking is an instability, and an implicit solver has to iterate to equilibrium at exactly the moment equilibrium stops existing. Explicit marches forward in tiny steps and never has to converge, so it walks straight through the neck.\n\nThe cost of that choice shows up immediately in the next node.",
+          image: "/projects/charpagne/02-mesh-undeformed-vs-necked.png"
+        },
+        {
+          title: "Pulling a slow test in a fast solver",
+          layout: "text",
+          content: "Explicit solvers are built for crashes. To finish a run in reasonable time you have to pull the specimen far faster than any real machine would, which quietly turns a static problem into a dynamic one.\n\nI ran the same specimen at 50, 25, 5 and 0.5 m/s and tracked kinetic energy against internal energy. At 50 m/s the specimen fractured at the grip radius instead of mid gauge. That is not a material result. That is a stress wave arriving at a geometric discontinuity before the rest of the bar has noticed it is being pulled. The solution crossed into quasi-static behaviour somewhere between 5 and 25 m/s, so I settled at 5 m/s, where kinetic energy stays under 5 percent of internal energy.",
+          image: "/projects/charpagne/03a-ke-ie-loading-rates.png"
+        },
+        {
+          title: "How much mesh is enough",
+          layout: "text",
+          content: "Ran 5, 2, 1.5 and 1 mm in the gauge region. Peak stress moved 0.5 percent between 2 mm and 1 mm, so 2 mm was the answer. Refining past that buys nothing and costs everything, because element size sets the solver timestep and I was working inside a 32,000 element student license.",
+          image: "/projects/charpagne/04a-mesh-convergence.png"
+        },
+        {
+          title: "The weeks I lost to one field on a material card",
+          layout: "text",
+          content: "The model was returning a peak stress far below anything structural steel can do, alongside energy error terminations and elements reporting negative density.\n\nI went hunting in the wrong places first. Mesh quality came back fine at a minimum element quality of 0.857, which ruled it out. The actual cause was one field on the stock material card: it was set to a shock equation of state, meant for genuine impact problems, and its presence silently disabled automatic mass scaling across the entire model. Not for that body. For everything. One inherited setting on one material was invalidating every run in the project.\n\nA second setting was compounding it. The minimum timestep floor had been left at 1e-4 s against a natural timestep near 9e-8 s, so the solver was adding enormous artificial mass to hold that floor.\n\nWriting custom cards with a linear equation of state, and dropping the floor to 1e-8 s, made the numbers physical again. This is the most useful thing I learned all summer and it is invisible in every plot I produced.",
+          image: "/projects/charpagne/05a-low-peak-stress-before.png"
+        },
+        {
+          title: "When it broke is a lie",
+          layout: "text",
+          content: "The composite kept failing at 10 to 12 percent strain with none of the confined necking the experiments show. It looked like a real fracture result.\n\nIt was not. My hardening curve only had data out to about 4.4 percent plastic strain, and past the last point the solver holds the curve flat. Stress pinned at exactly 1003 MPa, the last value in the table. A flat hardening curve violates the Considere condition, which is the criterion that says a material can only keep deforming uniformly while it is getting stronger faster than it is getting thinner. With zero slope, the first element to yield takes all the strain and runs away.\n\nThe tell was in my own output: max plastic strain jumped from 0.040 to 0.232 in a single timestep, exactly at the plateau. The tempting fix was to raise the failure threshold and make the symptom go away. That would have buried the bug and kept every number wrong.",
+          image: "/projects/charpagne/06b-plastic-strain-runaway.png"
+        },
+        {
+          title: "Failure is not a number",
+          layout: "text",
+          content: "Then the harder question. I had been telling the solver to delete an element once it passed a fixed strain or stress value. But the entire point of this material is that confinement lets the hard phase survive far past the strain it could reach on its own, roughly 60 percent against 8 percent unconfined. A single fixed number cannot represent a failure point that the surrounding geometry is actively pushing further out.\n\nSo the criterion came off entirely, as a diagnostic baseline rather than a fix. Doing that also exposed a separate conflict where the hard-phase threshold was deleting reinforcement elements before they ever carried load. The direction it points is a triaxiality-dependent description, where lateral constraint from the soft phase raises hydrostatic stress and suppresses the instability, rather than a hand-tuned cutoff.",
+          image: "/projects/charpagne/07-premature-fiber-deletion.png"
+        },
+        {
+          title: "Where you put the probe changes the answer",
+          layout: "text",
+          content: "I was reading reaction force at the end I was pulling. Wrong end. That face is where the loading wave is launched, so it reads the wave before it reads the specimen, and the early part of the curve rings badly enough to be unusable.\n\nThe fixed support reads the load that actually made it through the gauge. I also dropped the habit of charting maximum stress against maximum strain, because the element carrying peak stress and the element carrying peak strain are not the same element at any given timestep, so that curve describes no physical point in the specimen.\n\nThen I froze the method as a one line protocol and applied it identically to all 25 runs, so the sweep would at least be internally consistent.",
+          image: "/projects/charpagne/08-force-driven-vs-fixed.png"
+        },
+        {
+          title: "The actual study",
+          layout: "text",
+          content: "The real question is whether the composite cares about how much hard phase there is, or how it is arranged.\n\nSo I built 25 specimens: five reinforcement counts crossed with five volume fractions, in a dogbone scaled from the ASTM E8 subsize reference by a factor of 1.75. Gauge cross section held fixed at 10.5 by 3 mm, fiber height fixed at 1 mm, fiber width solved per cell, and the leftover width split into equal segments.\n\nThe tightest case leaves 0.44 mm between fibers, close to a single deposition bead. Worth knowing before anyone tries to print it.",
+          image: "/projects/charpagne/09-geometry-matrix-5x5.png"
+        },
+        {
+          title: "What came out",
+          layout: "text",
+          content: "The two steels differ in stiffness by about 1 percent, so almost nothing partitions elastically. Everything interesting happens after yield, when 316L saturates near 403 MPa while PH17-4 climbs past 701. That gap is the whole mechanism, and it is what the partitioning plots are built to show.",
+          image: "/projects/charpagne/10b-stress-strain-partitioning.png"
+        },
+        {
+          title: "Results",
+          layout: "checklist",
+          checklist: [
+            "Ran a 25 case parametric sweep mapping stiffness, yield strength and elongation against reinforcement count and volume fraction.",
+            "Traced a model-wide instability to a single equation of state setting on an inherited material card that was silently disabling mass scaling, plus a timestep floor set four orders of magnitude above the natural timestep.",
+            "Established mesh convergence at 2 mm and quasi-static validity at 5 m/s, both against documented Ansys criteria rather than by feel.",
+            "Correctly diagnosed premature failure as a truncated hardening curve rather than a fracture event, and refused the fix that would have hidden it.",
+            "Rebuilt the load and strain extraction method after finding the original probe location was reading the loading wave.",
+            "Audited the machine G-code for the specimen and found a feedrate parameter that was assigned but never referenced, making an intended speed override do nothing."
+          ]
+        },
+        {
+          title: "Still open",
+          layout: "text",
+          content: "Calibrating a Johnson-Cook failure model needs three tests spanning tension, shear and compression. Cyclic load-unload-reload data would let me model back stress properly instead of assuming isotropic hardening. And the layout space is barely touched: brick and mortar, Bouligand and crossed-lamellar architectures all exist in the literature and none of them have been run here."
+        }
+      ]
+    },
+
+    {
       id: "fsae-hub",
       title: "ILLINI ELECTRIC MOTORSPORTS",
       role: "Aerodynamics Structures Lead",
@@ -95,6 +250,9 @@ export const resumeData = {
       image: "/projects/fsae/Hero Shot Engineering drawing.png",
       customUrl: "/fsae",
       tags: ["Vehicle Dynamics", "Composites", "Motorsport", "Team Leadership"],
+      headline: "Led aero structures from concept through manufacturing — 5.86 lb assembly, 70% material savings",
+      impactMetric: "5.86 lb assembly",
+      team: "9-person team, Illini Electric Motorsports",
       overview: "I led the front wing structures sub-team for Illini Electric Motorsport, overseeing the design, analysis, and manufacturing of the 2026 electric formula race car aerodynamic structures.",
     },
     {
@@ -105,6 +263,20 @@ export const resumeData = {
       date: "Aug 2024 – Present",
       image: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png",
       tags: ["Topology Optimization", "FEA", "Anisotropy Analysis", "Structural Design"],
+      headline: "58% mass reduction via topology optimization — replacing failure-prone CFRP with aluminum",
+      impactMetric: "↓ 58% mass",
+      tldr: {
+        problem: "The previous carbon fiber mounting struts fractured catastrophically under cone strikes — no warning, immediate disqualification risk.",
+        approach: "Replaced CFRP with topology-optimized 6061 aluminum waterjet-cut from flat stock, sized for yielding (warning) rather than fracture.",
+        result: "58% volume reduction (18.96 in³ → 7.91 in³), SF 1.6 to yield, deflection held under 0.1\" at 95 mph."
+      },
+      constraints: [
+        { label: "Stiffness Target", value: "< 0.1\" Z-deflection at 95 mph aero loads" },
+        { label: "Strength Target", value: "Survive 35 mph aero + cone strike combined" },
+        { label: "Manufacturing", value: "Waterjet-cut from flat aluminum sheet stock" },
+        { label: "Safety Factor", value: "1.6 to yield (intentional — warn before fracture)" },
+        { label: "Serviceability", value: "Must be replaceable trackside without disassembly" }
+      ],
       overview: "A deep dive into replacing failure-prone CFRP mounting struts with topology-optimized aluminum counterparts. This project highlights failure analysis, yielding behavior over catastrophic fracture, and achieving a 58% mass reduction through iterative optimization.",
       photos: [
         { src: "/projects/fsae/Alu top opt struts three quarter with monocoque and wing.png", caption: "Topology-optimized aluminum mounting struts on the chassis" },
@@ -175,6 +347,19 @@ export const resumeData = {
       date: "Aug 2024 – Present",
       image: "/projects/fsae/Final deflection at 95 mph aero loads.png",
       tags: ["FSI - Star-CCM+ to Ansys", "Ansys ACP", "Composite Ply Optimization", "Aero-elasticity"],
+      headline: "FSI workflow sizing composite plies for aero performance — 5.86 lb final assembly",
+      impactMetric: "5.86 lb assembly",
+      tldr: {
+        problem: "An arbitrary deflection target doesn't capture real aero performance loss — wing deformation alters airfoil shape, closes slot gaps, and changes angle of attack.",
+        approach: "Built a one-way FSI loop (Star-CCM+ → Ansys ACP) to map real CFD pressure fields onto composite FEA models, iterating on 6 internal architectures and ply schedules.",
+        result: "Hit 5.86 lb assembly weight (well under 7.5 lb limit), kept deflection under 0.5\" and Cl loss within acceptable margin."
+      },
+      constraints: [
+        { label: "Mass Limit", value: "7.5 lb total assembly" },
+        { label: "Deflection", value: "< 0.5\" wing, < 0.1\" struts at 95 mph" },
+        { label: "Aero Performance", value: "Minimize Cl loss from deformed geometry" },
+        { label: "Material", value: "Twill weave CFRP with Corecell M80 core" }
+      ],
       overview: "Implemented a one-way Fluid-Structure Interaction (FSI) workflow to map real CFD pressure fields onto composite FEA models for accurate deflection sizing. Iterated on ply schedules and internal layouts to hit a 5.86 lb assembly weight while minimizing aerodynamic performance loss.",
       photos: [
         { src: "/projects/fsae/Final deflection at 95 mph aero loads.png", caption: "FEA results: Final deflection under 95 mph aero loads" },
@@ -252,6 +437,19 @@ export const resumeData = {
       date: "Aug 2024 – Present",
       image: "/projects/fsae/Photo of internal structure and Struts layout.png",
       tags: ["Design for Manufacturing", "Waterjet Flat-Stock", "Composites", "Crash Survivability"],
+      headline: "DFM pivot from 3D I-beams to self-aligning flat-stock — eliminated tolerance stack-up",
+      impactMetric: "0 tolerance issues",
+      tldr: {
+        problem: "Previous 3D internal structures (curved I-beams) caused massive tolerance stack-up during bonding, requiring heavy adhesive to fill gaps and destroying weight margins.",
+        approach: "Pivoted to 2D waterjet-cut flat-stock with interlocking cross-lap joints that self-align during assembly. Selected Corecell M80 for crash-survivable leading edges.",
+        result: "Eliminated tolerance stack-up entirely, cut layup/assembly time significantly, and leading edges now absorb energy plastically rather than shattering."
+      },
+      constraints: [
+        { label: "Manufacturing", value: "No custom molds for internal parts — flat layup only" },
+        { label: "Assembly", value: "Self-aligning joints to eliminate sequential tolerance stack-up" },
+        { label: "Crash", value: "Leading edge must survive cone strikes without catastrophic fracture" },
+        { label: "Adhesive", value: "Hysol EA 120 structural adhesive for joint bonding" }
+      ],
       overview: "Engineering the front wing's internal skeleton for manufacturability by replacing complex 3D I-beams with waterjet-cut flat-stock and self-aligning cross-lap joints, while selecting Corecell M80 to survive cone strikes.",
       photos: [
         { src: "/projects/fsae/Photo of internal structure and Struts layout.png", caption: "Final internal structure layout with struts" },
@@ -393,6 +591,20 @@ export const resumeData = {
       presentation: "/projects/force-motors-crankshaft/presentation.pdf",
       paper: "/projects/force-motors-crankshaft/report.pdf",
       tags: ["Analytical Modeling", "Design Validation", "Python", "CATIA V5", "Automotive"],
+      headline: "Analytical framework for crankshaft validation — 49.6% balancing rate, 5M cycle fatigue life",
+      impactMetric: "↓ 20-25% sim iterations",
+      team: "Force Motors Powertrain Division",
+      tldr: {
+        problem: "A new 8-web crankshaft prototype needed design validation before physical prototyping — geometry sizing, balancing, and fatigue life prediction.",
+        approach: "Built analytical models in Python for geometric stress limits and counterweight COG placement, validated against CATIA mass properties and ARAI fatigue testing.",
+        result: "49.6% balancing rate (near-optimal), 58.63 g-mm residual unbalance (well below 250 g-mm tolerance), prototype survived 5M cycles at FOS 2.5."
+      },
+      constraints: [
+        { label: "Material", value: "38MnVs6 High-Strength Steel (forged)" },
+        { label: "Peak Pressure", value: "150 bar peak firing pressure (65.4 kN)" },
+        { label: "Balancing Target", value: "~50% rate for individual balancing" },
+        { label: "Industry Tolerance", value: "< 250 g-mm static unbalance" }
+      ],
       photos: [
         { src: "/projects/force-motors-crankshaft/Comparison of Assembly vs Individually Balanced Crankshaft.png", caption: "Assembly vs. Individually Balanced Crankshaft comparison" },
         { src: "/projects/force-motors-crankshaft/Crank Pin Dimensions.png", caption: "Crank pin dimensions derived from stress analysis" },
@@ -485,6 +697,20 @@ export const resumeData = {
       paper: "/projects/conrod-optimization/optimization-paper.pdf",
       proposal: "/projects/conrod-optimization/project-proposal.pdf",
       tags: ["Optimization", "Python", "Beam Theory", "FEA", "Automotive"],
+      headline: "Multi-objective optimization of OM606 conrod — yield dominates over buckling",
+      impactMetric: "17.5% lighter vs H-beam",
+      tldr: {
+        problem: "Redesign the connecting rod of a Mercedes-Benz OM606 diesel engine to minimize mass while maintaining structural integrity under 77.3 kN combustion loads.",
+        approach: "Built a 1D beam model in Python with SLSQP optimization, balancing buckling stability, fatigue life, static yield, and forging monotonicity constraints.",
+        result: "I-beam converged to 88.34g (17.5% lighter than H-beam), with yield as the active constraint (SF 1.3) — buckling SF landed at 7.3, proving it was never the real limit."
+      },
+      constraints: [
+        { label: "Peak Gas Load", value: "77.3 kN (130 bar on 87mm bore)" },
+        { label: "Buckling SF", value: "≥ 2.5 (Euler critical load)" },
+        { label: "Fatigue SF", value: "≥ 1.3 under tensile inertial loading" },
+        { label: "Static Yield SF", value: "≥ 1.3 under compressive gas loading" },
+        { label: "Manufacturing", value: "Monotonic taper — no undercuts (forgeable)" }
+      ],
       photos: [
         { src: "/projects/conrod-optimization/Buckling photo.png", caption: "Peak gas load causes compressive buckling tendency" },
         { src: "/projects/conrod-optimization/Inertial Tension.png", caption: "TDC inertia puts the rod in tension" },
@@ -557,6 +783,14 @@ export const resumeData = {
       poster: "/projects/composites-lab/cam-lab-poster.pdf",
       paper: "/projects/composites-lab/cam-lab-paper.pdf",
       tags: ["Research", "Composites", "Materials Testing", "Additive Manufacturing"],
+      headline: "First CF3D® mechanical property dataset at UIUC — UTS 1395 MPa, shear 66.59 MPa",
+      impactMetric: "1395 MPa UTS",
+      team: "Composites Additive Manufacturing Lab, UIUC",
+      tldr: {
+        problem: "Nobody had systematically characterized the mechanical properties of CF3D® continuous fiber 3D-printed composites at our university — engineers couldn't design with them.",
+        approach: "Designed custom test coupon geometries for ASTM D3039/D2344, ran dozens of tensile and shear tests on Instron, and analyzed failure modes under microscope.",
+        result: "Established UTS of 1395 MPa and shear strength of 66.59 MPa — the first comprehensive dataset for CF3D® composites at UIUC."
+      },
       photos: [
         { src: "/projects/composites-lab/cf3d-printer.jpg", caption: "The CF3D® printer at the Composites Additive Manufacturing Lab" },
         { src: "/projects/composites-lab/printing-action.jpg", caption: "Continuous fiber being deposited during the printing process" },
